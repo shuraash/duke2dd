@@ -1,2 +1,4 @@
-# duke2dd
-Party flyer.  Scripting  Art. 
+### duke2dd
+
+# Dukedelic Dukedance
+### Party flyer.  Scripting  Art. 
