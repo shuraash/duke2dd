@@ -86,13 +86,15 @@ const
 		// 	{duration: 1.5, ease: 'linear', delay: 6}
 		// ],
 
-		[ptr, {scale: 1.5}, {duration: 0.75, delay: 1.5, ease: 'easeIn' }],
+		[txt, {rotateY: '720deg'}, {duration: 6,  at: '-1.5', ease: 'easeOut'}],
 
-		[txt, {opacity: 0, rotateY: '360deg'}, {delay: 2, duration: 1.5,  at: '<'}],
+		// [ptr, {scale: 1.3}, {duration: 0.75, at: '-2.5', ease: 'easeIn' }],
 
-		[ptr, {scale: 4, opacity: 0}, {delay: 2.75, duration: 1, ease: 'linear', at: '<'}],
+		[ptr, {scale: 4, opacity: 0, left: '50%', top: '50%',  x: '-50%', y: '-50%'}, {delay: 2.75, duration: 1, ease: 'linear', at: '-2.75'}],
 
-	],
+		[txt, {opacity: 0}, {duration: 0.8,  at: '-1'}]
+
+],
 
 	genDJ = (dj, delay) => ({
 		dj: dj,
