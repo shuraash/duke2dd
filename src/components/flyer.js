@@ -6,7 +6,7 @@ import {useEffect, useRef, useState} from "react";
 import {arrRandomCycler} from "@src/util";
 import {psyColors, psyShadows} from "./psyColors";
 import DDDisk from "./disk";
-import DjDrops from "./djays";
+import DjDrops from "./djDrops";
 
 let isFirst = true
 
@@ -276,7 +276,7 @@ export default function DDFLyear({className})
 
 	return (
 
-		<figure ref={flyRef}  className={' abs-center w-full md:max-w-screen-md h-auto mx-auto aspect-square opacity-0 scale-[0] p-2 md:p-0 !fixed'}>
+		<figure ref={flyRef}  className={'z-30 abs-center w-full md:max-w-screen-md h-auto mx-auto aspect-square opacity-0 scale-[0] p-2 md:p-0 !fixed'}>
 
 			<div className={'relative w-full h-fit '} >
 

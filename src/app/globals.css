@@ -60,7 +60,7 @@
 body {
 
   font-family: "Lakki Reddy";
-  background: #000;
+  background: linear-gradient(179.4deg, rgb(12, 20, 69) -16.9%, rgb(71, 30, 84) 119.9%);
   color: #f0f0f0;
 
 }
@@ -878,3 +878,11 @@ main{
 /*  animation-iteration-count: infinite, infinite;*/
 /*  animation-fill-mode: forwards, forwards;*/
 /*}*/
+
+.details-bg {
+  background: url(/bg_01a.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+}

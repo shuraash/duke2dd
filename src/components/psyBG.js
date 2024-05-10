@@ -10,7 +10,7 @@ const
 
 	aniPresetDefDuration = 2.345,
 
-	aniPresetDefState = { opacity: 1, scale: 1, rotate: '0deg', x: 0, y: 0, z: 0},
+	aniPresetDefState = { opacity: 0.75, scale: 1, rotate: '0deg', x: 0, y: 0, z: 0},
 
 	aniPresets = {
 		fade: { opacity: 0 },
@@ -118,7 +118,7 @@ export default function PsyBG({vjLoops = VJLoops.map(c => `https://trancescript.
 		setNext(videoA.current)
 		setNext(videoB.current)
 
-	    animate(myRef.current, {opacity: 0.75}, {duration: 3.33})
+	    animate(myRef.current, {opacity: 1}, {duration: 3.33})
 
 	}, [])
 
@@ -136,14 +136,14 @@ export default function PsyBG({vjLoops = VJLoops.map(c => `https://trancescript.
 	//
 	// 	: null
 
-	return <div className={'psy-bg opacity-0 z-[-1] pointer-events-none ' + className} ref={myRef}>
+	return <div className={'psy-bg bg-black opacity-0 z-[-1] pointer-events-none ' + className} ref={myRef}>
 
 			<TeleBoxPortal tbpRef={tbpRef} />
 
 			<video
 				ref={videoA}
 				key={`VidA`}
-				className={' abs-full object-cover '}
+				className={' abs-full object-cover opacity-75'}
 				muted={true}
 				loop={true}
 				onTimeUpdate={e => upVideoTime( e.target )}

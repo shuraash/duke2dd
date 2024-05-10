@@ -26,7 +26,7 @@ export default function PageWrapper ({ children }){
 
         <motion.div key={path} className={'overflow-hidden'}
 
-                    initial={{  opacity: 0, scale: 0.75, rotateY: '-90deg' , transformOrigin: 'center', border: '1px solid  #ddddddff'}}
+                    initial={{  opacity: 0, scale: 0.75, rotateY: '-90deg' , transformOrigin: 'center', borderRadius: '16px', border: '3px solid  #ddddddff'}}
 
                     animate={{   opacity: 1, scale: 1, rotateY: '0deg',  border: '0px solid #dddddd00',
 
@@ -42,7 +42,7 @@ export default function PageWrapper ({ children }){
                         }
                     }}
 
-                    exit={{   opacity: 0, scale: 0.75, rotateY: '90deg', border: '1px solid #ddddddff',
+                    exit={{   opacity: 0, scale: 0.75, rotateY: '90deg', border: '3px solid #ddddddff',
 
                         transition: {
 

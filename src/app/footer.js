@@ -5,7 +5,7 @@ import {PsycoTexto, PsycoTitlo} from "../components/psyTexts";
 import {usePathname} from "next/navigation";
 import {useEffect, useRef} from "react";
 import {animate} from "framer-motion";
-import {genShadow} from "@src/components/djays";
+import {genShadow} from "@src/components/djDrops";
 
 
 export default function Footer()
@@ -31,7 +31,7 @@ export default function Footer()
 
 		<Link href={path == '/' ? '/details' : '/'} className={'inset-0 uppercase text-xl tracking-wide'}>
 			<PsycoTexto>
-				<PsycoTitlo text={path == '/' ? 'Details' : 'back to flyer'}/>
+				<PsycoTitlo className={'gap-x-2'} text={path == '/' ? 'Details' : 'back to flyer'}/>
 			</PsycoTexto>
 		</Link>
 

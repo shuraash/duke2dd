@@ -6,7 +6,15 @@ import Header from "./header";
 
 export const metadata = {
     title: 'Dukedelic Dukedance',
-    description: 'Event by psytrance.lu and friends',
+    description: 'Event by PSYTRANCE.LU and friends',
+
+    icons: [`/favicon.png`],
+    thumbnail:  `/og.jpg`,
+    openGraph: {
+        title: 'Dukedelic Dukedance',
+        description: 'Event by PSYTRANCE.LU and friends',
+        images: [{url: `/api/og/logo`, height: 640, width: 640}]
+    }
 }
 
 
@@ -16,7 +24,7 @@ export default function RootLayout({ children }) {
 
       <body className={'relative w-screen h-dvh min-h-dvh overflow-x-hidden dark'}>
 
-        <PsyBG className={'abs-full fixed '} onInfoUpdate={undefined} />
+        {/*<PsyBG className={'abs-full fixed '} onInfoUpdate={undefined} />*/}
 
         <Header/>
 
