@@ -13,7 +13,7 @@ export const metadata = {
     openGraph: {
         title: 'Dukedelic Dukedance',
         description: 'Event by PSYTRANCE.LU and friends',
-        images: [{url: `/api/og/logo`, height: 640, width: 640}]
+        images: [{url: `/og.jpg`, height: 640, width: 640}]
     }
 }
 
