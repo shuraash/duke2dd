@@ -1,8 +1,7 @@
 import './globals.css?2'
-import PageWrapper from "@src/app/PageWrapper";
-import PsyBG from "@src/components/psyBG";
 import Footer from "./footer";
 import Header from "./header";
+import PageWrapper from "./pageWrapper";
 
 export const metadata = {
     title: 'Dukedelic Dukedance',
