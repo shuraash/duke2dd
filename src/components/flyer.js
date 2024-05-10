@@ -6,7 +6,7 @@ import {useEffect, useRef, useState} from "react";
 import {arrRandomCycler} from "@src/util";
 import {psyColors, psyShadows} from "./psyColors";
 import DDDisk from "./disk";
-import DjDrops from "./djDrops";
+import DjDropsGsap from "./djDrops.gsap";
 
 let isFirst = true
 
@@ -296,7 +296,7 @@ export default function DDFLyear({className})
 
 
 
-				<DjDrops/>
+				<DjDropsGsap/>
 
 			{/*</Link>*/}
 
