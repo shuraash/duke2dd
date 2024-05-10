@@ -287,7 +287,7 @@ export default function DDFLyear({className})
 
 				{/*<Link href={'/duckedelic'}  className={'block w-full h-full  h-auto p-4'}>*/}
 
-					<DDDisk playing={!isNotPlay} className={'e-rotatoid  '}>
+					<DDDisk >
 						{/*<PsyText  className={'z-50 ddt abs-center opacity-1 w-[65%] text-4xl sm:text-5xl lg:text-[52px]'} />*/}
 
 						<DDCrest className={'z-30 psy-crest ddt abs-full mx-auto opacity-0 max-w-[65%] text-4xl sm:text-5xl lg:text-[52px]'}/>
