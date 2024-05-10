@@ -1,7 +1,7 @@
 import {twMerge} from "tailwind-merge";
 import {useEffect, useRef, useState} from "react";
-import {arrRandomCycler} from "src/util";
-import {psyColors} from "src/components/psyColors";
+import {arrRandomCycler} from "@src/util";
+import {psyColors} from "@src/components/psyColors";
 import {animate} from "framer-motion";
 
 //
@@ -40,7 +40,7 @@ import {animate} from "framer-motion";
 
 const
 
-	PsycoTitlo = ({text, className = '', charsClass = '', colors}) => {
+	PsycoTitlo = ({text, className = '', charsClass = '', colors, ...rest}) => {
 
 			const chars = text.split('');
 			const ref = useRef()
@@ -52,7 +52,7 @@ const
 
 			}, [text])
 
-			return <div ref={ref} className={twMerge( `psy-titlo w-fit h-fit min-w-fit flex items-center justify-evenly gap-x-1 `, className)}>
+			return <div ref={ref} className={twMerge( `psy-titlo w-fit h-fit min-w-fit flex items-center justify-evenly gap-x-1 `, className)} {...rest}>
 
 				{chars.map((c,i) => <span key={c+i} className={twMerge(`w-fit h-fit min-w-fit psy-char ${colors && colors[i] ? `text-[${colors[i]}]` : ''} `, charsClass)}>{c}</span>)}
 
@@ -154,7 +154,7 @@ const
 
 
 
-	PsycoTexto = ({children, className}) => {
+	PsycoTexto = ({duration=0.75, delay=0, children, className}) => {
 
 
 		const
@@ -182,8 +182,9 @@ const
 							...psyChars.filter(c => c.innerText.toUpperCase() != 'D').map(c => [c, {color: colors.r.next().value}, {at: 0}])
 						],
 						{
-							duration: 0.75,
-							ease: 'linear'
+							duration: duration,
+							ease: 'linear',
+							delay: delay
 						}
 					)
 				}

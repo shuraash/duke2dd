@@ -4,14 +4,12 @@ import {AnimatePresence, motion} from "framer-motion";
 import {LayoutRouterContext} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import {useContext, useRef} from "react";
 import {usePathname} from "next/navigation";
-import PsyBG from "src/components/PsyBG/psyBG";
 
 
 // Prevents instant page opening
 function FrozenRouter({children}) {
     const context = useContext(LayoutRouterContext);
     const frozen = useRef(context).current;
-
     return (
         <LayoutRouterContext.Provider value={frozen}>
             {children}
@@ -20,18 +18,17 @@ function FrozenRouter({children}) {
 }
 
 
-export default function PgTemplate ({ children }){
+export default function PageWrapper ({ children }){
 
     const path = usePathname()
 
-
-     return  <AnimatePresence mode={'popLayout'}  initial={false}>
+    return  <AnimatePresence mode={'popLayout'}  initial={false}>
 
         <motion.div key={path} className={'overflow-hidden'}
 
-                    initial={{  opacity: 0, scale: 0.75, rotateY: '-90deg' , transformOrigin: 'center', border: '1px dotted  #ffffffff'}}
+                    initial={{  opacity: 0, scale: 0.75, rotateY: '-90deg' , transformOrigin: 'center', border: '1px solid  #ddddddff'}}
 
-                    animate={{   opacity: 1, scale: 1, rotateY: '0deg',  border: '1px dotted #00 000000',
+                    animate={{   opacity: 1, scale: 1, rotateY: '0deg',  border: '0px solid #dddddd00',
 
                         transition: {
 
@@ -45,7 +42,7 @@ export default function PgTemplate ({ children }){
                         }
                     }}
 
-                    exit={{   opacity: 0, scale: 0.75, rotateY: '90deg', border: '3px dotted #ffffffff',
+                    exit={{   opacity: 0, scale: 0.75, rotateY: '90deg', border: '1px solid #ddddddff',
 
                         transition: {
 
@@ -59,9 +56,6 @@ export default function PgTemplate ({ children }){
 
                         }
                     }}
-
-
-
         >
 
               <FrozenRouter>

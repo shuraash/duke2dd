@@ -1,12 +1,12 @@
 "use client"
 
-import {DDCrest} from "src/components/psyText";
+import {DDCrest} from "./psyTexts";
 import {animate} from "framer-motion";
 import {useEffect, useRef, useState} from "react";
-import {arrRandomCycler} from "src/util";
-import {psyColors, psyShadows} from "src/components/psyColors";
-import DDDisk from "src/components/DD.Flyer/disk";
-import DjDrops from "src/components/dd/djays";
+import {arrRandomCycler} from "@src/util";
+import {psyColors, psyShadows} from "./psyColors";
+import DDDisk from "./disk";
+import DjDrops from "./djays";
 
 let isFirst = true
 
