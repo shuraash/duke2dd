@@ -35,6 +35,9 @@ export default function DDDisk({children, className, playing=true})
 				dx =  e.clientX - diskRef._idata.x,
 				dy =  e.clientY - diskRef._idata.y,
 				md = Math.abs(dy) > diskRef._idata.w/2 ? diskRef._idata.w/2 : dy, // Math.max(Math.abs(dx), Math.abs(dy)),
+				// bmd =  Math.max(Math.abs(dx), Math.abs(dy)),
+				// md = Math.abs(bmd) > diskRef._idata.w/2 ? diskRef._idata.w/2 : bmd, // Math.max(Math.abs(dx), Math.abs(dy)),
+
 				r = (diskRef._idata.r + md / (diskRef._idata.w/180))
 
 
@@ -45,6 +48,11 @@ export default function DDDisk({children, className, playing=true})
 		},
 
 		ptDown = (e) => {
+
+			if(!diskRef.current.classList.contains('e-rotatoid')) return
+
+			if(diskRef?._idata?.pid)
+				diskRef.current.releasePointerCapture(diskRef._idata.pid)
 
 			diskRef.current.setPointerCapture(e.pointerId)
 			diskRef._idata = {
@@ -87,17 +95,18 @@ export default function DDDisk({children, className, playing=true})
 	}, []);
 
 
-	return  <div className={' abs-full z-10 ' + className}>
+	return  <div ref={diskRef} className={'disco  e-rotatoid abs-full z-10 ' + className}
+
+	             onPointerDown={ptDown}
+	             onPointerUp={ptUp}
+	>
 
 
 		<div className={'ohuevator-c abs-full z-0'}>
 
 			<div
-				ref={diskRef}
-				className={'disco abs-full rounded-full  z-10 e-rotatoid' }
 
-				onPointerDown={ptDown}
-				onPointerUp={ptUp}
+				className={' abs-full rounded-full  z-10 ' }
 
 				style={{
 					// backgroundImage: 'url(/disk_1_tr80.png)',
