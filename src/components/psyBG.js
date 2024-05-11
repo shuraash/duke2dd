@@ -114,9 +114,15 @@ export default function PsyBG({vjLoops = VJLoops.map(c => `https://trancescript.
 
 	useEffect(() =>
 	{
- 		videoA.current.addEventListener('canplaythrough', e => videoA.current.play(), {once: true})
+ 		videoA.current.addEventListener('canplaythrough', e => {
+		    videoA.current.play()
+	    } , {once: true});
+
 		setNext(videoA.current)
 		setNext(videoB.current)
+
+		// ios troubles
+		setTimeout( () =>  videoA.current.paused ? videoA.current.play() : null, 5000 )
 
 	    animate(myRef.current, {opacity: 1}, {duration: 3.33})
 
@@ -146,6 +152,7 @@ export default function PsyBG({vjLoops = VJLoops.map(c => `https://trancescript.
 				className={' abs-full object-cover opacity-75'}
 				muted={true}
 				loop={true}
+				playsInline={true}
 				onTimeUpdate={e => upVideoTime( e.target )}
 			/>
 
@@ -155,6 +162,7 @@ export default function PsyBG({vjLoops = VJLoops.map(c => `https://trancescript.
 				className={'  abs-full object-cover  opacity-0'}
 				muted={true}
 				loop={true}
+				playsInline={true}
 				onTimeUpdate={e => upVideoTime( e.target )}
 			/>
 
