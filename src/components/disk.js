@@ -31,11 +31,23 @@ export default function DDDisk({children, className, playing=true})
 
 		ptMove = (e) => {
 
-			if(diskRef?._idata?.pid)
+		//	if(diskRef?._idata?.pid == e.pointerId)
+			if(true)
 			{
+
+				const eee = e.pointerType == 'touch' && e.touches?.length
+					? {
+						x: e.touches[ 0 ].x,
+						y: e.touches[ 0 ].y
+					}
+					: {
+						x: e.x,
+						y: e.y
+					}
+
 				const
-					dx = e.clientX - diskRef._idata.x,
-					dy = e.clientY - diskRef._idata.y,
+					dx = eee.x - diskRef._idata.x,
+					dy = eee.y - diskRef._idata.y,
 					md = Math.abs(dy) > diskRef._idata.w / 2 ? diskRef._idata.w / 2 : dy, // Math.max(Math.abs(dx), Math.abs(dy)),
 					// bmd =  Math.max(Math.abs(dx), Math.abs(dy)),
 					// md = Math.abs(bmd) > diskRef._idata.w/2 ? diskRef._idata.w/2 : bmd, // Math.max(Math.abs(dx), Math.abs(dy)),
@@ -58,10 +70,20 @@ export default function DDDisk({children, className, playing=true})
 			//diskRef.current.releasePointerCapture(diskRef._idata.pid)
 			diskRef.current.setPointerCapture(e.pointerId)
 
+			const eee = e.pointerType == 'touch' && e.touches?.length
+				? {
+					x: e.touches[ 0 ].x,
+					y: e.touches[ 0 ].y
+				}
+				: {
+					x: e.x,
+					y: e.y
+				}
+			
 			diskRef._idata = {
 				pid: e.pointerId,
-				x: e.clientX,
-				y: e.clientY,
+				x: eee.x,
+				y: eee.y,
 				h: diskRef.current.offsetHeigh,
 				w: diskRef.current.offsetWidth,
 				r: isNaN( parseFloat( getComputedStyle(diskRef.current).getPropertyValue('rotate') ) )
@@ -80,10 +102,8 @@ export default function DDDisk({children, className, playing=true})
 		ptUp = (e) => {
 			diskRef.current.style.transform = '';
 			diskRef.current.onpointermove = null
-
-			if(diskRef?._idata?.pid == e.pointerId)
+			if(diskRef?._idata?.pid)
 			 	diskRef.current.releasePointerCapture(diskRef._idata.pid)
-
 			diskRef.current.classList.add('e-rotatoid');
 
 			diskRef._idata = {}
