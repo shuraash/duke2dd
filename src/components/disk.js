@@ -31,30 +31,33 @@ export default function DDDisk({children, className, playing=true})
 
 		ptMove = (e) => {
 
-			const
-				dx =  e.clientX - diskRef._idata.x,
-				dy =  e.clientY - diskRef._idata.y,
-				md = Math.abs(dy) > diskRef._idata.w/2 ? diskRef._idata.w/2 : dy, // Math.max(Math.abs(dx), Math.abs(dy)),
-				// bmd =  Math.max(Math.abs(dx), Math.abs(dy)),
-				// md = Math.abs(bmd) > diskRef._idata.w/2 ? diskRef._idata.w/2 : bmd, // Math.max(Math.abs(dx), Math.abs(dy)),
+			if(diskRef?._idata?.pid)
+			{
+				const
+					dx = e.clientX - diskRef._idata.x,
+					dy = e.clientY - diskRef._idata.y,
+					md = Math.abs(dy) > diskRef._idata.w / 2 ? diskRef._idata.w / 2 : dy, // Math.max(Math.abs(dx), Math.abs(dy)),
+					// bmd =  Math.max(Math.abs(dx), Math.abs(dy)),
+					// md = Math.abs(bmd) > diskRef._idata.w/2 ? diskRef._idata.w/2 : bmd, // Math.max(Math.abs(dx), Math.abs(dy)),
 
-				r = (diskRef._idata.r + md / (diskRef._idata.w/180))
+					r = (diskRef._idata.r + md / (diskRef._idata.w / 180))
 
 
-		//	console.log('draggy!!! ' + r + 'deg' , diskRef._idata)
+				//	console.log('draggy!!! ' + r + 'deg' , diskRef._idata)
 
-			diskRef.current.style.transform = ``; //rotate(${r}deg) !important`;
-			diskRef.current.style.rotate = r + 'deg';
+				diskRef.current.style.transform = ``; //rotate(${r}deg) !important`;
+				diskRef.current.style.rotate = r + 'deg';
+			}
 		},
 
 		ptDown = (e) => {
 
-			if(!diskRef.current.classList.contains('e-rotatoid')) return
+		//!diskRef.current.classList.contains('e-rotatoid')
+			if( diskRef?._idata?.pid ) return
 
-			if(diskRef?._idata?.pid)
-				diskRef.current.releasePointerCapture(diskRef._idata.pid)
-
+			//diskRef.current.releasePointerCapture(diskRef._idata.pid)
 			diskRef.current.setPointerCapture(e.pointerId)
+
 			diskRef._idata = {
 				pid: e.pointerId,
 				x: e.clientX,
@@ -77,8 +80,10 @@ export default function DDDisk({children, className, playing=true})
 		ptUp = (e) => {
 			diskRef.current.style.transform = '';
 			diskRef.current.onpointermove = null
-			if(diskRef?._idata?.pid)
-				diskRef.current.releasePointerCapture(diskRef._idata.pid)
+
+			if(diskRef?._idata?.pid == e.pointerId)
+			 	diskRef.current.releasePointerCapture(diskRef._idata.pid)
+
 			diskRef.current.classList.add('e-rotatoid');
 
 			diskRef._idata = {}
@@ -95,14 +100,16 @@ export default function DDDisk({children, className, playing=true})
 	}, []);
 
 
-	return  <div ref={diskRef} className={'disco  e-rotatoid abs-full z-10 ' + className}
+	return  <div ref={diskRef} className={'disco  e-rotatoid abs-full z-30 overscroll-contain  ' + className}
 
 	             onPointerDown={ptDown}
 	             onPointerUp={ptUp}
+
+	             style={{pointerEvents: "all"}}
 	>
 
 
-		<div className={'ohuevator-c abs-full z-0'}>
+		<div className={'ohuevator-c abs-full z-20'}>
 
 			<div
 

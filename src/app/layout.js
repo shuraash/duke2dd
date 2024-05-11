@@ -19,7 +19,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={'overflow-x-hidden w-screen'}>
+    <html lang="en" className={'overflow-x-hidden w-screen overscroll-none pointer-events-none'}>
 
       <body className={'relative w-screen h-screen h-dvh min-h-screen min-h-dvh overflow-x-hidden dark'}>
 
