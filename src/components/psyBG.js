@@ -33,7 +33,7 @@ const
 				    <span>{clip.preset.in} / {clip.preset.out}</span>
 				</li>
 				<li className="m-1.5  text-sky-200">
-				    <span>{clip.value.replace('https://trancescript.ddns.net/video/vjloops/small/', '').replace('.mp4', '')}</span>
+				    <span>{clip.value.replace('vj.loops/', '').replace('.mp4', '')}</span>
 				</li>
 				<li className="m-1.5 text-pink-50 flex items-center gap-x-3">
 				    <span className={'text-orange-500'}>-{formatTS(vid.duration - vid.currentTime)} </span>
@@ -43,7 +43,7 @@ const
 		</ul>
 
 
-export default function PsyBG({vjLoops = VJLoops.map(c => `https://trancescript.ddns.net/video/vjloops/small4ddd/sd/${c}`), onInfoUpdate, className})
+export default function PsyBG({vjLoops = VJLoops.map(c => `/vj.loops/${c}`), onInfoUpdate, className})
 {
 	const
 
