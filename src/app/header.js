@@ -4,7 +4,7 @@ import Link from "next/link";
 import {PsycoTexto, PsycoTitlo} from "../components/psyTexts";
 import {useEffect, useRef} from "react";
 import {animate} from "framer-motion";
-import {genShadow} from "@src/components/djDrops";
+import {genShadow} from "@src/components/djDrops.gsap";
 import {usePathname} from "next/navigation";
 
 export default function Header()

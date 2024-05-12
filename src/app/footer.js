@@ -5,7 +5,7 @@ import {PsycoTexto, PsycoTitlo} from "../components/psyTexts";
 import {usePathname} from "next/navigation";
 import {useEffect, useRef} from "react";
 import {animate} from "framer-motion";
-import {genShadow} from "@src/components/djDrops";
+import {genShadow} from "@src/components/djDrops.gsap";
 
 
 export default function Footer()
