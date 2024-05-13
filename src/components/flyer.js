@@ -1,275 +1,111 @@
 "use client"
 
 import {DDCrest} from "./psyTexts";
-import {animate} from "framer-motion";
-import {useEffect, useRef, useState} from "react";
-import {arrRandomCycler} from "@src/util";
-import {psyColors, psyShadows} from "./psyColors";
+import {useEffect, useRef} from "react";
+import {wrapCycle} from "@src/util";
+import {psyShadows} from "./psyColors";
 import DDDisk from "./disk";
-import DjDropsGsap from "./djDrops.gsap";
 
-let isFirst = true
+import {gsap} from "gsap";
+import Draggable from 'gsap/dist/Draggable'
+import DjDropsGsap from "@src/components/djDrops.gsap";
+
+gsap.registerPlugin(Draggable)
 
 export default function DDFLyear({className})
 {
-	let psyChars,psyLabs,psyRows,psyCrest,centralD,psyDisk,colorWalk,accColor, ddt, psyDDChars, psyRRChars;
+	let  psyRows,psyCrest,centralD,psyDisk;
 
 	const
 		flyRef = useRef(),
 
-		// [isPlaying, setIsPlaying] = useState(true),
+		tlRef = useRef(),
+		drRef = useRef(),
 
 		queryEls = () => {
-
-			psyChars = [...flyRef.current.querySelectorAll('span.psy-char')];
-
 			centralD = flyRef.current.querySelector('.central-D')
-
-			psyDDChars = psyChars.filter((c,i) => [0,7,8,15].includes(i) || c === centralD)
-			psyRRChars = psyChars.filter((c,i) => !([0,7,8,15].includes(i) || c === centralD))
-
 			psyCrest = flyRef.current.querySelector('.psy-crest')
-			
 			psyDisk = flyRef.current.querySelector('.disco')
-			ddt = flyRef.current.querySelector('.ddt')
-			
-			psyLabs = [...flyRef.current.querySelectorAll ('.psy-titlo')];
 			psyRows =  [...flyRef.current.querySelectorAll ('.psy-row')];
-
-			ddt.style.textShadow = genShadow()
 		},
 
-		dColorW = arrRandomCycler(psyColors, 5),
+		//dColorW = arrRandomCycler(psyColors, 5),
+		// dColorW = wrapCycle(gsap.utils.shuffle(psyColors))
+		// scc = arrRandomCycler(psyShadows, 3),
 
-		init = () => {
-
-			accColor  = dColorW.next().value,
-
-			colorWalk = arrRandomCycler(psyColors.filter(c => c != accColor), 5);
-
-			// let fs = parseFloat( getComputedStyle(psyCrest).getPropertyValue('font-size'))
-
-	 	//	psyChars.forEach( (c,i) => c.style.color = psyDDChars.includes(c) ? accColor :  colorWalk.next().value )
-
-	//		centralD.style.color = accColor;
-
-		},
-
-		[isNotPlay, setIsNotPlay] = useState(),
-		[seqA, setSeqA] = useState(),
-
-		scc = arrRandomCycler(psyShadows, 3),
-
+		scc = wrapCycle(psyShadows),
 
 		genShadow = () =>
 		{
 			let clr = scc.next().value;
 
 			return `0 0 3px ${clr[0]},
-			
 			      0 0 15px ${clr[0]},
-			      0 0 13px ${clr[1]},			
+			      0 0 13px ${clr[1]},
 			      0 0 10px ${clr[2]},
-			      
 			      0 0 1px #000`
-
-			//
-			//    0 0 40px ${clr[1]}
-			//
-			//      0 0 60px ${clr[1]}
-			//
-			//		      0 0 98px ${clr[1]}
-
-
-
-			//.replaceAll('\t', '').replaceAll('\n','').replaceAll('  ',' ')
 		},
 
 		loop = async () =>
 		{
-			//psyDisk.classList.toggle('e-rotatoid', !isNotPlay);
-
-			if(!isNotPlay)
+			while (true)
 			{
+				gsap.set(psyCrest, {textShadow: genShadow()})
 
-				await animate([
-					[flyRef.current,
-						{
-							opacity: 0,
-							scale: 0.1
-						},
-						{duration: 0}],
+				const tl = (tlRef.current = gsap.timeline({delay: 3, repeat: 1, yoyo: true}))
 
-					[flyRef.current,
-						{
-							opacity: 1,
-							scale: 1
-						},
-						{
-							duration: 3,
-							ease: 'linear'
-						}
-					],
+				tl
+				  .fromTo( centralD, {opacity: 0,  rotate: '0deg', scale: 0 }, {opacity: 1, scale: 1, duration: 1.6, ease: 'easeIn'} )
+				  .fromTo( psyRows[0], {scaleX: 0, opacity: 1, rotateX: '0deg', rotateY: '0deg'}, {scaleX: 1,  duration: 1.6, ease: 'easeIn'} )
+				  .fromTo( psyRows[1], {scaleX: 0, opacity: 1, rotate: '90deg',  rotateX: '0deg', rotateY: '0deg'}, {scaleX: 1,   duration: 1.6, ease: 'easeIn'} )
 
-					[flyRef.current.querySelector('.btn-det'),
-						{
-							opacity: 1,
-						},
-						{
-							duration: 0.7,
-							at: '-0.3'
-						}
-					]
-					// [psyDisk, {rotate: '360deg'}, {at: '<'}],
-				])
+	               .to( psyRows[0], {rotate: '180deg', duration: 1.5, delay: 3})
+	               .to( psyRows[1], {rotate: '-90deg', duration: 1.5}, '<')
 
+				   .to( psyRows[0], {rotate: '0deg', duration: 1.5, delay: 3})
+				   .to( psyRows[1], {rotate: '90deg', duration: 1.5}, '<')
 
-				while (!isNotPlay)
-				{
-					let
-						// //sha0 =  genShadow('#00000000'),
-						// sha =  ` 0 0 5px #ffa500,
-						//           0 0 15px #ffa500,
-						//           0 0 20px #ffa500,
-						//           0 0 40px #ffa500,
-						//           0 0 60px #ff0000,
-						//           0 0 10px #ff8d00,
-						//           0 0 98px #ff0000`,
-						//
-						//
-						// // sha =  genShadow(  ),
-						// sha0 =  ` 0 0 5px #ffa50000,
-						//           0 0 15px #ffa50000,
-						//           0 0 20px #ffa50000,
-						//           0 0 40px #ffa50000,
-						//           0 0 60px #ff000000,
-						//           0 0 10px #ff8d0000,
-						//           0 0 98px #ff000000`,
-						//
-						// sha0 = 'inherit',
-						// sha = 'inherit',
-						//
-						//
-						// allOnFast = [
-						// 	[centralD, {opacity: 1, scale: 1}, {duration: 0.3, ease: 'easeIn'}],
-						// 	// [centralD, {textShadow: sha}, {duration: 0.3, ease: 'easeIn', }],
-						//
-						// 	[psyRows[0], {scaleX: 1, rotateX: '0deg'}, {duration: 0.3, ease: 'easeIn'}],
-						// 	// [psyRows[0], {textShadow: sha}, {duration:0.3, delay: 0.5, ease: 'easeIn', at: '<'}],
-						//
-						// 	[psyRows[1], {scaleX: 1, rotateX: '0deg'}, {duration: 0.3, ease: 'easeIn'}],
-						// 	// [psyRows[1], {textShadow: sha}, {duration: 0.3, delay: 0.5, ease: 'easeIn', at: '<'}],
-						// ],
-						//
+				  .fromTo( psyCrest, {rotate: '0deg'}, {rotate: '-360deg', duration: 1.5, delay: 3, ease: 'easeOut'})
+				  .to( psyDisk,   {rotate: '-1080deg', duration: 3,   ease: 'easeInOut'},  '>-1.5')
+				  .to( psyDisk,   {rotate: '0deg', duration: 0},  '>3')
 
+				drRef.current.push(tl);
+				await tl
+				drRef.current.pop()
+			 }
+		},
 
-						allInit = [
-							[psyRows[0], {scaleX: 0.01, rotateX: '0deg', rotateY: '0deg'}, {duration: 0}],
-							[psyRows[1], {scaleX: 0.01, rotateX: '0deg', rotateY: '0deg'}, {duration: 0}],
+		createDiskDragger = () =>
+		{
+		 	drRef.current = [ gsap.to(psyDisk, {rotate: 360*10, duration: 3*10, repeat: -1, ease: 'linear'}) ]
+		//	drRef.current = []
 
-							// transformOrigin: '100% 0%',  scale: 0.1,
-							[centralD, {opacity: 0.01,  rotate: '0deg', scale: 0.1}, {duration: 0}],
+			Draggable.create(psyDisk, {
+				type: "rotation",
+				inertia: true,
+				//velocity: 500
 
-						//	, rotate: '0deg'
+				onDragEnd: e => drRef.current.forEach( p => p.timeScale(p.timeScale() || 0.001).resume() )
+			});
 
-							[psyCrest,   {opacity: 1, rotate: '0deg'}, {duration: 0}],
+			psyDisk.addEventListener('pointerdown',  e => drRef.current.forEach( p => p.pause()) )
+			psyDisk.addEventListener('pointerup', e => drRef.current.forEach( p => p.timeScale(p.timeScale() || 0.001).resume() ))
 
-							// [psyCrest,   {opacity: 1, rotate: '0deg', textShadow: genShadow()}, {duration: 0}],
-							 [psyDisk,   {rotate: '0deg'}, {duration: 0}],
-						],
-
-						allOn = [
-							[centralD, {opacity: 1, scale: 1}, {duration: 1.6, ease: 'easeIn'}],
-							// [centralD, {textShadow: sha}, {duration: 1.6, ease: 'easeIn', }],
-
-							[psyRows[0], {scaleX: 1, rotateX: '0deg'}, {duration: 1.6, ease: 'easeIn'}],
-							// [psyRows[0], {textShadow: sha}, {duration: 1.6, delay: 1, ease: 'easeIn', at: '<'}],
-
-							[psyRows[1], {scaleX: 1, rotateX: '0deg'}, {duration: 1.6, ease: 'easeIn'}],
-							// [psyRows[1], {textShadow: sha}, {duration: 1.6, delay: 1, ease: 'easeIn', at: '<'}],
-						],
-
-
-						backSpin = [
-						//	[psyCrest, {rotate: '-360deg'}, {duration: 1.6, delay: 6.6, ease: 'easeInOut'}],
-
-						//	[psyCrest, {rotate: '-1080deg'}, { duration: 4.8, delay: 1.2, ease: 'backInOut'}],
-						//	[psyDisk, {rotate: '-1440deg'}, { duration: 4.5, at: '-3', ease: 'easeInOut'}],
-
-							[psyCrest, {rotate: '-360deg'}, { duration: 1.6, delay: 4.2, ease: 'easeOut'}],
-
-							[psyDisk, {rotate: '-1260deg'}, { duration: 3.2, at: '-1.2',  ease: 'easeInOut'}],
-
-							//[psyCrest, {rotate: '0deg'}, { duration: 1.5, at: '-0.75', ease: 'backIn'}],
-
-							//[psyCrest, {rotate: '0deg'}, { duration: 1.6, delay: 0, ease: 'backInOut'}],
-
-							//  [psyDisk,   {rotate: '0deg'}, {duration: 0, delay: 0}],
-
-						],
-
-						seqa =  [
-
-								...allInit,
-
-								...allOn,
-
-								//...allOnFast,
-
-							 ...backSpin,
-
-							// [psyRows[0], {  rotateX: '45deg'}, {duration: 2}],
-							// [psyRows[1], {  rotateX: '-45deg'}, {duration: 2, at: '<'}],
-
-	                        [psyCrest,   {opacity: 0}, {duration: 2, delay: 0, at:'-1', ease: 'circInOut'}],
-							// [psyCrest,   {opacity: 1, rotate: '0deg'}, {duration: 0}],
-						]
-
-
-	//	 	console.log('suka seqa', window.seqa = seqa);
-
-					// ass = animate(seqa, {delay: aa ? 2 : 1, repeatCount: 1})
-					// setSeqA(ass)
-					//
-					// await ass;
-
-
-					await animate(seqa, {delay: isFirst ? 2 : 1, repeatCount: 1})
-
-					isFirst = false;
-
-					ddt.style.textShadow = genShadow()
-
-					init();
-
-				 }
-
-			}
 		}
 
 
 	useEffect(() =>
 	{
-
-	//	alert('is eff im a ' + (!isNotPlay ? 'play' : 'stop'))
+		gsap.to(flyRef.current,  {opacity: 1, scale: 1, duration: 3, ease: 'linear'})
 
 		queryEls()
 
-		// if(!isNotPlay && seqA)
-		// {
-		// 	(async () => {
-		// 		await seqA.cancel()
-		// 		setSeqA(null)
-		// 	})()
-		//
-		// }
+		gsap.to(centralD, {rotate: -360*10, duration: 3*10, repeat: -1, ease: 'linear'})
 
-		init()
+		createDiskDragger()
+	 	loop()
 
-		loop()
-
-
-		console.log(window.animate = animate, window.psyRows = psyRows, window.centralD = centralD,  window.psyDisk = psyDisk, window.psyCrest = psyCrest, window.loop = loop)
+		console.log(window.gsap = gsap, window.psyRows = psyRows, window.centralD = centralD,  window.psyDisk = psyDisk, window.tl  = gsap.timeline() )
 
 	}, []);
 
@@ -290,7 +126,7 @@ export default function DDFLyear({className})
 					<DDDisk >
 						{/*<PsyText  className={'z-50 ddt abs-center opacity-1 w-[65%] text-4xl sm:text-5xl lg:text-[52px]'} />*/}
 
-						<DDCrest className={'z-30 psy-crest ddt abs-full mx-auto opacity-0 max-w-[65%] text-4xl sm:text-5xl lg:text-[52px]'}/>
+						<DDCrest className={'z-30 psy-crest ddt abs-full mx-auto max-w-[65%] text-4xl sm:text-5xl lg:text-[52px]'}/>
 
 					</DDDisk>
 

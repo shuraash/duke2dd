@@ -19,9 +19,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={'overflow-x-hidden w-screen overscroll-contain pointer-events-none'}>
+    <html lang="en" className={'overflow-x-hidden w-screen  '}>
 
-      <body className={'relative w-screen h-screen h-dvh min-h-screen min-h-dvh overflow-x-hidden dark overscroll-contain '}>
+      <body className={'relative w-screen h-screen h-dvh min-h-screen min-h-dvh overflow-x-hidden dark   '}>
 
         {/*<PsyBG className={'abs-full fixed '} onInfoUpdate={undefined} />*/}
 

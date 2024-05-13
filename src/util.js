@@ -1,4 +1,5 @@
 
+import gsap from 'gsap';
 
 /**
  * Return new Generator which return a random element of the array in a 'cycle', filtered to noRepLen count of prior returned elements.
@@ -41,7 +42,12 @@ function arrRandomCycler(array, noRepLen = 1)
 export {arrRandomCycler}
 
 
-
+export function* wrapCycle(array, max = Number.MAX_SAFE_INTEGER)
+{
+	let idx = 0, wf =  gsap.utils.wrap(array)
+	while (idx < max)
+		yield wf(++idx)
+}
 
 /*  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 

@@ -130,42 +130,80 @@ export default function DjDropsGsap({className, djCalss, playing})
 			setDjData(   genDJ(ddDjs.next().value, djData ? 1 : 7) )
 		},
 
-		aniPlayGSAP = () =>  {
+		aniPlayGSAP = async () =>  {
 
 					if(djData)
 					{
 
 						const
-							q = gsap.utils.selector(djRef),
+							q = gsap.utils.selector(djRef)
 
-							bstate = Flip.getState(djRef.current)
+						tl.current = gsap.timeline()
+							.fromTo(djRef.current,
+								{
+									x: '-50%',
+									y: '-50%',
+									left: '50%',
+									top: '50%',
+									opacity: 0,
+									scale: 0
+								},
 
-							// tstate = Flip.getState(q('.cardad'))
+
+								{
+										left: pos2av[djData.pose][0],
+										top: pos2av[djData.pose][1],
+										x: pos2av[djData.pose][4],
+										y: pos2av[djData.pose][5],
+										opacity: 1,
+										scale: 1,
+										 ease: "bounce.inOut",
+										//ease: "elastic.inOut(0.5,0.5)",
+										// ease: "slow(0.3,0.7,false)",
+										delay: djData.delay,
+										duration: 9,
+									}
+							)
+						.fromTo(djRef.current.querySelector('.cardad'), {rotateX: 0, rotate: 0}, {rotate: 1080, duration: 6}, '>-6')
+						.to(djRef.current.querySelector('.cardad'), {rotateX: 1080, duration: 9}, '<')
+
+						.to(djRef.current, {scale: 9, duration: 2, ease:  "power1.out",
+							x: '-50%',
+							y: '-50%',
+							left: '50%',
+							top: '50%',})
+
+						.to(djRef.current, {opacity: 0, duration: 1, ease: 'linear'}, '<')
+						.to(djRef.current, {opacity: 0, duration: 1, ease: 'linear', delay: 0.5})
 
 
-				//		tl.current = gsap.timeline({paused: false, onComplete: e => setDjData(   genDJ(ddDjs.next().value, djData ? 1 : 1) )})
+						await tl.current;
+
+						setDjData(   genDJ(ddDjs.next().value, 1) )
+
+
 //						  .set('.cardad', {
 // 							  opacity: 1,
 // 							  rotateX: '0deg',
 // 							  rotateY: '0deg'
 // 						  })
 
-						tl.current = Flip.from(bstate,
-								{
-							      paused: false,
-								  onComplete: e => { Flip.to(bstate, {duration: 0}); setDjData(   genDJ(ddDjs.next().value, djData ? 1 : 1) ) },
-								  left: pos2av[djData.pose][0],
-								  top: pos2av[djData.pose][1],
-								  x: pos2av[djData.pose][4],
-								  y: pos2av[djData.pose][5],
-								  opacity: 1,
-								  scale: 1,
-								 // ease: "bounce.inOut",
-								  // ease: "elastic.inOut(0.5,0.5)",
-								  ease: "slow(0.3,0.7,false)",
-								  delay: djData.delay,
-								  duration: 3,
-							   })
+						// tl.current = Flip.from(bstate,
+						// 		{
+						// 	      paused: false,
+						// 		  onComplete: e => { Flip.to(bstate, {duration: 0}); setDjData(   genDJ(ddDjs.next().value, djData ? 1 : 1) ) },
+						// 		  left: pos2av[djData.pose][0],
+						// 		  top: pos2av[djData.pose][1],
+						// 		  x: pos2av[djData.pose][4],
+						// 		  y: pos2av[djData.pose][5],
+						// 		  opacity: 1,
+						// 		  scale: 1,
+						// 		 // ease: "bounce.inOut",
+						// 		  // ease: "elastic.inOut(0.5,0.5)",
+						// 		  ease: "slow(0.3,0.7,false)",
+						// 		  delay: djData.delay,
+						// 		  duration: 3,
+						// 	   })
 
 
 
