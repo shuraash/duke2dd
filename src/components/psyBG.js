@@ -1,10 +1,13 @@
 "use client"
 
 import {useEffect, useRef} from "react";
-import {animate} from "framer-motion";
-import {arrRandomCycler, formatTS} from "../util";
+
+import {wrapCycle, formatTS} from "../util";
 import VJLoops from "./psyBG.vjloops.json";
+
 import TeleBoxPortal, {useTeleBoxPortal} from "./teleBoxPortal";
+
+import gsap from 'gsap';
 
 const
 
@@ -14,8 +17,8 @@ const
 
 	aniPresets = {
 		fade: { opacity: 0 },
-		ZoomOut: { scale: 0, opacity: 0, transition: {scale: {delay: aniPresetDefDuration * .33}} },
-		zoomIn: { scale: 3, opacity: 0, transition: {scale: {delay: aniPresetDefDuration * .33}} },
+		ZoomOut: { scale: 0, opacity: 0, transition: {scale: {delay: aniPresetDefDuration * .7}} },
+		zoomIn: { scale: 3, opacity: 0, transition: {scale: {delay: aniPresetDefDuration * .7}} },
 		rotateRight: { rotate: '360deg' },
 		rotateLeft: { rotate: '-360deg' },
 		slideRight: { x: '100%',  transition: {duration: aniPresetDefDuration *.66}},
@@ -54,44 +57,36 @@ export default function PsyBG({vjLoops = VJLoops.map(c => `/vj.loops/${c}`), onI
 
 		infoUpHandler =	useTeleBoxPortal(tbpRef),
 
-		fmpCyclerIn =  arrRandomCycler(aniPresetsKeys.filter(k => ['fade','zoomIn','zoomOut' ].includes(k)), 1),
-		fmpCyclerOut =  arrRandomCycler(aniPresetsKeys.filter(k => ['fade','zoomIn','zoomOut' ].includes(k)), 1),
+		// fmpCyclerIn =  arrRandomCycler(aniPresetsKeys.filter(k => ['fade','zoomIn','zoomOut' ].includes(k)), 1),
+		// fmpCyclerOut =  arrRandomCycler(aniPresetsKeys.filter(k => ['fade','zoomIn','zoomOut' ].includes(k)), 1),
+		fmpCyclerIn =  wrapCycle(aniPresetsKeys.filter(k => ['fade','zoomIn','zoomOut' ].includes(k))),
+		fmpCyclerOut =  wrapCycle(aniPresetsKeys.filter(k => ['fade','zoomIn','zoomOut' ].includes(k))),
 
-		vjLoopsCycler = arrRandomCycler(vjLoops, 7),
+		//vjLoopsCycler = arrRandomCycler(vjLoops, 7),
+		vjLoopsCycler = wrapCycle(gsap.utils.shuffle(vjLoops)),
 
-		nextClip = () => ({...vjLoopsCycler.next(), preset: {in: fmpCyclerIn.next().value, out: fmpCyclerOut.next().value} }),
+
+
+
+		nextClip = () => ({value: vjLoopsCycler.next().value, preset: {in: fmpCyclerIn.next().value, out: fmpCyclerOut.next().value} }),
 
 		setNext = (vid) => {
 			vid._clip = nextClip()
-			vid._clip .cfTime = vid._clip .preset?.out?.transition?.duration || aniPresetDefDuration
+			vid._clip.cfTime = vid._clip.preset?.out?.transition?.duration ? vid._clip.preset.out.transition.duration : aniPresetDefDuration
 			vid.src = vid._clip .value;
 		},
 
-		videoEnter = async (vid) => {
+		videoEnter = (vid) => {
 			vid.play()
-
-			await animate(vid, {...aniPresetDefState, ...aniPresets[vid._clip.preset.in]}, {duration: 0})
-			animate(vid, aniPresetDefState,
-				{
-							duration: aniPresetDefDuration,
-							...aniPresets[vid._clip.preset.in].transition
-								? aniPresets[vid._clip.preset.in].transition
-								: {}
-						}
+			gsap.fromTo(vid,
+				{...aniPresetDefState, ...aniPresets[vid._clip.preset.in],  transition: {}},
+				{duration: aniPresetDefDuration, ...aniPresetDefState, transition: aniPresets[vid._clip.preset.in]?.transition}
 			)
 		},
 
 
 		videoExit = async (vid) => {
-			await animate(vid, aniPresets[vid._clip.preset.out],
-				{
-					duration: aniPresetDefDuration,
-					...(aniPresets[vid._clip.preset.out].transition
-							? aniPresets[vid._clip.preset.out].transition
-							: {}
-						)
-				}
-			)
+			await gsap.to(vid, {duration: aniPresetDefDuration, ... aniPresets[vid._clip.preset.out]})
 			vid.pause()
 			setNext(vid)
 		},
@@ -127,7 +122,8 @@ export default function PsyBG({vjLoops = VJLoops.map(c => `/vj.loops/${c}`), onI
 		setTimeout( () =>  videoA.current.paused ? videoA.current.play() : null, 5000 )
 		setTimeout( () =>  videoA.current.paused ? videoA.current.play() : null, 6500 )
 
-	    animate(myRef.current, {opacity: 1}, {duration: 3.33})
+	    gsap.to(myRef.current, {opacity: 1, duration: 3.33})
+
 
 	}, [])
 

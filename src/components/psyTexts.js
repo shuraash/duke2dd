@@ -137,17 +137,17 @@ const
 
 		return <div ref={ref} className={twMerge(``, className)}>
 
-			<PsycoRow>
+			<PsycoRow className={'opacity-1 scale-x-0'}>
 				<PsycoTitlo text='Duke' className={'w-full'}/>
 				<PsycoTitlo text='elic' className={'w-full'}/>
 			</PsycoRow>
 
-			<PsycoRow style={{rotate: '90deg'}}>
+			<PsycoRow className={'opacity-1 scale-x-0'}>
 				<PsycoTitlo text='Duke' className={'w-full'}/>
 				<PsycoTitlo text='ance' className={'w-full'}/>
 			</PsycoRow>
 
-			<PsycoTitlo text='D' className={`w-rotatoid central-D rounded-full z-20 abs-center opacity-1`} />
+			<PsycoTitlo text='D' className={`central-D rounded-full z-20 abs-center opacity-0 scale-0 origin-center`} />
 
 		</div>
 	},

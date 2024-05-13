@@ -24,7 +24,7 @@ export default function PageWrapper ({ children }){
 
     return  <AnimatePresence mode={'popLayout'}  initial={false}>
 
-        <motion.div key={path} className={'page-trans w-screen h-screen overflow-clip overscroll-none pointer-events-none'}
+        <motion.div key={path} className={'page-trans w-screen h-screen overflow-clip  '}
 
                     initial={{  opacity: 0, scale: 0.75, rotateY: '-90deg' , transformOrigin: 'center', borderRadius: '16px', border: '3px solid  #ddddddff'}}
 
@@ -62,8 +62,8 @@ export default function PageWrapper ({ children }){
 
                   {/*<PsyBG className={' abs-full z-0'} onInfoUpdate={undefined} />*/}
 
-                  <section className={'psy-page pt-5 min-h-full  max-w-screen w-screen overflow-x-hidden overflow-y-auto z-10 pointer-events-none'}>
-                      <div className={'w-full max-w-full md:max-w-screen-md h-auto mx-auto pointer-events-none'}>
+                  <section className={'psy-page pt-5 min-h-full  max-w-screen w-screen overflow-x-hidden overflow-y-auto z-10 '}>
+                      <div className={'w-full max-w-full md:max-w-screen-md h-auto mx-auto '}>
                           {children}
                       </div>
                   </section>
