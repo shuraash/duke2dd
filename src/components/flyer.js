@@ -101,14 +101,21 @@ export default function DDFLyear({className})
 				inertia: true,
 				//velocity: 500
 
-			 	onDragEnd: e => drRef.current.forEach( p => p => ress(p) )
+			 	//onDragEnd: e => drRef.current.forEach( p => p => ress(p) )
 			});
 
 
 
-			psyDisk.addEventListener('pointerdown',  e => drRef.current.forEach( p => pass(p) ))
+			psyDisk.addEventListener('pointerdown',  e =>
+			{
 
-			psyDisk.addEventListener('pointerup', e => drRef.current.forEach( p => ress(p) ))
+				drRef.current.forEach( p => pass(p) )
+
+				window.addEventListener('pointerup', e => drRef.current.forEach( p => ress(p) ), {once: true})
+
+			})
+
+
 
 		}
 
