@@ -80,16 +80,35 @@ export default function DDFLyear({className})
 		 	drRef.current = [ gsap.to(psyDisk, {rotate: 360*10, duration: 3*10, repeat: -1, ease: 'linear'}) ]
 		//	drRef.current = []
 
+			const
+
+				ress = (l, f = true) => {
+					l.timeScale(l.timeScale() || 0.001).resume()
+					if(l.parent) ress(l.parent, false);
+
+					if(f)  drRef.current = [ gsap.to(psyDisk, {rotate: 360*10, duration: 3*10, repeat: -1, ease: 'linear'}) ]
+
+				},
+
+				pass = (l) => {
+					if(l.parent) pass(l.parent);
+					l.pause()
+				}
+
+
 			Draggable.create(psyDisk, {
 				type: "rotation",
 				inertia: true,
 				//velocity: 500
 
-				onDragEnd: e => drRef.current.forEach( p => p.timeScale(p.timeScale() || 0.001).resume() )
+			 	onDragEnd: e => drRef.current.forEach( p => p => ress(p) )
 			});
 
-			psyDisk.addEventListener('pointerdown',  e => drRef.current.forEach( p => p.pause()) )
-			psyDisk.addEventListener('pointerup', e => drRef.current.forEach( p => p.timeScale(p.timeScale() || 0.001).resume() ))
+
+
+			psyDisk.addEventListener('pointerdown',  e => drRef.current.forEach( p => pass(p) ))
+
+			psyDisk.addEventListener('pointerup', e => drRef.current.forEach( p => ress(p) ))
 
 		}
 
