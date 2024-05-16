@@ -117,10 +117,10 @@ export default function PsyBG({vjLoops = VJLoops.map(c => `/vj.loops/${c}`), onI
 		setNext(videoB.current)
 
 		// ios troubles
-		setTimeout( () =>  videoA.current.paused ? videoA.current.play() : null, 1000 )
-		setTimeout( () =>  videoA.current.paused ? videoA.current.play() : null, 3000 )
-		setTimeout( () =>  videoA.current.paused ? videoA.current.play() : null, 5000 )
-		setTimeout( () =>  videoA.current.paused ? videoA.current.play() : null, 6500 )
+		setTimeout( () =>  videoA.current?.paused ? videoA.current.play() : null, 1000 )
+		setTimeout( () =>  videoA.current?.paused ? videoA.current.play() : null, 3000 )
+		setTimeout( () =>  videoA.current?.paused ? videoA.current.play() : null, 5000 )
+		setTimeout( () =>  videoA.current?.paused ? videoA.current.play() : null, 6500 )
 
 	    gsap.to(myRef.current, {opacity: 1, duration: 3.33})
 

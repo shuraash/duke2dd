@@ -77,7 +77,7 @@ export default function DDFLyear({className})
 
 		createDiskDragger = () =>
 		{
-		 	drRef.current = [ gsap.to(psyDisk, {rotate: 360*10, duration: 3*10, repeat: -1, ease: 'linear'}) ]
+		 	drRef.current = [ gsap.fromTo(psyDisk, {rotate: '0deg'}, {rotate: 360*10, duration: 3*10, repeat: -1, ease: 'linear'}) ]
 		//	drRef.current = []
 
 			const
@@ -86,7 +86,7 @@ export default function DDFLyear({className})
 					l.timeScale(l.timeScale() || 0.001).resume()
 					if(l.parent) ress(l.parent, false);
 
-					if(f)  drRef.current = [ gsap.to(psyDisk, {rotate: 360*10, duration: 3*10, repeat: -1, ease: 'linear'}) ]
+					if(f)  drRef.current = [ gsap.fromTo(psyDisk, {rotate: '0deg'}, {rotate: 360*10, duration: 3*10, repeat: -1, ease: 'linear'}) ]
 
 				},
 
@@ -131,7 +131,7 @@ export default function DDFLyear({className})
 		createDiskDragger()
 	 	loop()
 
-		console.log(window.gsap = gsap, window.psyRows = psyRows, window.centralD = centralD,  window.psyDisk = psyDisk, window.tl  = gsap.timeline() )
+//		console.log(window.gsap = gsap, window.psyRows = psyRows, window.centralD = centralD,  window.psyDisk = psyDisk, window.tl  = gsap.timeline() )
 
 	}, []);
 

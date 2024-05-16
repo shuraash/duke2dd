@@ -2,31 +2,34 @@
 
 import {useEffect, useRef, useState} from "react";
 
-import {arrRandomCycler, randomInt} from "@src/util";
+import {arrRandomCycler, randomInt, wrapCycle} from "@src/util";
 import {psyColors, psyShadows} from "@src/components/psyColors";
 import {twMerge} from "tailwind-merge";
 
 import gsap from 'gsap';
 import {Flip} from "gsap/Flip";
 import { useGSAP } from '@gsap/react';
+import DJBubble from "@src/components/djBubble";
 
 gsap.registerPlugin(useGSAP, Flip);
 
 const
 
-	ddDjs =  arrRandomCycler([
+	djs = [
 		['Shiva ASH', 'LU'],
 		['Psykorax', 'LU'],
 		['Minispicer', 'BE'],
 		['MLove', 'BE'],
 		['Anormic', 'LU'],
 		['GriSha', 'UK'],
-		['Random DJ 1', 'LU'],
-		['Random DJ 2', 'DE'],
-		['Random DJ 3', 'LU'],
-		['Random DJ 4', 'FR'],
-		['Random DJ 5', 'EE'],
-	], 5),
+		// ['Random DJ 1', 'LU'],
+		// ['Random DJ 2', 'DE'],
+		// ['Random DJ 3', 'LU'],
+		// ['Random DJ 4', 'FR'],
+		// ['Random DJ 5', 'EE'],
+	],
+
+	ddDjs =  arrRandomCycler(djs, 5),
 
 	ddDJColor = arrRandomCycler(psyColors, 5)    ,
 
@@ -68,192 +71,271 @@ const
 			    0 0 0px 00000000,
 			    0 0 0px 00000000`,
 
-
-	aniSeq = (ptr, pos, delay, txt) =>  [
-//initial
-		[ptr, {opacity: 0, scale: 0, left: '50%', top: '50%',  x: '-50%', y: '-50%', rotate: '0deg'}, {duration: 0} ],
-		[txt, {opacity: 1, rotateX: '0deg', rotateY: '0deg'}, {duration: 0}],
-//animate
-		[ptr, {
-					left: pos2av[pos][0], top: pos2av[pos][1],
-					x:    pos2av[pos][4], y:   pos2av[pos][5],
-					opacity: 1, scale: 1,
-					//randomInt(100,125)/100
-			},
-			{ duration: 3, ease: 'easeIn', delay: delay}
-		],
-
-		// [txt, {rotateY: '540deg'}, {duration: 3, at: '<',  ease: 'easeIn'}],
-
-		// [txt, {rotateX: '360deg'}, {duration: 5, ease: 'easeOut', delay: 0.5,}],
-
-		// [ { left: pos2av[pos][2], top: pos2av[pos][3], scale: 10, opacity: 0},
-		// 	{duration: 1.5, ease: 'linear', delay: 6}
-		// ],
-
-		[ptr, {scale: 1.5}, {duration: 0.75, delay: 1.5, ease: 'easeIn' }],
-
-		[txt, {opacity: 0, rotateY: '360deg'}, {delay: 2, duration: 1.5,  at: '<'}],
-
-		[ptr, {scale: 4, opacity: 0}, {delay: 2.75, duration: 1, ease: 'linear', at: '<'}],
-
-	],
-
 	genDJ = (dj, delay) => ({
+		djid: dj[0].replaceAll('_','-') + dj[1],
 		dj: dj,
-		delay: delay,
+		// delay: delay,
 		colors: [ddDJColor.next().value, ddDJColor.next().value],
 		bubblePic: bubblePic.next().value,
 		bubbleHue: bublerHues.next().value,
 		pose: djPose.next().value
 		//aniSeq: aniSeq(ptr, djPose.next().value, dj.delay),
-	})
+	}),
+
+
+	djshuffled = gsap.utils.shuffle(djs),
+
+	dwr = wrapCycle( djshuffled )
 
 
 export default function DjDropsGsap({className, djCalss, playing})
 {
 	const
 
-		[isPlay, setIsPlay] = useState(),
+		[isPlay, setIsPlay] = useState(true),
+		[djData, setDjData] = useState( ),
 
-		[djData, setDjData] = useState(),
+		upDjData = (d) => {
 
-		djRef = useRef(),
-
-		tl = useRef(),
-
-		aniPlay = async () =>
-		{
-			if(djData)
-				await animate( aniSeq(djRef.current, djData.pose, djData.delay, djRef.current.querySelector('.cardad')) )
-
-			setDjData(   genDJ(ddDjs.next().value, djData ? 1 : 7) )
+			console.log(`set dj ${d.djid}`)
+			setDjData(d)
 		},
+	//	djBubble = (ddd) => updjDatas( [...ddd, genDJ(dwr.next().value)] );
 
-		aniPlayGSAP = async () =>  {
+		 ref = useRef(),
+		 tl = useRef(),
 
-					if(djData)
-					{
+	// const atExplo = (d, r) => {
+	//
+	// 	console.log(`atExplo ${d.djid}  aka ${djDatas.findIndex(x => x.djid = d.djid)}`,  window.djDatas = djDatas);
+	//
+	// 	if(djDatas.length > 1)
+	// 	{
+	// 		let
+	// 			ni = djDatas.findIndex(x => x.djid = d.djid),
+	// 			nd = gsap.utils.wrap(djDatas, ni + 1)
+	// 		tl.current.seek('#' + nd.djid)
+	// 	}
+	//
+	// 	let pizda = djDatas.filter(e => e.djid != d.djid)
+	//
+    //     djBubble(pizda)
+	//
+	// 	//setTimeout( () => updjDatas([...suka.current, d]), 2)
+	//
+	// 	//
+	// 	// let ndd = [...djDatas.filter( x => x.djid != d.djid ), genDJ(d.dj)]
+	// 	//
+	// 	// console.log(`bylo ${djDatas.length} - ${djDatas.map( (e,i) => i + ': ' + e.djid).join('\n,')}  \nstalo: ${ndd.length} - ${ndd.map( (e,i) => i + ': ' + e.djid).join('\n,')}`)
+	// 	//
+	// 	// updjDatas( ndd  )
+	// }
+	//
 
-						const
-							q = gsap.utils.selector(djRef)
+	explo = async () => {
 
-						tl.current = gsap.timeline()
-							.fromTo(djRef.current,
-								{
-									x: '-50%',
-									y: '-50%',
-									left: '50%',
-									top: '50%',
-									opacity: 0,
-									scale: 0
-								},
+		const bubble = ref.current.querySelector('.dj-card');
 
+		tl.current.clear()
 
-								{
-										left: pos2av[djData.pose][0],
-										top: pos2av[djData.pose][1],
-										x: pos2av[djData.pose][4],
-										y: pos2av[djData.pose][5],
-										opacity: 1,
-										scale: 1,
-										 ease: "bounce.inOut",
-										//ease: "elastic.inOut(0.5,0.5)",
-										// ease: "slow(0.3,0.7,false)",
-										delay: djData.delay,
-										duration: 9,
-									}
-							)
-						.fromTo(djRef.current.querySelector('.cardad'), {rotateX: 0, rotate: 0}, {rotate: 1080, duration: 6}, '>-6')
-						.to(djRef.current.querySelector('.cardad'), {rotateX: 1080, duration: 9}, '<')
+		tl.current.to(bubble.querySelector('.cardad'), {opacity: 0, scale: 0,duration: 1})
+		tl.current.to(bubble, {opacity: 0, scale: 5, duration: 1}, '<')
 
-						.to(djRef.current, {scale: 9, duration: 2, ease:  "power1.out",
-							x: '-50%',
-							y: '-50%',
-							left: '50%',
-							top: '50%',})
+		await tl.current;
 
-						.to(djRef.current, {opacity: 0, duration: 1, ease: 'linear'}, '<')
-						.to(djRef.current, {opacity: 0, duration: 1, ease: 'linear', delay: 0.5})
+		gsap.globalTimeline.remove( tl.current )
+		setDjData(genDJ(dwr.next().value))
 
-
-						await tl.current;
-
-						setDjData(   genDJ(ddDjs.next().value, 1) )
+	//	bubble.querySelector('.explo-pic')._doExplode()
 
 
-//						  .set('.cardad', {
-// 							  opacity: 1,
-// 							  rotateX: '0deg',
-// 							  rotateY: '0deg'
-// 						  })
+	},
 
-						// tl.current = Flip.from(bstate,
-						// 		{
-						// 	      paused: false,
-						// 		  onComplete: e => { Flip.to(bstate, {duration: 0}); setDjData(   genDJ(ddDjs.next().value, djData ? 1 : 1) ) },
-						// 		  left: pos2av[djData.pose][0],
-						// 		  top: pos2av[djData.pose][1],
-						// 		  x: pos2av[djData.pose][4],
-						// 		  y: pos2av[djData.pose][5],
-						// 		  opacity: 1,
-						// 		  scale: 1,
-						// 		 // ease: "bounce.inOut",
-						// 		  // ease: "elastic.inOut(0.5,0.5)",
-						// 		  ease: "slow(0.3,0.7,false)",
-						// 		  delay: djData.delay,
-						// 		  duration: 3,
-						// 	   })
+	expoEnd = () => {
+
+		gsap.globalTimeline.remove( tl.current )
+		setDjData(genDJ(dwr.next().value))
+	}
+
+	// useGSAP( () =>
+	// {
+	// 	if(djData)
+	// 	{
+	// 		const bubble = ref.current.querySelector('.dj-card');
+	//
+	//
+	// 		tl.current = gsap.timeline({
+	// 			// id: djData.djid
+	// 			// 	repeat: -1,
+	// 			// 	delay: delay,
+	// 			// 	repeatDelay: rdelay
+	// 			// 	// ,
+	// 			// //	paused: true
+	// 			onComplete: () => setDjData(genDJ(dwr.next().value))
+	//
+	// 		})
+	//
+	// 		// atl.add('#' + djDatas.djidsd)
+	//
+	// 		tl.current.fromTo(bubble,
+	// 			{
+	// 				x: '-50%',
+	// 				y: '-50%',
+	// 				left: '50%',
+	// 				top: '50%',
+	// 				opacity: 0,
+	// 				scale: 0,
+	// 				zIndex: 30
+	// 			},
+	//
+	// 			{
+	// 				left: pos2av[djData.pose][0],
+	// 				top: pos2av[djData.pose][1],
+	// 				x: pos2av[djData.pose][4],
+	// 				y: pos2av[djData.pose][5],
+	// 				opacity: 1,
+	// 				scale: 1,
+	// 				ease: "bounce.inOut",
+	// 				//ease: "elastic.inOut(0.5,0.5)",
+	// 				// ease: "slow(0.3,0.7,false)",
+	// 				// delay: djData.delay,
+	// 				duration: 3,
+	// 			},
+	// 		)
+	//
+	// 		tl.current.fromTo(bubble.querySelector('.cardad'), {
+	// 				rotateX: 0,
+	// 				rotate: 0
+	// 			}, {
+	// 				rotate: 1080,
+	// 				duration: 6
+	// 			}, '>-3'
+	// 		)
+	//
+	// 		tl.current.to(bubble.querySelector('.cardad'), {
+	// 			rotateX: 1080,
+	// 			duration: 9
+	// 		}, '<')
+	//
+	// 		tl.current.to(bubble, {
+	// 			scale: 9,
+	// 			duration: 1.6,
+	// 			ease: "power1.out",
+	// 			x: '-50%',
+	// 			y: '-50%',
+	// 			left: '50%',
+	// 			top: '50%',
+	// 		})
+	//
+	// 		tl.current.to(bubble, {
+	// 			opacity: 0,
+	// 			duration: 1.5,
+	// 			ease: 'linear',
+	// 			zIndex: 0
+	// 		}, '<')
+	//
+	// 		// tl.current.to(bubble, {
+	// 		// 	opacity: 0,
+	// 		// 	duration: 1,
+	// 		// 	ease: 'linear',
+	// 		// 	delay: 0.1
+	// 		// });
+	//
+	//
+	// 		bubble.addEventListener('pointerdown', e => explo(), {once: true})
+	// 	}
+	//
+	// }, {scope: ref, dependencies: djData})
+
+	const play = async () => {
+
+		if(djData)
+		{
+			const bubble = ref.current.querySelector('.dj-card');
 
 
+			tl.current = gsap.timeline({
+				// id: djData.djid
+				// 	repeat: -1,
+				// 	delay: delay,
+				// 	repeatDelay: rdelay
+				// 	// ,
+				// //	paused: true
+				onComplete: () => setDjData(genDJ(dwr.next().value))
 
-						// .to(djRef.current, {scale: 1.3,
-			            //     // ease: "power2.out",
-			            //      ease: "rough",
-			            //      duration: 1.5,
-			            //      delay: 1.5
-		                //  }, '<2')
+			})
 
-                         // .to(djRef.current, {scale: 4, opacity: 0, x: '-50%', y: '-50%', left: '50%', top: '50%',
-                         //     ease: "power1.out",
-                         //     duration: 1,
-                         // }, '<2.75')
+			// atl.add('#' + djDatas.djidsd)
 
-                         // .set(djRef.current, {
-                         //     opacity: 0,
-                         //     scale: 0,
-                         //     left: '50%',
-                         //     top: '50%',
-                         //     x: '-50%',
-                         //     y: '-50%',
-                         //     rotate: '0deg'
-                         // })
-						 //
-                         // .set('.cardad', {
-                         //     opacity: 1,
-                         //     rotateX: '0deg',
-                         //     rotateY: '0deg'
-                         // })
+			tl.current.fromTo(bubble,
+				{
+					x: '-50%',
+					y: '-50%',
+					left: '50%',
+					top: '50%',
+					opacity: 0,
+					scale: 0,
+					zIndex: 30
+				},
+
+				{
+					left: pos2av[djData.pose][0],
+					top: pos2av[djData.pose][1],
+					x: pos2av[djData.pose][4],
+					y: pos2av[djData.pose][5],
+					opacity: 1,
+					scale: 1,
+					ease: "bounce.inOut",
+					//ease: "elastic.inOut(0.5,0.5)",
+					// ease: "slow(0.3,0.7,false)",
+					// delay: djData.delay,
+					duration: 3,
+				},
+			)
+
+			tl.current.fromTo(bubble.querySelector('.cardad'), {
+					rotateX: 0,
+					rotate: 0
+				}, {
+					rotate: 1080,
+					duration: 6
+				}, '>-3'
+			)
+
+			tl.current.to(bubble.querySelector('.cardad'), {
+				rotateX: 1080,
+				duration: 9
+			}, '<')
+
+			tl.current.to(bubble, {
+				scale: 9,
+				duration: 1.6,
+				ease: "power1.out",
+				x: '-50%',
+				y: '-50%',
+				left: '50%',
+				top: '50%',
+			})
+
+			tl.current.to(bubble, {
+				opacity: 0,
+				duration: 1.5,
+				ease: 'linear',
+				zIndex: 0
+			}, '<')
+
+			// tl.current.to(bubble, {
+			// 	opacity: 0,
+			// 	duration: 1,
+			// 	ease: 'linear',
+			// 	delay: 0.1
+			// });
 
 
-
-						// 	[ptr, {scale: 1.5}, {duration: 0.75, delay: 1.5, ease: 'easeIn' }],
-						//
-						// 	[txt, {opacity: 0, rotateY: '360deg'}, {delay: 2, duration: 1.5,  at: '<'}],
-						//
-						// 	[ptr, {scale: 4, opacity: 0}, {delay: 2.75, duration: 1, ease: 'linear', at: '<'}],
-						// // await (new Promise((ok, err) =>
-						// {
-						// 	tl.current.vars.onComplete(() => ok())
-						// 	//	tl.current.play()
-						// }))
-
-					}
-					else setDjData(   genDJ(ddDjs.next().value, djData ? 1 : 1) )
-
-				}
-
-
+			bubble.addEventListener('pointerdown', e => explo(), {once: true})
+		}
+		else upDjData( genDJ(dwr.next().value) )
+	}
 
 	useEffect(() =>
 	{
@@ -262,45 +344,231 @@ export default function DjDropsGsap({className, djCalss, playing})
 		//  if(!djData)
 		// 	setDjData(   genDJ(ddDjs.next().value, djData ? 1 : 0) )
 
-		aniPlayGSAP()
+		// if(djDatas)
+		// 	aniPlayGSAP()
+		// else
 
-		console.log('su ko', window.gsap = gsap, window.djRef = djRef, window.djData = djData)
+		// if(tl.current)
+		// 	gsap.globalTimeline.remove(tl.current)
 
-	}, [djData, isPlay] );
+		// if(!tl.current)
+		// {
+		//
+		// 	tl.current = gsap.timeline({
+		// 		repeat: -1,
+		// 		delay: 1
+		// 	})
+		// }
+			// updjDatas( djshuffled.map(dj => genDJ(dj)) )
 
-	return (
-			<figure
-				ref={djRef}
-				className={twMerge(`opacity-0 scale-0  dj-card  overflow-hidden absolute font-['Changa']  
-					w-fit min-w-[35%] md:min-w-[30%] h-auto aspect-square z-50 rounded-full font-['Changa'] flex items-center justify-center`, className)}
-			>
+		// if(!djData)
+		// 	upDjData( genDJ(dwr.next().value) )
 
-				{djData &&
-					<>
-						<img alt='bubble' src={djData.bubblePic}
-							// style={{animation: `ohuevator ${randomInt(7, 25)/10}s linear infinite ${['','reverse'][randomInt(0,1)]},
-							//                     e-rotatoid ${randomInt(80, 100)/10}s linear infinite ${['','reverse'][randomInt(0,1)]} ,
-							//                     e-rotatoid-x ${randomInt(20, 40)/10}s ease-in-out infinite ${['alternate','alternate-reverse'][randomInt(0,1)]},
-							//                     e-rotatoid-y ${randomInt(20, 40)/10}s ease-in-out infinite ${['alternate','alternate-reverse'][randomInt(0,1)]} `,
-							//          animationComposition: 'add'
-							// 	}}
-							style={{animation: `e-rotatoid ${randomInt(10, 50)/10}s linear infinite ${['','reverse'][randomInt(0,1)]}`,
-							    // animationComposition: 'add'
-							}}
-							 className='djBubbler abs-full opacity-80 '
-						/>
+		play()
+	    // console.log('su ko',  window.updjDatas = updjDatas)
 
-						<div className={'px-5 md:px-3 py-1 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center'}>
-							<div className={twMerge('text-[21px] sm:text-[23px] md:text-[32px]',djCalss)} style={{textShadow: genShadow(), color: djData.colors[0]}}>{djData.dj[0]}</div>
-							<div className={'mt-2 text-[16px] sm:text-[18px] md:text-[22px] '} style={{textShadow: "none", color: djData.colors[1]}}>{djData.dj[1]}</div>
-						</div>
-					</>
-				}
+	}, [djData] );
 
-			</figure>
+
+	return  (
+		<div ref={ref}>
+
+			{/*<button className={'absolute left-10 top-10 bg-orange-600 text-white p-4'} onClick={ e => djBubble(djDatas) }>*/}
+			{/*	bubble!*/}
+			{/*</button>*/}
+
+		{/*{djDatas && djDatas.map( (djData, i) => */}
+
+			{djData && <DJBubblo
+
+			//onea={ (e,r) => atExplo(e, r) }
+
+			key={djData.djid }
+
+			atl={tl.current}
+			// delay={i * 13 + 1}
+			// rdelay={djs.length * 13 + djs.length}
+
+			djData={djData}
+
+			expoEnd={expoEnd}
+		/>}
+
+		</div>
 	)
 
 }
 
 
+function DJBubblo({djData, atl,  className = '', onea, expoEnd, ...rest})
+{
+	const container = useRef();
+
+	//const tl = useRef()
+
+	//const { contextSafe } = useGSAP({ scope: container });
+
+	// useGSAP( () =>
+	// {
+	//
+	//
+	// 		const bubble = container.current;
+	//
+	// 		tl.current = gsap.timeline({
+	// 			// id: djData.djid
+	// 		// 	repeat: -1,
+	// 		// 	delay: delay,
+	// 		// 	repeatDelay: rdelay
+	// 		// 	// ,
+	// 		// //	paused: true
+	// 		    onComplete:  () => onea ? onea( djData, container.current ) : null
+	// 		})
+	//
+	// 		// atl.add('#' + djDatas.djidsd)
+	//
+	// 		tl.current.fromTo(bubble,
+	// 			{
+	// 				x: '-50%',
+	// 				y: '-50%',
+	// 				left: '50%',
+	// 				top: '50%',
+	// 				opacity: 0,
+	// 				scale: 0,
+	// 				zIndex: 30
+	// 			},
+	//
+	// 			{
+	// 				left: pos2av[djData.pose][0],
+	// 				top: pos2av[djData.pose][1],
+	// 				x: pos2av[djData.pose][4],
+	// 				y: pos2av[djData.pose][5],
+	// 				opacity: 1,
+	// 				scale: 1,
+	// 				ease: "bounce.inOut",
+	// 				//ease: "elastic.inOut(0.5,0.5)",
+	// 				// ease: "slow(0.3,0.7,false)",
+	// 				// delay: djData.delay,
+	// 				duration: 3,
+	// 			},
+	//
+	// 		)
+	//
+	// 		tl.current.fromTo(bubble.querySelector('.cardad'), {
+	// 				rotateX: 0,
+	// 				rotate: 0
+	// 			}, {
+	// 				rotate: 1080,
+	// 				duration: 6
+	// 			}, '>-3'
+	// 		)
+	//
+	// 		tl.current.to(bubble.querySelector('.cardad'), {
+	// 			rotateX: 1080,
+	// 			duration: 9
+	// 		}, '<')
+	//
+	// 		tl.current.to(bubble, {
+	// 			scale: 9,
+	// 			duration: 1.6,
+	// 			ease: "power1.out",
+	// 			x: '-50%',
+	// 			y: '-50%',
+	// 			left: '50%',
+	// 			top: '50%',
+	// 		})
+	//
+	// 		tl.current.to(bubble, {
+	// 			opacity: 0,
+	// 			duration: 1.5,
+	// 			ease: 'linear',
+	// 			zIndex: 0
+	// 		}, '<')
+	//
+	// 		// tl.current.to(bubble, {
+	// 		// 	opacity: 0,
+	// 		// 	duration: 1,
+	// 		// 	ease: 'linear',
+	// 		// 	delay: 0.1
+	// 		// });
+	//
+	// 		atl.add('#' + djData.djid )
+	// 		atl.add( tl.current )
+	//
+	// })
+
+	// const doExplo = async () => {
+	//
+	// 	gsap.to(container.current.querySelector('.cardad'), {opacity: 0, scale: 0, duration: 0.7})
+	//
+	// 	 await gsap.to(container.current, {scale: 2, duration: 0.2 })
+	// 	 ///atl.killTweensOf(container.current)
+	//
+	// 	container.current.querySelector('.explo-pic')._doExplode()
+	// }
+
+	// const expoStart = () => {
+	// 	// atl.killTweensOf(container.current)
+	// 	// gsap.to(container.current.querySelector('.cardad'), {scale: 3, duration: 1 })
+	// 	// gsap.to(container.current.querySelector('.cardad'), {opacity: 0, duration: 1.5})
+	//
+	// }
+
+
+	// const expoEnd = () => {
+	// 	//tl.current.kill();
+	// 	atl.killTweensOf(container.current)
+	// 	container.current.style.zIndex = 0;
+	//
+	// 	atl.remove( '#' + djData.djid);
+	// 	atl.remove( tl.current );
+	//
+	// 	if(onea) onea(djData, container.current)
+	// }
+
+	useEffect(()=>{
+
+	//	animato()
+
+	},[])
+
+	return (<figure
+		ref={container}
+		id={djData.djid}
+		className={twMerge(`opacity-0 scale-0  dj-card  overflow-visible absolute font-['Changa']  
+					w-fit min-w-[35%] md:min-w-[30%] h-auto aspect-square   rounded-full  flex items-center justify-center`, className)}
+
+		  // onPointerDown={ e => doExplo() }
+
+		{...rest}
+	>
+
+
+				<img alt='bubble' src={djData.bubblePic}
+					// style={{animation: `ohuevator ${randomInt(7, 25)/10}s linear infinite ${['','reverse'][randomInt(0,1)]},
+					//                     e-rotatoid ${randomInt(80, 100)/10}s linear infinite ${['','reverse'][randomInt(0,1)]} ,
+					//                     e-rotatoid-x ${randomInt(20, 40)/10}s ease-in-out infinite ${['alternate','alternate-reverse'][randomInt(0,1)]},
+					//                     e-rotatoid-y ${randomInt(20, 40)/10}s ease-in-out infinite ${['alternate','alternate-reverse'][randomInt(0,1)]} `,
+					//          animationComposition: 'add'
+					// 	}}
+					 style={{animation: `e-rotatoid ${randomInt(10, 50)/10}s linear infinite ${['','reverse'][randomInt(0,1)]}`,
+						 // animationComposition: 'add'
+					 }}
+					 className='djBubbler2 abs-full opacity-100 '
+
+				     // onExploStart={e => expoStart()}
+				     // onExploEnd={e => expoEnd()}
+				/>
+
+				<div className={'px-5 md:px-3 py-1 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center'}>
+					{/*textShadow: genShadow(),*/}
+					<div className='text-[21px] sm:text-[23px] md:text-[32px]' style={{ color: djData.colors[0]}}>{djData.dj[0]}</div>
+					<div className={'mt-2 text-[16px] sm:text-[18px] md:text-[22px] '} style={{textShadow: "none", color: djData.colors[1]}}>{djData.dj[1]}</div>
+				</div>
+	</figure>)
+
+}
+
+
 export {genShadow}
+
+
