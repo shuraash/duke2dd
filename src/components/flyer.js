@@ -1,7 +1,7 @@
 "use client"
 ///fff
 import {DDCrest} from "./psyTexts";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {wrapCycle} from "@src/util";
 import {psyShadows} from "./psyColors";
 import DDDisk from "./disk";
@@ -9,6 +9,7 @@ import DDDisk from "./disk";
 import {gsap} from "gsap";
 import Draggable from 'gsap/dist/Draggable'
 import DjDropsGsap from "@src/components/djDrops.gsap";
+import {IconAudio} from "@src/components/psy.icons";
 
 gsap.registerPlugin(Draggable)
 
@@ -18,9 +19,13 @@ export default function DDFLyear({className})
 
 	const
 		flyRef = useRef(),
+		muzRef = useRef(),
 
 		tlRef = useRef(),
 		drRef = useRef(),
+
+		[audioOn, setAduioOn] = useState(),
+
 
 		queryEls = () => {
 			centralD = flyRef.current.querySelector('.central-D')
@@ -119,6 +124,14 @@ export default function DDFLyear({className})
 
 		}
 
+	if(muzRef.current)
+	{
+		if(audioOn)
+			muzRef.current.play()
+		else
+			muzRef.current.pause()
+	}
+
 
 	useEffect(() =>
 	{
@@ -137,8 +150,25 @@ export default function DDFLyear({className})
 
 
 	return (
+<>
 
-		<figure ref={flyRef}  className={'z-30 abs-center w-full md:max-w-screen-md h-auto mx-auto aspect-square opacity-0 scale-[0] p-2 md:p-0 fixed select-none cursor-grab'}>
+
+	<div className={'absolute left-4 top-14 z-[39] w-8 h-8 drop-shadow-lg opacity-50 border border-neutral-300/50 rounded-full'}>
+		<img src={audioOn ? '/speaker-on.png' : '/speaker-off.png'} className={'z-30 p-1.5 abs-full cursor-pointer '}
+		     onClick={e => {
+				 setAduioOn(!audioOn)
+ 			     e.preventDefault()
+			     e.nativeEvent.preventDefault()
+			     e.nativeEvent.stopImmediatePropagation()
+			 }}
+		/>
+	</div>
+
+
+	<audio ref={muzRef} src="https://trancescript.ddns.net/audio/opdakop.mp3" playsInline={true} autoPlay={true}/>
+
+	<figure ref={flyRef}  className={'huemana z-30 abs-center w-full md:max-w-screen-md h-auto mx-auto aspect-square opacity-0 scale-[0] p-2 md:p-0 fixed select-none cursor-grab  '}>
+
 
 			<div className={'relative w-full h-fit '} >
 
@@ -173,5 +203,7 @@ export default function DDFLyear({className})
 
 
 		</figure>
+
+</>
 	)
 }
