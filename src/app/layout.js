@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         <Header/>
 
         <Footer/>
-
+        
         <main className={``}>
 
               <PageWrapper>{children}</PageWrapper>

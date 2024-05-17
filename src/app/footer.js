@@ -27,13 +27,26 @@ export default function Footer()
 
 	}, [path])
 
-	return <footer ref={ref} className={'z-[-1] fixed w-full h-fit left-0 -bottom-32 py-5 opacity-0 flex items-center justify-center text-center'} style={{textShadow: `#dedede 0px 0px 8px, #eeeeeeee 0px 0px 20px, 0px 0px 1px #00000054`}}>
+	return <>
 
-		<Link href={path == '/' ? '/details' : '/'} className={'inset-0 uppercase text-xl tracking-wide'}>
-			<PsycoTexto>
-				<PsycoTitlo className={'gap-x-2'} text={path == '/' ? 'Details' : 'back to flyer'}/>
-			</PsycoTexto>
-		</Link>
+		<footer ref={ref} className={'z-10 fixed w-full h-fit left-0 -bottom-32 py-5 opacity-0 flex items-center justify-center text-center'} style={{textShadow: `#dedede 0px 0px 8px, #eeeeeeee 0px 0px 20px, 0px 0px 1px #00000054`}}>
 
-	</footer>
+			<Link href={path == '/' ? '/details' : '/'} className={'inset-0 uppercase text-xl tracking-wide'}>
+				<PsycoTexto>
+					<PsycoTitlo className={'gap-x-2'} text={path == '/' ? 'Details' : 'back to flyer'}/>
+				</PsycoTexto>
+			</Link>
+
+		</footer>
+
+
+		<audio
+			className={'fixed left-8 bottom-8 z-[9991] mix-blend-difference'}
+			controls
+			// ref={muzRef}
+			src="https://trancescript.ddns.net/audio/opdakop.mp3"
+			playsInline={true} autoPlay={true}
+		/>
+
+	</>
 }

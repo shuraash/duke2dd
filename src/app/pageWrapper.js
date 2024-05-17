@@ -34,11 +34,11 @@ export default function PageWrapper ({ children }){
 
                             ease: "easeIn",
 
-                            opacity: {duration: 2, delay: 1 },
-                            rotateY: {duration: 2, delay: 1.5  },
-                            scale: {duration: 2, delay: 1.5 },
+                            opacity: {duration: 1, delay: 0.5 },
+                            rotateY: {duration: 1, delay: 0.5  },
+                            scale: {duration: 1, delay: 0.5 },
 
-                            border: {duration: 0.1, delay: 1.9}
+                            border: {duration: 0.1, delay: 1.4}
                         }
                     }}
 
@@ -48,9 +48,9 @@ export default function PageWrapper ({ children }){
 
                             ease: "easeOut",
 
-                            scale:   {duration: 2, delay: 0},
-                            rotateY: {duration: 2, delay: 0},
-                            opacity: {duration: 2, delay: 0 },
+                            scale:   {duration: 1, delay: 0},
+                            rotateY: {duration: 1, delay: 0},
+                            opacity: {duration: 1, delay: 0 },
 
                             border: {duration: 0.1, delay: 0}
 

@@ -19,7 +19,7 @@ export default function DDFLyear({className})
 
 	const
 		flyRef = useRef(),
-		muzRef = useRef(),
+
 
 		tlRef = useRef(),
 		drRef = useRef(),
@@ -124,14 +124,6 @@ export default function DDFLyear({className})
 
 		}
 
-	if(muzRef.current)
-	{
-		if(audioOn)
-			muzRef.current.play()
-		else
-			muzRef.current.pause()
-	}
-
 
 	useEffect(() =>
 	{
@@ -207,12 +199,12 @@ export default function DDFLyear({className})
 
 
 
-	<audio
-		className={'fixed left-8 bottom-8 z-[9991] mix-blend-difference'}
-		controls ref={muzRef}
-		src="https://trancescript.ddns.net/audio/opdakop.mp3"
-		playsInline={true} autoPlay={true}
-	/>
+	{/*<audio*/}
+	{/*	className={'fixed left-8 bottom-8 z-[9991] mix-blend-difference'}*/}
+	{/*	controls ref={muzRef}*/}
+	{/*	src="https://trancescript.ddns.net/audio/opdakop.mp3"*/}
+	{/*	playsInline={true} autoPlay={true}*/}
+	{/*/>*/}
 
 </>
 	)
