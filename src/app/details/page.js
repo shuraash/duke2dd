@@ -12,7 +12,17 @@ export default function About() {
 
 			<div className={'text-2xl'}>Free party</div>
 
-			<div className={'text-xl'}>Place: GOOGLE MAPS</div>
+			<br/>
+			<br/>
+
+			<div className={'text-xl'}>
+				<a href={'https://maps.app.goo.gl/fiCzbZd4iYYzwX5h6'} target={'_blank'} >
+					Place: GOOGLE MAPS LINK
+				</a>
+			</div>
+
+			<br/>
+			<br/>
 
 			<p className={'text-xl'}>No any sales. Drinks and food bring with you.</p>
 
