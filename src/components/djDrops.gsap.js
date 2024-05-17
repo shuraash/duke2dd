@@ -138,7 +138,7 @@ export default function DjDropsGsap({className, djCalss, playing})
 
 		tl.current.clear()
 
-		tl.current.to(bubble.querySelector('.cardad'), {opacity: 0, scale: 0,duration: 1})
+		tl.current.to(bubble.querySelector('.cardad'), {opacity: 0, scale: 0,duration: 0.8})
 		tl.current.to(bubble, {opacity: 0, scale: 5, duration: 1}, '<')
 
 		await tl.current;
@@ -319,7 +319,7 @@ export default function DjDropsGsap({className, djCalss, playing})
 
 			tl.current.to(bubble, {
 				opacity: 0,
-				duration: 1.5,
+				duration: 1.2,
 				ease: 'linear',
 				zIndex: 0
 			}, '<')

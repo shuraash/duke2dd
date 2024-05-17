@@ -3,6 +3,6 @@ import PsyBG from "@src/components/psyBG";
 
 export default function Home() {
 
-	return <> <PsyBG className={'abs-full fixed'}/> <DDFLyear/> </>
+	return <> <PsyBG className={'abs-full fixed'}/> <DDFLyear className={'z-20'}/> </>
 
 }

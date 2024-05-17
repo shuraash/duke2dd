@@ -153,19 +153,17 @@ export default function DDFLyear({className})
 <>
 
 
-	<div className={'absolute left-4 top-14 z-[39] w-8 h-8 drop-shadow-lg opacity-50 border border-neutral-300/50 rounded-full'}>
-		<img src={audioOn ? '/speaker-on.png' : '/speaker-off.png'} className={'z-30 p-1.5 abs-full cursor-pointer '}
-		     onClick={e => {
-				 setAduioOn(!audioOn)
- 			     e.preventDefault()
-			     e.nativeEvent.preventDefault()
-			     e.nativeEvent.stopImmediatePropagation()
-			 }}
-		/>
-	</div>
+	{/*<div className={'absolute left-4 top-14 z-[39] w-8 h-8 drop-shadow-lg opacity-50 border border-neutral-300/50 rounded-full'}>*/}
+	{/*	<img src={audioOn ? '/speaker-on.png' : '/speaker-off.png'} className={'z-30 p-1.5 abs-full cursor-pointer '}*/}
+	{/*	     onClick={e => {*/}
+	{/*			 setAduioOn(!audioOn)*/}
+ 	{/*		     e.preventDefault()*/}
+	{/*		     e.nativeEvent.preventDefault()*/}
+	{/*		     e.nativeEvent.stopImmediatePropagation()*/}
+	{/*		 }}*/}
+	{/*	/>*/}
+	{/*</div>*/}
 
-
-	<audio ref={muzRef} src="https://trancescript.ddns.net/audio/opdakop.mp3" playsInline={true} autoPlay={true}/>
 
 	<figure ref={flyRef}  className={'huemana z-30 abs-center w-full md:max-w-screen-md h-auto mx-auto aspect-square opacity-0 scale-[0] p-2 md:p-0 fixed select-none cursor-grab  '}>
 
@@ -202,7 +200,19 @@ export default function DDFLyear({className})
 
 
 
-		</figure>
+	</figure>
+
+
+
+
+
+
+	<audio
+		className={'fixed left-8 bottom-8 z-[9991] mix-blend-difference'}
+		controls ref={muzRef}
+		src="https://trancescript.ddns.net/audio/opdakop.mp3"
+		playsInline={true} autoPlay={true}
+	/>
 
 </>
 	)

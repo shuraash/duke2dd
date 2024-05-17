@@ -36,10 +36,13 @@ export default function Header()
 
 	}, [])
 
-	return <header  style={{textShadow: `#dedede 0px 0px 8px, #eeeeeeee 0px 0px 20px, 0px 0px 1px #00000054`}} ref={ref} className={'z-20 fixed w-full h-fit left-0 -top-32 translate-y-[-125%] pt-2 pb-3 opacity-0 flex items-center justify-center text-center'}>
+	return <header  style={{textShadow: `#dedede 0px 0px 8px, #eeeeeeee 0px 0px 20px, 0px 0px 1px #00000054`}}
+	                ref={ref}
+	                className={'z-[1] fixed w-full h-fit left-0 -top-32 translate-y-[-125%] pt-2 pb-3 opacity-0 flex items-center justify-center text-center'}
+			>
 
 
-		<Link href={path == '/' ? '/details' : '/'} className={'w-full h-full inset-0   '}>
+		<Link href={path == '/' ? '/details' : '/'} className={''}>
 
 			<div className={'w-fit h-fit mx-auto'}>
 
