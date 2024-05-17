@@ -100,37 +100,12 @@ export default function DjDropsGsap({className, djCalss, playing})
 			console.log(`set dj ${d.djid}`)
 			setDjData(d)
 		},
-	//	djBubble = (ddd) => updjDatas( [...ddd, genDJ(dwr.next().value)] );
+
 
 		 ref = useRef(),
 		 tl = useRef(),
 
-	// const atExplo = (d, r) => {
-	//
-	// 	console.log(`atExplo ${d.djid}  aka ${djDatas.findIndex(x => x.djid = d.djid)}`,  window.djDatas = djDatas);
-	//
-	// 	if(djDatas.length > 1)
-	// 	{
-	// 		let
-	// 			ni = djDatas.findIndex(x => x.djid = d.djid),
-	// 			nd = gsap.utils.wrap(djDatas, ni + 1)
-	// 		tl.current.seek('#' + nd.djid)
-	// 	}
-	//
-	// 	let pizda = djDatas.filter(e => e.djid != d.djid)
-	//
-    //     djBubble(pizda)
-	//
-	// 	//setTimeout( () => updjDatas([...suka.current, d]), 2)
-	//
-	// 	//
-	// 	// let ndd = [...djDatas.filter( x => x.djid != d.djid ), genDJ(d.dj)]
-	// 	//
-	// 	// console.log(`bylo ${djDatas.length} - ${djDatas.map( (e,i) => i + ': ' + e.djid).join('\n,')}  \nstalo: ${ndd.length} - ${ndd.map( (e,i) => i + ': ' + e.djid).join('\n,')}`)
-	// 	//
-	// 	// updjDatas( ndd  )
-	// }
-	//
+
 
 	explo = async () => {
 
@@ -157,95 +132,6 @@ export default function DjDropsGsap({className, djCalss, playing})
 		setDjData(genDJ(dwr.next().value))
 	}
 
-	// useGSAP( () =>
-	// {
-	// 	if(djData)
-	// 	{
-	// 		const bubble = ref.current.querySelector('.dj-card');
-	//
-	//
-	// 		tl.current = gsap.timeline({
-	// 			// id: djData.djid
-	// 			// 	repeat: -1,
-	// 			// 	delay: delay,
-	// 			// 	repeatDelay: rdelay
-	// 			// 	// ,
-	// 			// //	paused: true
-	// 			onComplete: () => setDjData(genDJ(dwr.next().value))
-	//
-	// 		})
-	//
-	// 		// atl.add('#' + djDatas.djidsd)
-	//
-	// 		tl.current.fromTo(bubble,
-	// 			{
-	// 				x: '-50%',
-	// 				y: '-50%',
-	// 				left: '50%',
-	// 				top: '50%',
-	// 				opacity: 0,
-	// 				scale: 0,
-	// 				zIndex: 30
-	// 			},
-	//
-	// 			{
-	// 				left: pos2av[djData.pose][0],
-	// 				top: pos2av[djData.pose][1],
-	// 				x: pos2av[djData.pose][4],
-	// 				y: pos2av[djData.pose][5],
-	// 				opacity: 1,
-	// 				scale: 1,
-	// 				ease: "bounce.inOut",
-	// 				//ease: "elastic.inOut(0.5,0.5)",
-	// 				// ease: "slow(0.3,0.7,false)",
-	// 				// delay: djData.delay,
-	// 				duration: 3,
-	// 			},
-	// 		)
-	//
-	// 		tl.current.fromTo(bubble.querySelector('.cardad'), {
-	// 				rotateX: 0,
-	// 				rotate: 0
-	// 			}, {
-	// 				rotate: 1080,
-	// 				duration: 6
-	// 			}, '>-3'
-	// 		)
-	//
-	// 		tl.current.to(bubble.querySelector('.cardad'), {
-	// 			rotateX: 1080,
-	// 			duration: 9
-	// 		}, '<')
-	//
-	// 		tl.current.to(bubble, {
-	// 			scale: 9,
-	// 			duration: 1.6,
-	// 			ease: "power1.out",
-	// 			x: '-50%',
-	// 			y: '-50%',
-	// 			left: '50%',
-	// 			top: '50%',
-	// 		})
-	//
-	// 		tl.current.to(bubble, {
-	// 			opacity: 0,
-	// 			duration: 1.5,
-	// 			ease: 'linear',
-	// 			zIndex: 0
-	// 		}, '<')
-	//
-	// 		// tl.current.to(bubble, {
-	// 		// 	opacity: 0,
-	// 		// 	duration: 1,
-	// 		// 	ease: 'linear',
-	// 		// 	delay: 0.1
-	// 		// });
-	//
-	//
-	// 		bubble.addEventListener('pointerdown', e => explo(), {once: true})
-	// 	}
-	//
-	// }, {scope: ref, dependencies: djData})
 
 	const play = async () => {
 
@@ -317,9 +203,14 @@ export default function DjDropsGsap({className, djCalss, playing})
 				top: '50%',
 			})
 
+			tl.current.to(bubble.querySelector('.cardad'), {
+				opacity: 0,
+				duration: 1.5
+			}, '<')
+
 			tl.current.to(bubble, {
 				opacity: 0,
-				duration: 1.2,
+				duration: 1,
 				ease: 'linear',
 				zIndex: 0
 			}, '<')
@@ -339,33 +230,7 @@ export default function DjDropsGsap({className, djCalss, playing})
 
 	useEffect(() =>
 	{
-		// aniPlay()
-		//alert('eff : ' + (djData ? 'YES' : ' fuka initaka '))
-		//  if(!djData)
-		// 	setDjData(   genDJ(ddDjs.next().value, djData ? 1 : 0) )
-
-		// if(djDatas)
-		// 	aniPlayGSAP()
-		// else
-
-		// if(tl.current)
-		// 	gsap.globalTimeline.remove(tl.current)
-
-		// if(!tl.current)
-		// {
-		//
-		// 	tl.current = gsap.timeline({
-		// 		repeat: -1,
-		// 		delay: 1
-		// 	})
-		// }
-			// updjDatas( djshuffled.map(dj => genDJ(dj)) )
-
-		// if(!djData)
-		// 	upDjData( genDJ(dwr.next().value) )
-
 		play()
-	    // console.log('su ko',  window.updjDatas = updjDatas)
 
 	}, [djData] );
 
@@ -373,26 +238,15 @@ export default function DjDropsGsap({className, djCalss, playing})
 	return  (
 		<div ref={ref}>
 
-			{/*<button className={'absolute left-10 top-10 bg-orange-600 text-white p-4'} onClick={ e => djBubble(djDatas) }>*/}
-			{/*	bubble!*/}
-			{/*</button>*/}
-
-		{/*{djDatas && djDatas.map( (djData, i) => */}
-
 			{djData && <DJBubblo
-
-			//onea={ (e,r) => atExplo(e, r) }
-
-			key={djData.djid }
-
-			atl={tl.current}
-			// delay={i * 13 + 1}
-			// rdelay={djs.length * 13 + djs.length}
-
-			djData={djData}
-
-			expoEnd={expoEnd}
-		/>}
+							key={djData.djid }
+							atl={tl.current}
+							// delay={i * 13 + 1}
+							// rdelay={djs.length * 13 + djs.length}
+							djData={djData}
+							expoEnd={expoEnd}
+						/>
+			}
 
 		</div>
 	)
@@ -400,139 +254,10 @@ export default function DjDropsGsap({className, djCalss, playing})
 }
 
 
-function DJBubblo({djData, atl,  className = '', onea, expoEnd, ...rest})
-{
-	const container = useRef();
+const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 
-	//const tl = useRef()
-
-	//const { contextSafe } = useGSAP({ scope: container });
-
-	// useGSAP( () =>
-	// {
-	//
-	//
-	// 		const bubble = container.current;
-	//
-	// 		tl.current = gsap.timeline({
-	// 			// id: djData.djid
-	// 		// 	repeat: -1,
-	// 		// 	delay: delay,
-	// 		// 	repeatDelay: rdelay
-	// 		// 	// ,
-	// 		// //	paused: true
-	// 		    onComplete:  () => onea ? onea( djData, container.current ) : null
-	// 		})
-	//
-	// 		// atl.add('#' + djDatas.djidsd)
-	//
-	// 		tl.current.fromTo(bubble,
-	// 			{
-	// 				x: '-50%',
-	// 				y: '-50%',
-	// 				left: '50%',
-	// 				top: '50%',
-	// 				opacity: 0,
-	// 				scale: 0,
-	// 				zIndex: 30
-	// 			},
-	//
-	// 			{
-	// 				left: pos2av[djData.pose][0],
-	// 				top: pos2av[djData.pose][1],
-	// 				x: pos2av[djData.pose][4],
-	// 				y: pos2av[djData.pose][5],
-	// 				opacity: 1,
-	// 				scale: 1,
-	// 				ease: "bounce.inOut",
-	// 				//ease: "elastic.inOut(0.5,0.5)",
-	// 				// ease: "slow(0.3,0.7,false)",
-	// 				// delay: djData.delay,
-	// 				duration: 3,
-	// 			},
-	//
-	// 		)
-	//
-	// 		tl.current.fromTo(bubble.querySelector('.cardad'), {
-	// 				rotateX: 0,
-	// 				rotate: 0
-	// 			}, {
-	// 				rotate: 1080,
-	// 				duration: 6
-	// 			}, '>-3'
-	// 		)
-	//
-	// 		tl.current.to(bubble.querySelector('.cardad'), {
-	// 			rotateX: 1080,
-	// 			duration: 9
-	// 		}, '<')
-	//
-	// 		tl.current.to(bubble, {
-	// 			scale: 9,
-	// 			duration: 1.6,
-	// 			ease: "power1.out",
-	// 			x: '-50%',
-	// 			y: '-50%',
-	// 			left: '50%',
-	// 			top: '50%',
-	// 		})
-	//
-	// 		tl.current.to(bubble, {
-	// 			opacity: 0,
-	// 			duration: 1.5,
-	// 			ease: 'linear',
-	// 			zIndex: 0
-	// 		}, '<')
-	//
-	// 		// tl.current.to(bubble, {
-	// 		// 	opacity: 0,
-	// 		// 	duration: 1,
-	// 		// 	ease: 'linear',
-	// 		// 	delay: 0.1
-	// 		// });
-	//
-	// 		atl.add('#' + djData.djid )
-	// 		atl.add( tl.current )
-	//
-	// })
-
-	// const doExplo = async () => {
-	//
-	// 	gsap.to(container.current.querySelector('.cardad'), {opacity: 0, scale: 0, duration: 0.7})
-	//
-	// 	 await gsap.to(container.current, {scale: 2, duration: 0.2 })
-	// 	 ///atl.killTweensOf(container.current)
-	//
-	// 	container.current.querySelector('.explo-pic')._doExplode()
-	// }
-
-	// const expoStart = () => {
-	// 	// atl.killTweensOf(container.current)
-	// 	// gsap.to(container.current.querySelector('.cardad'), {scale: 3, duration: 1 })
-	// 	// gsap.to(container.current.querySelector('.cardad'), {opacity: 0, duration: 1.5})
-	//
-	// }
-
-
-	// const expoEnd = () => {
-	// 	//tl.current.kill();
-	// 	atl.killTweensOf(container.current)
-	// 	container.current.style.zIndex = 0;
-	//
-	// 	atl.remove( '#' + djData.djid);
-	// 	atl.remove( tl.current );
-	//
-	// 	if(onea) onea(djData, container.current)
-	// }
-
-	useEffect(()=>{
-
-	//	animato()
-
-	},[])
-
-	return (<figure
-		ref={container}
+	<figure
+		// ref={container}
 		id={djData.djid}
 		className={twMerge(`opacity-0 scale-0  dj-card  overflow-visible absolute font-['Changa']  
 					w-fit min-w-[35%] md:min-w-[30%] h-auto aspect-square   rounded-full  flex items-center justify-center`, className)}
@@ -541,8 +266,6 @@ function DJBubblo({djData, atl,  className = '', onea, expoEnd, ...rest})
 
 		{...rest}
 	>
-
-
 				<img alt='bubble' src={djData.bubblePic}
 					// style={{animation: `ohuevator ${randomInt(7, 25)/10}s linear infinite ${['','reverse'][randomInt(0,1)]},
 					//                     e-rotatoid ${randomInt(80, 100)/10}s linear infinite ${['','reverse'][randomInt(0,1)]} ,
@@ -564,9 +287,9 @@ function DJBubblo({djData, atl,  className = '', onea, expoEnd, ...rest})
 					<div className='text-[21px] sm:text-[23px] md:text-[32px]' style={{ color: djData.colors[0]}}>{djData.dj[0]}</div>
 					<div className={'mt-2 text-[16px] sm:text-[18px] md:text-[22px] '} style={{textShadow: "none", color: djData.colors[1]}}>{djData.dj[1]}</div>
 				</div>
-	</figure>)
+	</figure>
 
-}
+
 
 
 export {genShadow}
