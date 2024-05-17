@@ -1,8 +1,117 @@
 import {useEffect, useRef, useState} from "react";
 import {twMerge} from "tailwind-merge";
 
-const cache = new Map();
+const
 
+	cache = new Map(),
+
+
+	makeMosaic = (imgSrc, w,h, pcnt = 10) => new Promise( (ok) =>
+	{
+
+				if(cache.has(imgSrc))
+					 return ok ( cache.get(imgSrc).cloneNode(true) )
+
+				const
+					img = document.createElement('img'),
+
+					cpImage = () => {
+
+							const
+								df = document.createDocumentFragment(),
+
+								// dw = ref.current.offsetWidth / pcnt,
+								// dh = ref.current.offsetHeight / pcnt,
+								dw = w ? w / pcnt : img.width / pcnt,
+								dh = h ? h / pcnt: img.height / pcnt,
+								sw = img.width / pcnt,
+								sh = img.height / pcnt
+
+							for (let x = 0; x < pcnt; x++)
+								for (let y = 0; y < pcnt; y++)
+								{
+									const c = document.createElement('canvas')
+
+									// c.style.position = 'absolute';
+									// c.style.zIndex = 999;
+									//
+									// c.style.width = dw + 'px';
+									// c.style.height = dh + 'px';
+									// c.style.left = (x * dw) + 'px';
+									// c.style.top = (y * dh) + 'px';
+
+									// c.style.width = 100/pcnt + '%';
+									// c.style.height = 100/pcnt + '%';
+									// c.style.left = (x * (100/pcnt)) + '%';
+									// c.style.top = (y * (100/pcnt)) + '%';
+
+								//	c.style.transition = 'all 1.6s ease-out'
+
+									c.width = dw
+									c.height = dh
+								//	c.style.outline = '1px solid yellow';
+
+									//ref.current.appendChild(c)
+
+									c.getContext("2d").drawImage(img, x * sw, y * sh, sw, sh, 0, 0, dw, dh)
+
+									const 
+										i = new Image()
+									i.style.position = 'absolute';
+									i.style.zIndex = 999;
+									// i.style.width = dw + 'px';
+									// i.style.height = dh + 'px';
+									// i.style.left = (x * dw) + 'px';
+									// i.style.top = (y * dh) + 'px';
+									// i.style.outline = '1px solid yellow';
+
+									i.style.width = 100/pcnt + '%';
+									i.style.height = 100/pcnt + '%';
+									i.style.left = (x * (100/pcnt)) + '%';
+									i.style.top = (y * (100/pcnt)) + '%';
+
+									i.src = c.toDataURL()
+									
+									df.appendChild(i)
+								}
+
+							cache.set(imgSrc, df)
+
+						// const ret = document.createDocumentFragment();
+						//
+						// [...df.children].forEach(c => ret.appendChild( c.cloneNode() ))
+
+						 ok( df.cloneNode(true)  )
+
+						//return  makeMosaic(imgSrc, w, h, pcnt)
+					}
+
+				img.onload = e => cpImage(img)
+				img.style.position = 'absolute'
+				img.src = imgSrc
+
+	}),
+
+	explode = (df) => [...df.children].forEach( p =>
+	{
+		//const pcnt = Math.sqrt( df.children.length )
+
+	})
+
+//
+// async function loadBubbles()
+// {
+// 	const bubblerPics = Array.from({length: 9}, (_, i) => `/bubbles/00${i+1}.png`)
+//
+// 	for( const b of bubblerPics)
+// 		await makeMosaic(b, 64, 64)
+//
+// 	window._bubok = true
+//
+// 	window.dispatchEvent(new Event("bb-build"))
+// }
+//
+// loadBubbles()
 
 const DJBubble = ({src, className, pcnt = 10, defIsExplo, onExploStart, onExploEnd }) => {
 
@@ -104,7 +213,7 @@ const DJBubble = ({src, className, pcnt = 10, defIsExplo, onExploStart, onExploE
 
 						c.getContext("2d").drawImage(img, x * sw, y * sh, sw, sh, 0, 0, dw, dh)
 
-						calcExploSt(c)
+						//calcExploSt(c)
 						///console.log('img', x*sw, y*sh, sw, sh, 0, 0, dw, dh);
 						refDf.current.push(c);
 
@@ -139,24 +248,44 @@ const DJBubble = ({src, className, pcnt = 10, defIsExplo, onExploStart, onExploE
 				d.addEventListener('transitionend', () => fc = fc > 1 ? fc - 1 : (onExploEnd ? onExploEnd(ref.current) : 0), {once: true})
 				Object.assign(d.style, {transition: 'all 1.6s ease-out', ... calcExploSt(d)[true]})
 			})
+		},
+
+		inito = async () =>
+		{
+			// const img = document.createElement('img')
+			// img.onload = e => cpImg(img)
+			// img.style.position = 'absolute'
+			// img.src = src
+
+			refDf.current = await makeMosaic(src, ref.current.offsetWidth, ref.current.offsetHeight);
+
+			console.log('cur ', window.cur = [...refDf.current.children])
+
+			ref.current.appendChild(refDf.current)
 		}
+
+
 
 	useEffect( () =>
 	{
 		if(refDf.current)
 		{
 
-			if (isExplo)
-				explode()
-			else
-				refDf.current.forEach(d => Object.assign(d.style, {transition: '',... calcExploSt(d)[false]}))
+			// if (isExplo)
+			// 	explode()
+			// else
+			// 	refDf.current.forEach(d => Object.assign(d.style, {transition: '',... calcExploSt(d)[false]}))
 		}
 		else
 		{
-			const img = document.createElement('img')
-			img.onload = e => cpImg(img)
-			img.style.position = 'absolute'
-			img.src = src
+			// const img = document.createElement('img')
+			// img.onload = e => cpImg(img)
+			// img.style.position = 'absolute'
+			// img.src = src
+			if(window._bubok)
+				inito()
+			else
+				window.addEventListener('bb-build', () => inito() )
 		}
 
 		ref.current._doExplode = () => setIsExplo(true);

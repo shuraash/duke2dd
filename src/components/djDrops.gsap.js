@@ -8,8 +8,7 @@ import {twMerge} from "tailwind-merge";
 
 import gsap from 'gsap';
 import {Flip} from "gsap/Flip";
-import { useGSAP } from '@gsap/react';
-import DJBubble from "@src/components/djBubble";
+import {useGSAP} from '@gsap/react';
 
 gsap.registerPlugin(useGSAP, Flip);
 
