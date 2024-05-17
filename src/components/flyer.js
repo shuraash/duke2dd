@@ -55,7 +55,7 @@ export default function DDFLyear({className})
 		{
 			while (true)
 			{
-				gsap.set(psyCrest, {textShadow: genShadow()})
+				//gsap.set(psyCrest, {textShadow: genShadow()})
 
 				const tl = (tlRef.current = gsap.timeline({delay: 3, repeat: 1, yoyo: true}))
 
