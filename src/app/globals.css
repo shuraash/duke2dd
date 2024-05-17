@@ -882,7 +882,8 @@ main{
 /*}*/
 
 .details-bg {
-  background: url(/bg_01a.png) no-repeat;
+  /*background: url(/bg_01a.png) no-repeat;*/
+  background: url(/img_0974.jpg) no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

@@ -41,7 +41,7 @@ export default function Footer()
 
 
 		<audio
-			className={'fixed left-8 bottom-8 z-[9991] mix-blend-difference'}
+			className={'fixed left-8 bottom-8 z-[9991] mix-blend-exclusion'}
 			controls
 			// ref={muzRef}
 			src="https://trancescript.ddns.net/audio/opdakop.mp3"
