@@ -16,7 +16,7 @@ export default function About() {
 			<div className={'text-xl'}>
 				<a href={'https://maps.app.goo.gl/fiCzbZd4iYYzwX5h6'} target={'_blank'} >
 					<div className={'w-fit mx-auto text-sm uppercase'}>Place</div>
-					<img src={'/gmapsc.png'} className={'w-[180px] p-1 border rounded-xl h-auto mx-auto'}/>
+					<img src={'/gmapsc.png'} alt="gmap link" className={'w-[180px] p-1 border rounded-xl h-auto mx-auto'}/>
 				</a>
 			</div>
 
