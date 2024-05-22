@@ -8,17 +8,15 @@ export default function About() {
 
 		<div className={'fixed w-full h-full inset-0 details-bg z-[-1]'}/>
 
-		<div className={'mt-[100px] w-full max-w-screen-sm mx-auto px-4 sm:px-0 py-10 rounded-xl border bg-neutral-600/50 text-center'}>
+		<div className={'mt-[100px] w-full max-w-screen-sm mx-auto px-4 sm:px-0 py-5 rounded-xl border bg-neutral-600/50 text-center'}>
 
-			<div className={'text-2xl'}>Free party</div>
-			<div className={'text-2xl'}>FULL TRUE LOVE AND HAPPINESS!</div>
-
-			<br/>
-			<br/>
+			<div className={'text-xl'}>Free party</div>
+			<div className={'text-xl text-rose-400'}>FULL TRUE LOVE AND HAPPINESS!</div>
 
 			<div className={'text-xl'}>
 				<a href={'https://maps.app.goo.gl/fiCzbZd4iYYzwX5h6'} target={'_blank'} >
-					Place: GOOGLE MAPS LINK
+					<div className={'w-fit mx-auto text-sm uppercase'}>Place</div>
+					<img src={'/gmapsc.png'} className={'w-[180px] p-1 border rounded-xl h-auto mx-auto'}/>
 				</a>
 			</div>
 
@@ -29,7 +27,7 @@ export default function About() {
 <div>
 			WE DO NOT ALLOW:
 
-			<ul>
+			<ul className={"text-left pl-12 w-fit mx-auto text-sm"}>
 				<li>BAD VIBES</li>
 				<li>BAD ATTITUDES</li>
 				<li>DRUGS</li>
