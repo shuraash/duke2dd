@@ -27,7 +27,7 @@ export default function TESTPG() {
 					<DDDisk className={'  '}/>
 
 
-					<DJBubble className={'absolute left-80 top-80 w-28 h-28'} src={'/bubbles/003.png'}
+					<DJBubble className={'bubba absolute left-80 top-80 w-28 h-28'} src={'/bubbles/003.png'}
 
 					          onExploStart={e => console.log('Explo start ', window.e1=Date.now())}
 					          onExploEnd={e => console.log('Explo end ' , window.e2=Date.now(), e2 - e1)}

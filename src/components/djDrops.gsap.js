@@ -15,12 +15,12 @@ gsap.registerPlugin(useGSAP, Flip);
 const
 
 	djs = [
-		['Shiva ASH', 'LU'],
-		['Psykorax', 'LU'],
-		['Minispicer', 'BE'],
-		['MLove', 'BE'],
-		['Anormic', 'LU'],
-		['GriSha', 'UK'],
+		['Shiva ASH', 'Esch-sur-Alzette.LU'],
+		['Input Malfunction', 'Antwerp.BE'],
+		['Mini~Spacer', 'Namur.BE'],
+		['M^Love', 'Leuven.BE'],
+		['Anormic', 'Mertzig.LU'],
+		['GriSha', 'London.UK'],
 		// ['Random DJ 1', 'LU'],
 		// ['Random DJ 2', 'DE'],
 		// ['Random DJ 3', 'LU'],
@@ -74,7 +74,7 @@ const
 		djid: dj[0].replaceAll('_','-') + dj[1],
 		dj: dj,
 		// delay: delay,
-		colors: [ddDJColor.next().value, ddDJColor.next().value],
+		colors: [ddDJColor.next().value, ddDJColor.next().value, ddDJColor.next().value],
 		bubblePic: bubblePic.next().value,
 		bubbleHue: bublerHues.next().value,
 		pose: djPose.next().value
@@ -284,7 +284,12 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 				<div className={'px-5 md:px-3 py-1 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center'}>
 					{/*textShadow: genShadow(),*/}
 					<div className='text-[21px] sm:text-[23px] md:text-[32px]' style={{ color: djData.colors[0]}}>{djData.dj[0]}</div>
-					<div className={'mt-2 text-[16px] sm:text-[18px] md:text-[22px] '} style={{textShadow: "none", color: djData.colors[1]}}>{djData.dj[1]}</div>
+					<div className={'mt-2 text-[16px] sm:text-[18px] md:text-[22px] '} style={{textShadow: "none"}}>
+
+						<div className={'whitespace-nowrap'} style={{color: djData.colors[1]}}>{djData.dj[1].split('.')[0]}</div>
+						<div className={'ml-1 sm:text-[16px] md:text-[19px] scale-x-110 scale-y-90'} style={{color: djData.colors[2]}}>{djData.dj[1].split('.')[1]}</div>
+
+					</div>
 				</div>
 	</figure>
 

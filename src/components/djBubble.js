@@ -6,89 +6,74 @@ const
 	cache = new Map(),
 
 
-	makeMosaic = (imgSrc, w,h, pcnt = 10) => new Promise( (ok) =>
+	makeMosaic = (imgSrc, pcnt = 10) => new Promise( (ok) =>
 	{
 
-				if(cache.has(imgSrc))
-					 return ok ( cache.get(imgSrc).cloneNode(true) )
+		if(cache.has(imgSrc))
+		{
+			alert('huy')
+			return ok ( cache.get(imgSrc).cloneNode(true) )
+		}
 
-				const
-					img = document.createElement('img'),
+		const
+			img = document.createElement('img'),
 
-					cpImage = () => {
+			cpImage = async () =>
+			{
 
 							const
+								w = img.width,
+								h = img.height,
 								df = document.createDocumentFragment(),
-
-								// dw = ref.current.offsetWidth / pcnt,
-								// dh = ref.current.offsetHeight / pcnt,
 								dw = w ? w / pcnt : img.width / pcnt,
 								dh = h ? h / pcnt: img.height / pcnt,
 								sw = img.width / pcnt,
 								sh = img.height / pcnt
 
-							for (let x = 0; x < pcnt; x++)
-								for (let y = 0; y < pcnt; y++)
-								{
+							let x, y;
+
+							const
+
+								akaPro = async () => {
 									const c = document.createElement('canvas')
-
-									// c.style.position = 'absolute';
-									// c.style.zIndex = 999;
-									//
-									// c.style.width = dw + 'px';
-									// c.style.height = dh + 'px';
-									// c.style.left = (x * dw) + 'px';
-									// c.style.top = (y * dh) + 'px';
-
-									// c.style.width = 100/pcnt + '%';
-									// c.style.height = 100/pcnt + '%';
-									// c.style.left = (x * (100/pcnt)) + '%';
-									// c.style.top = (y * (100/pcnt)) + '%';
-
-								//	c.style.transition = 'all 1.6s ease-out'
-
-									c.width = dw
+ 									c.width = dw
 									c.height = dh
-								//	c.style.outline = '1px solid yellow';
-
-									//ref.current.appendChild(c)
-
 									c.getContext("2d").drawImage(img, x * sw, y * sh, sw, sh, 0, 0, dw, dh)
 
-									const 
+									const
 										i = new Image()
+
 									i.style.position = 'absolute';
 									i.style.zIndex = 999;
-									// i.style.width = dw + 'px';
-									// i.style.height = dh + 'px';
-									// i.style.left = (x * dw) + 'px';
-									// i.style.top = (y * dh) + 'px';
-									// i.style.outline = '1px solid yellow';
-
-									i.style.width = 100/pcnt + '%';
+	                                i.style.width = 100/pcnt + '%';
 									i.style.height = 100/pcnt + '%';
 									i.style.left = (x * (100/pcnt)) + '%';
 									i.style.top = (y * (100/pcnt)) + '%';
-
 									i.src = c.toDataURL()
-									
-									df.appendChild(i)
+									return df.appendChild(i)
+								}
+
+
+							for ( x = 0; x < pcnt; x++)
+							/*
+
+							need to make promise there§§§§§§§§§§§§§§
+
+							 */
+								for (  y = 0; y < pcnt; y++)
+								{
+									await akaPro()
 								}
 
 							cache.set(imgSrc, df)
 
-						// const ret = document.createDocumentFragment();
-						//
-						// [...df.children].forEach(c => ret.appendChild( c.cloneNode() ))
-
 						 ok( df.cloneNode(true)  )
 
-						//return  makeMosaic(imgSrc, w, h, pcnt)
-					}
+			 }
 
-				img.onload = e => cpImage(img)
-				img.style.position = 'absolute'
-				img.src = imgSrc
+		img.onload = e => cpImage(img)
+		img.style.position = 'absolute'
+		img.src = imgSrc
 
 	}),
 
@@ -252,15 +237,7 @@ const DJBubble = ({src, className, pcnt = 10, defIsExplo, onExploStart, onExploE
 
 		inito = async () =>
 		{
-			// const img = document.createElement('img')
-			// img.onload = e => cpImg(img)
-			// img.style.position = 'absolute'
-			// img.src = src
-
-			refDf.current = await makeMosaic(src, ref.current.offsetWidth, ref.current.offsetHeight);
-
-			console.log('cur ', window.cur = [...refDf.current.children])
-
+			refDf.current = await makeMosaic(src);
 			ref.current.appendChild(refDf.current)
 		}
 
@@ -282,10 +259,14 @@ const DJBubble = ({src, className, pcnt = 10, defIsExplo, onExploStart, onExploE
 			// img.onload = e => cpImg(img)
 			// img.style.position = 'absolute'
 			// img.src = src
-			if(window._bubok)
-				inito()
-			else
-				window.addEventListener('bb-build', () => inito() )
+
+			inito()
+
+
+			// if(window._bubok)
+			// 	inito()
+			// else
+			// 	window.addEventListener('bb-build', () => inito() )
 		}
 
 		ref.current._doExplode = () => setIsExplo(true);
