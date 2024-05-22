@@ -42,7 +42,7 @@ export default function Header()
 			>
 
 
-		<Link href={path == '/' ? '/details' : '/'} className={''}>
+		<Link href={path == '/' ? '/details' : '/'} className={path != '/' ? 'flex bg-[#00000070] px-6 py-3 rounded-xl' : ''}>
 
 			<div className={'w-fit h-fit mx-auto'}>
 
