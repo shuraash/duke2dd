@@ -17,12 +17,12 @@ const
 	djs = [
 		['Shiva ASH', 'Esch-sur-Alzette.LU'],
 		['Input Malfunction', 'Antwerp.BE'],
+		['M️♥Love', 'Leuven.BE'],
 		['Mini Spacer', 'Namur.BE'],
-		['M^Love', 'Leuven.BE'],
 		['Anormic', 'Mertzig.LU'],
 		['GriSha', 'London.UK'],
 		['Hyperactive Mode', 'Antwerp.BE'],
-		['Mechanical Trip', 'Boevange-sur-Attert.LU'],
+		['Mechanical Trip', 'Boevange.LU'],
 		// ['Random DJ 1', 'LU'],
 		// ['Random DJ 2', 'DE'],
 		// ['Random DJ 3', 'LU'],
@@ -285,7 +285,14 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 
 				<div className={'px-5 md:px-3 py-1 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center'}>
 					{/*textShadow: genShadow(),*/}
-					<div className='text-[21px] sm:text-[23px] md:text-[32px]' style={{ color: djData.colors[0]}}>{djData.dj[0]}</div>
+					<div className='text-[21px] sm:text-[23px] md:text-[32px]' style={{ color: djData.colors[0]}}>
+						{djData.dj[0].includes('♥')
+
+							? <div>{djData.dj[0].split('♥')[0]}<sup className={'text-[16px] sm:text-[18px] md:text-[24px]'}>♥</sup>{djData.dj[0].split('♥')[1]}</div>
+
+							: djData.dj[0]
+						}
+					</div>
 					<div className={'mt-2 text-[16px] sm:text-[18px] md:text-[22px] '} style={{textShadow: "none"}}>
 
 						<div className={'whitespace-nowrap'} style={{color: djData.colors[1]}}>{djData.dj[1].split('.')[0]}</div>
