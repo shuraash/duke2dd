@@ -17,10 +17,12 @@ const
 	djs = [
 		['Shiva ASH', 'Esch-sur-Alzette.LU'],
 		['Input Malfunction', 'Antwerp.BE'],
-		['Mini~Spacer', 'Namur.BE'],
+		['Mini Spacer', 'Namur.BE'],
 		['M^Love', 'Leuven.BE'],
 		['Anormic', 'Mertzig.LU'],
 		['GriSha', 'London.UK'],
+		['Hyperactive Mode', 'Antwerp.BE'],
+		['Mechanical Trip', 'Boevange-sur-Attert.LU'],
 		// ['Random DJ 1', 'LU'],
 		// ['Random DJ 2', 'DE'],
 		// ['Random DJ 3', 'LU'],
