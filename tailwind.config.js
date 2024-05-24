@@ -8,6 +8,7 @@ module.exports = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
   ],
 
   theme: {
@@ -24,10 +25,13 @@ module.exports = {
     // aspectRatio: false,
   },
 
+  darkMode: "class",
+
   plugins: [
 
     // require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/container-queries'),
+    require("@nextui-org/react")
 
     // plugin(function ({ addBase, addComponents, addUtilities, theme }) {
     //

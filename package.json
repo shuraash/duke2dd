@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
-    "framer-motion": "^11.0.8",
+    "@nextui-org/progress": "^2.0.28",
+    "@nextui-org/react": "^2.3.6",
+    "@nextui-org/system": "^2.1.2",
+    "@nextui-org/theme": "^2.2.3",
+    "framer-motion": "^11.2.6",
     "gsap": "^3.12.5",
     "next": "latest",
     "react": "latest",
