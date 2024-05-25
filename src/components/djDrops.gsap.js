@@ -283,9 +283,9 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 				     // onExploEnd={e => expoEnd()}
 				/>
 
-				<div className={'px-5 md:px-3 py-1 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center'}>
+				<div className={'px-6 md:px-6 py-3 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center'}>
 					{/*textShadow: genShadow(),*/}
-					<div className='text-[21px] sm:text-[23px] md:text-[32px]' style={{ color: djData.colors[0]}}>
+					<div className='text-[19px] sm:text-[23px] md:text-[32px]' style={{ color: djData.colors[0]}}>
 						{djData.dj[0].includes('♥')
 
 							? <div>{djData.dj[0].split('♥')[0]}<sup className={'text-[16px] sm:text-[18px] md:text-[24px]'}>♥</sup>{djData.dj[0].split('♥')[1]}</div>
@@ -293,10 +293,10 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 							: djData.dj[0]
 						}
 					</div>
-					<div className={'mt-2 text-[16px] sm:text-[18px] md:text-[22px] '} style={{textShadow: "none"}}>
+					<div className={'mt-1 text-[15px] sm:text-[16px] md:text-[18px] leading-none'} style={{textShadow: "none"}}>
 
 						<div className={'whitespace-nowrap'} style={{color: djData.colors[1]}}>{djData.dj[1].split('.')[0]}</div>
-						<div className={'ml-1 sm:text-[16px] md:text-[19px] scale-x-110 scale-y-90'} style={{color: djData.colors[2]}}>{djData.dj[1].split('.')[1]}</div>
+						<div className={'text-[12px] sm:text-[14px] md:text-[15px] '} style={{color: djData.colors[2]}}>{djData.dj[1].split('.')[1]}</div>
 
 					</div>
 				</div>

@@ -96,16 +96,16 @@ const DDPlayer = ({ className }) =>
 
 		{/*/!*<progress className={'h-8 bg-transparent text-orange-500 w-full max-w-screen-sm bottom-1 abs-h-center '} value={13} max={100}/>*!/*/}
 
-		<div className={`h-6 w-full left-0 bottom-1.5 -translate-y-2 opacity-50 fixed ohuevator ${isExplo ? ' aka-player' : '' }`}/>
+		<div className={`h-6 w-full left-0 bottom-1.5 -translate-y-1 opacity-50 fixed ohuevator ${isExplo ? ' aka-player' : '' }`}/>
 
-		<div className={' flex justify-normal  items-center  w-full max-w-sm mx-auto h-fit  '}>
+		<div className={' flex justify-normal  items-center  -translate-y-1  w-full max-w-sm mx-auto h-fit  '}>
 
 			<div className={'w-fit h-fit  z-30 cursor-pointer  '}
 			     onClick={e => isExplo ?  ref.current.querySelector('audio').pause()  :  ref.current.querySelector('audio').play()  }
 			>
 				{isExplo
 					? <IconPlayPause  className={'h-12 w-12  text-neutral-500  '}/>
-					: <IconPlayCircle  className={'h-12 w-12  text-orange-400  '}/>
+					: <IconPlayCircle  className={'h-12 w-12  text-lime-500  '}/>
 				}
 
 			</div>
@@ -116,9 +116,7 @@ const DDPlayer = ({ className }) =>
 			>
 				<div className="w-full h-full bottom-0 bg-neutral-200/20 border rounded-xl mix-blend-screen overflow-hidden">
 					<div
-						className="h-full bg-violet-600" style={{ width: `${playPos}%` }}
-
-
+						className="h-full bg-lime-500" style={{ width: `${playPos}%` }}
 					/>
 				</div>
 			</div>
