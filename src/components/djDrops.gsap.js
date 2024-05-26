@@ -23,11 +23,8 @@ const
 		['GriSha', 'London.UK'],
 		['Hyperactive Mode', 'Antwerp.BE'],
 		['Mechanical Trip', 'Boevange.LU'],
-		// ['Random DJ 1', 'LU'],
-		// ['Random DJ 2', 'DE'],
-		// ['Random DJ 3', 'LU'],
-		// ['Random DJ 4', 'FR'],
-		// ['Random DJ 5', 'EE'],
+		['PsyGogh', 'Amsterdam.NL'],
+
 	],
 
 	ddDjs =  arrRandomCycler(djs, 5),
