@@ -9,11 +9,23 @@ export default function About() {
 
 	const [djs, setDjd] = useState()
 
+	const makafaka = () => {
+
+		shuffledDJ().forEach((d,p) => {
+
+			console.log('qq ' + '#dj' + d[0])
+
+			const li = document.querySelector('#dj' + d[0].replaceAll(' ','_'));
+			if(li) li.style.top =  (p * 25) + 'px'
+
+		})
+	}
+
 	useEffect(()=>{
 
 		setDjd(shuffledDJ())
 
-		setInterval(() => setDjd([...shuffledDJ()]), 5555)
+		setInterval(() =>  makafaka(), 5555)
 
 	}, [])
 
@@ -57,8 +69,14 @@ export default function About() {
 
 			<div className={'pt-5'}>
 
-			<ul className={"text-left pl-8 w-fit mx-auto text-base "}  >
-				{djs && djs.map(dj => <li key={dj[0]}>{dj[0]} | {dj[1]}</li>)}
+			<ul className={"text-left pl-8 w-full grid justify-center grid-cols-[auto] mx-auto px-5 mx-auto text-base   h-[250px] relative "}  >
+				{djs && djs.map((dj,pos) =>
+					<li key={dj[0]} id={'dj' + dj[0].replaceAll(' ','_')}
+						className={'absolute w-full text-center '}
+					    style={{top: (pos * 25) + 'px', transition: 'all ' + (0.5 + Math.random()/2) + 's ease-in-out'}}
+					>
+						{dj[0]} | {dj[1]}
+					</li>)}
 			</ul>
 
 			</div>
