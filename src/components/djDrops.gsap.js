@@ -3,12 +3,13 @@
 import {useEffect, useRef, useState} from "react";
 
 import {arrRandomCycler, randomInt, wrapCycle} from "@src/util";
-import {psyColors, psyShadows} from "@src/components/psyColors";
+import {briNeon, psyColors, psyDJS, psyShadows} from "@src/components/psyColors";
 import {twMerge} from "tailwind-merge";
 
 import gsap from 'gsap';
 import {Flip} from "gsap/Flip";
 import {useGSAP} from '@gsap/react';
+import {PsycoTitlo} from "@src/components/psyTexts";
 
 gsap.registerPlugin(useGSAP, Flip);
 
@@ -24,12 +25,13 @@ const
 		['Hyperactive Mode', 'Antwerp.BE'],
 		['Mechanical Trip', 'Boevange.LU'],
 		['PsyGogh', 'Amsterdam.NL'],
+		['Frequency-F', 'Esch-sur-Alzette.LU'],
 
 	],
 
 	ddDjs =  arrRandomCycler(djs, 5),
 
-	ddDJColor = arrRandomCycler(psyColors, 5)    ,
+	ddDJColor = arrRandomCycler(psyDJS, 1)    ,
 
 	djPoses = ['dj-t-l', 'dj-t-r', 'dj-b-l', 'dj-b-r'],
 
@@ -73,7 +75,8 @@ const
 		djid: dj[0].replaceAll('_','-') + dj[1],
 		dj: dj,
 		// delay: delay,
-		colors: [ddDJColor.next().value, ddDJColor.next().value, ddDJColor.next().value],
+		// colors: [ddDJColor.next().value, ddDJColor.next().value, ddDJColor.next().value],
+		colors: ((cc) =>  gsap.utils.shuffle(cc) )(ddDJColor.next().value),
 		bubblePic: bubblePic.next().value,
 		bubbleHue: bublerHues.next().value,
 		pose: djPose.next().value
@@ -282,26 +285,31 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 
 				<div className={'px-6 md:px-6 py-3 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center'}>
 					{/*textShadow: genShadow(),*/}
-					<div className='text-[19px] sm:text-[23px] md:text-[32px]' style={{ color: djData.colors[0]}}>
+					<div className='text-[19px] sm:text-[23px] md:text-[32px] w-fit h-fit mx-auto' style={{ color: djData.colors[0]}}>
 						{djData.dj[0].includes('♥')
 
-							? <div>{djData.dj[0].split('♥')[0]}<sup className={'text-[16px] sm:text-[18px] md:text-[24px]'}>♥</sup>{djData.dj[0].split('♥')[1]}</div>
+							? <div className={'w-fit h-fit'}>{djData.dj[0].split('♥')[0]}<sup className={'text-[16px] sm:text-[18px] md:text-[24px]'}>♥</sup>{djData.dj[0].split('♥')[1]}</div>
 
-							: djData.dj[0]
+							: <div className={'w-fit h-fit'}>{djData.dj[0]}</div>
 						}
 					</div>
-					<div className={'mt-1 text-[15px] sm:text-[16px] md:text-[18px] leading-none'} style={{textShadow: "none"}}>
+					<div className={'mt-1 text-[15px] sm:text-[16px] md:text-[18px] leading-none w-full h-fit text-center  grid gap-y-1 grid-cols-[100%] justify-center items-center'} style={{textShadow: "none"}}>
 
-						<div className={'whitespace-nowrap'} style={{color: djData.colors[1]}}>{djData.dj[1].split('.')[0]}</div>
-						<div className={'text-[12px] sm:text-[14px] md:text-[15px] '} style={{color: djData.colors[2]}}>{djData.dj[1].split('.')[1]}</div>
+						<div className={'whitespace-nowrap'} style={{color: djData.colors[1]}}>
+							<PsycoTitlo className={'whitespace-nowrap'} text={djData.dj[1].split('.')[0]}/>
+						</div>
+						<div className={'text-[12px] sm:text-[14px] md:text-[15px] '} style={{color: djData.colors[2]}}>
+							{djData.dj[1].split('.')[1]}
+						</div>
 
 					</div>
 				</div>
 	</figure>
 
 
+const shuffledDJ = () => gsap.utils.shuffle(djs);
 
 
-export {genShadow}
+export {genShadow, shuffledDJ}
 
 

@@ -1,7 +1,22 @@
+"use client"
 
 import Link from "next/link";
+import {shuffledDJ} from "@src/components/djDrops.gsap";
+import {useEffect, useRef, useState} from "react";
+
 
 export default function About() {
+
+	const [djs, setDjd] = useState()
+
+	useEffect(()=>{
+
+		setDjd(shuffledDJ())
+
+		setInterval(() => setDjd([...shuffledDJ()]), 5555)
+
+	}, [])
+
 
 	return (
 		<>
@@ -40,6 +55,13 @@ export default function About() {
 
 			<p className={'text-xl'}>No any sales. Drinks and food bring with you.</p>
 
+			<div className={'pt-5'}>
+
+			<ul className={"text-left pl-8 w-fit mx-auto text-base "}  >
+				{djs && djs.map(dj => <li key={dj[0]}>{dj[0]} | {dj[1]}</li>)}
+			</ul>
+
+			</div>
 
 		</div>
 

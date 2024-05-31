@@ -9,6 +9,13 @@ const
 		['#ff99aa','#ff00f4', '#ff3155'],
 	],
 
+	psyDJS = [
+		['#00eaff', '#ff0000', '#22f350'],
+		['#fdff80', '#5eff00', '#ff0073'],
+		['#b0ff00',	'#ffb700', '#0bb4e7'],
+		['#fdff2c','#ff00f4', 'rgba(94,255,0,0.66)'],
+	],
+
 	palettes = {
 
 	'dddd' : [
@@ -77,9 +84,11 @@ const
 
 //	psyColors = Object.keys(palettes).flatMap(k => palettes[k]).sort(sortFn)
 
-	psyColors = palettes.dddd
+	psyColors = palettes.dddd,
+
+	briNeon= palettes['Bright As Neon']
 
 //.sort(sortFn)
 
 
-export {psyColors, psyShadows}
+export {psyColors, briNeon,psyShadows, psyDJS}
