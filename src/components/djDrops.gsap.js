@@ -285,7 +285,7 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 				     // onExploEnd={e => expoEnd()}
 				/>
 
-				<div className={'py-1 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center grid justify-center'}>
+				<div className={'ohuevator py-1 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center grid justify-center'}>
 					{/*textShadow: genShadow(),*/}
 					<div
 						className='border-b border-sky-500/60 text-[19px] sm:text-[23px] md:text-[32px] w-fit h-fit mx-auto'
