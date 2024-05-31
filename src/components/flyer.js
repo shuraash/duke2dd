@@ -116,7 +116,7 @@ export default function DDFLyear({className})
 
 				drRef.current.forEach( p => pass(p) )
 
-			//	window.addEventListener('pointerup', e => drRef.current.forEach( p => ress(p) ), {once: true})
+				window.addEventListener('pointerup', e => drRef.current.forEach( p => ress(p) ), {once: true})
 
 			})
 
