@@ -10,6 +10,8 @@ import gsap from 'gsap';
 import {Flip} from "gsap/Flip";
 import {useGSAP} from '@gsap/react';
 import {PsycoTitlo} from "@src/components/psyTexts";
+import {LinkIcon} from "@nextui-org/react";
+import {IconChevronDown} from "@src/components/psy.icons";
 
 gsap.registerPlugin(useGSAP, Flip);
 
@@ -283,22 +285,34 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 				     // onExploEnd={e => expoEnd()}
 				/>
 
-				<div className={'px-6 md:px-6 py-3 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center'}>
+				<div className={'py-1 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center grid justify-center'}>
 					{/*textShadow: genShadow(),*/}
-					<div className='text-[19px] sm:text-[23px] md:text-[32px] w-fit h-fit mx-auto' style={{ color: djData.colors[0]}}>
-						{djData.dj[0].includes('♥')
+					<div
+						className='border-b border-sky-500/60 text-[19px] sm:text-[23px] md:text-[32px] w-fit h-fit mx-auto'
+						style={{ color: djData.colors[0], borderColor: djData.colors[2]}}
+					>
+						<div className={'w-fit h-fit ' +  (djData.colors[0] == '#ff00f4ff' || djData.colors[0] == '#fdff2c' ? 'pizda' : 'suko')}>
+								{djData.dj[0].includes('♥')
 
-							? <div className={'w-fit h-fit'}>{djData.dj[0].split('♥')[0]}<sup className={'text-[16px] sm:text-[18px] md:text-[24px]'}>♥</sup>{djData.dj[0].split('♥')[1]}</div>
+									?  <span>{djData.dj[0].split('♥')[0]}<sup className={'text-[16px] sm:text-[18px] md:text-[24px]'}>♥</sup>{djData.dj[0].split('♥')[1]}</span>
 
-							: <div className={'w-fit h-fit'}>{djData.dj[0]}</div>
-						}
+									:  djData.dj[0]
+								}
+						</div>
 					</div>
-					<div className={'mt-1 text-[15px] sm:text-[16px] md:text-[18px] leading-none w-full h-fit text-center  grid gap-y-1 grid-cols-[100%] justify-center items-center'} style={{textShadow: "none"}}>
 
-						<div className={'whitespace-nowrap'} style={{color: djData.colors[1]}}>
+					<div
+						className={' relative mt-0.5 text-[15px] sm:text-[16px] md:text-[18px] leading-none w-full h-fit text-center  grid gap-y-1  justify-center items-center'}
+
+					     style={{textShadow: "none"}}
+					>
+
+						{/*<IconChevronDown className={'w-7 h-7 abs-h-center top-[-18px] text-white '}/>*/}
+
+						<div className={'whitespace-nowrap ' } style={{color: djData.colors[1]}}>
 							<PsycoTitlo className={'whitespace-nowrap'} text={djData.dj[1].split('.')[0]}/>
 						</div>
-						<div className={'text-[12px] sm:text-[14px] md:text-[15px] '} style={{color: djData.colors[2]}}>
+						<div className={'text-[13px] sm:text-[15px] md:text-[16px] '} style={{color: djData.colors[2]}}>
 							{djData.dj[1].split('.')[1]}
 						</div>
 

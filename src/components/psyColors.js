@@ -10,10 +10,10 @@ const
 	],
 
 	psyDJS = [
-		['#00eaff', '#ff0000', '#22f350'],
-		['#fdff80', '#5eff00', '#ff0073'],
-		['#b0ff00',	'#ffb700', '#0bb4e7'],
-		['#fdff2c','#ff00f4', 'rgba(94,255,0,0.66)'],
+		['#ff00f4ff', '#00fff7', '#5eff00a8' ],
+		['#fdff2c', '#5eff00a8', '#ff0000'],
+		['#5eff00a8',	'#fdff2c', '#00fff7'],
+		['#fdff2c','#ff00f4', '#5eff00a8'],
 	],
 
 	palettes = {

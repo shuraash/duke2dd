@@ -28,3 +28,10 @@ export const IconPlayPause = ({className, ...rest}) => (
 		<path d="M200-312v-336l240 168-240 168Zm320-8v-320h80v320h-80Zm160 0v-320h80v320h-80Z"/>
 	</svg>
 )
+
+export const IconChevronDown = ({className, ...rest}) => (
+	<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" viewBox="0 -960 960 960"
+	     aria-hidden="true" className={className}>
+		<path d="M480-360 280-560h400L480-360Z"/>
+	</svg>
+)

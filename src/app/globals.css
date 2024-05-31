@@ -667,15 +667,26 @@ main{
 }
 
 
-   /*text-shadow:*/
-   /*  0 0 5px #5EFF00A8,*/
-   /*  0 0 15px #5EFF00A8,*/
-   /*  0 0 20px #5EFF00A8,*/
-   /*  0 0 40px #5EFF00A8,*/
-   /*  0 0 60px #ffb700A8,*/
-   /*  0 0 10px #5EFF00A8,*/
-   /*  0 0 98px #ffb700A8;*/
+.pizda{
+  text-shadow:
+          0 0 5px #2fff00,
+          0 0 15px #40ff00,
+          0 0 20px #22ff00,
+          0 0 40px #22ff00,
+          0 0 60px #00ffea,
+          0 0 10px #55ff00,
+          0 0 98px #00d0ff;
+}
 
+/*.pizda {*/
+/*  text-shadow: 0 0 5px #5EFF00A8,*/
+/*  0 0 15px #5EFF00A8,*/
+/*  0 0 20px #5EFF00A8,*/
+/*  0 0 40px #5EFF00A8,*/
+/*  0 0 60px #ffb700A8,*/
+/*  0 0 10px #5EFF00A8,*/
+/*  0 0 98px #ffb700A8;*/
+/*}*/
 
   /*text-shadow:*/
   /*    -0.2rem -0.2rem 1rem #FFFFFF00,*/
@@ -686,10 +697,13 @@ main{
   /*    0 0 8rem var(--neon-text-color-off),*/
   /*    0 0 10rem var(--neon-text-color-off);*/
 
-  /*--neon-text-color: #71ff4166;*/
-  /*--neon-text-color-off: #71ff4100;*/
+
 
   /*.shadow-on {*/
+
+  /*  --neon-text-color: #71ff4166;*/
+  /*  --neon-text-color-off: #71ff4100;*/
+
   /*  text-shadow:*/
   /*  -0.2 rem -0.2rem 1rem #ffffff00,*/
   /*  0.2rem 0.2rem 1rem #ffffff00,*/
