@@ -9,7 +9,7 @@ import {twMerge} from "tailwind-merge";
 import gsap from 'gsap';
 import {Flip} from "gsap/Flip";
 import {useGSAP} from '@gsap/react';
-import {PsycoTitlo} from "@src/components/psyTexts";
+import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";
 import {LinkIcon} from "@nextui-org/react";
 import {IconChevronDown} from "@src/components/psy.icons";
 
@@ -263,7 +263,7 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 		// ref={container}
 		id={djData.djid}
 		className={twMerge(`opacity-0 scale-0  dj-card  overflow-visible absolute font-['Changa']  
-					w-fit min-w-[35%] md:min-w-[30%] h-auto aspect-square   rounded-full  flex items-center justify-center`, className)}
+					w-fit min-w-[45%] md:min-w-[30%] h-auto aspect-square   rounded-full  flex items-center justify-center`, className)}
 
 		  // onPointerDown={ e => doExplo() }
 
@@ -285,18 +285,24 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 				     // onExploEnd={e => expoEnd()}
 				/>
 
-				<div className={'ohuevator py-1 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center grid justify-center'}>
+				<div className={'ohuevator py-1 px-2 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center grid justify-center'}>
 					{/*textShadow: genShadow(),*/}
 					<div
-						className='border-b border-sky-500/60 text-[19px] sm:text-[23px] md:text-[32px] w-fit h-fit mx-auto'
+						className=' mb-1 text-[18px] sm:text-[28px] md:text-[32px] w-fit h-fit mx-auto'
 						style={{ color: djData.colors[0], borderColor: djData.colors[2]}}
 					>
 						<div className={'w-fit h-fit ' +  (djData.colors[0] == '#ff00f4ff' || djData.colors[0] == '#fdff2c' ? 'pizda' : 'suko')}>
 								{djData.dj[0].includes('♥')
 
-									?  <span>{djData.dj[0].split('♥')[0]}<sup className={'text-[16px] sm:text-[18px] md:text-[24px]'}>♥</sup>{djData.dj[0].split('♥')[1]}</span>
+									?  <span>
+											{djData.dj[0].split('♥')[0]}
+												<sup className={'text-[16px] sm:text-[18px] md:text-[24px]'}>♥</sup>
+											{djData.dj[0].split('♥')[1]}
+										</span>
 
-									:  djData.dj[0]
+									:  <div className={'px-2 max-w-full w-fit grid justify-items-center items-center grid-cols-[auto] '}>
+											{djData.dj[0].split(djData.dj[0] == 'Shiva ASH' ? 'zzz' : ' ').map(nn => <PsycoTitlo text={nn} className={'w-fit px-2'}/>)}
+										</div>
 								}
 						</div>
 					</div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import {shuffledDJ} from "@src/components/djDrops.gsap";
 import {useEffect, useRef, useState} from "react";
+import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";
 
 
 export default function About() {
@@ -25,7 +26,7 @@ export default function About() {
 
 		setDjd(shuffledDJ())
 
-		setInterval(() =>  makafaka(), 5555)
+		setInterval(() =>  makafaka(), 2345)
 
 	}, [])
 
@@ -69,13 +70,14 @@ export default function About() {
 
 			<div className={'pt-5'}>
 
-			<ul className={"text-left pl-8 w-full grid justify-center grid-cols-[auto] mx-auto px-5 mx-auto text-base   h-[250px] relative "}  >
+			<ul className={"font-[Audiowide] text-left pl-8 w-full grid justify-center grid-cols-[auto] mx-auto px-5 mx-auto text-base   h-[250px] relative "}  >
 				{djs && djs.map((dj,pos) =>
 					<li key={dj[0]} id={'dj' + dj[0].replaceAll(' ','_')}
-						className={'absolute w-full text-center '}
+						className={'absolute w-full text-center grid justify-center items-center grid-cols-[auto_auto] gap-x-3'}
 					    style={{top: (pos * 25) + 'px', transition: 'all ' + (0.5 + Math.random()/2) + 's ease-in-out'}}
 					>
-						{dj[0]} | {dj[1]}
+						<PsycoTexto className={'flex items-center '}><PsycoTitlo text={dj[0]} className={'uppercase text-orange-300'}/></PsycoTexto>
+						<div className={'text-neutral-300 translate-y-1'}> {dj[1]}</div>
 					</li>)}
 			</ul>
 
