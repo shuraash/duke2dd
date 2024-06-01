@@ -38,12 +38,12 @@ export default function Header()
 
 	return <header  style={{textShadow: `#dedede 0px 0px 8px, #eeeeeeee 0px 0px 20px, 0px 0px 1px #00000054`}}
 	                ref={ref}
-	                className={'z-[1] fixed w-full h-fit left-0 -top-32 translate-y-[-125%] pt-2 pb-3 opacity-0 flex items-center justify-center text-center'}
+	                className={'z-[1] fixed w-full h-fit left-0 -top-32 translate-y-[-125%]    opacity-0 flex items-center justify-center text-center'}
 			>
 
 
 		<Link href={path == '/' ? '/details' : '/'}
-		      className={path != '/' ? 'flex bg-[#00000070] px-6 py-3 pb-10 rounded-xl' : ''}
+		      className={path != '/' ? 'flex bg-[#00000070] px-6 py-3 pb-14 rounded-xl' : ''}
 		      style={path != '/' ? {background: 'linear-gradient(to top, #714877a1, #070e2d7a)'} : {}}
 		>
 

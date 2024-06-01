@@ -24,7 +24,7 @@ export default function PageWrapper ({ children }){
 
     return  <AnimatePresence mode={'popLayout'}  initial={false}>
 
-        <motion.div key={path} className={'page-trans w-screen h-screen overflow-clip  '}
+        <motion.div key={path} className={'page-trans w-screen h-screen   '}
 
                     initial={{  opacity: 0, scale: 0.75, rotateY: '-90deg' , transformOrigin: 'center', borderRadius: '16px', border: '3px solid  #ddddddff'}}
 

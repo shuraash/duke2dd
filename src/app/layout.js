@@ -31,7 +31,9 @@ export default function RootLayout({ children }) {
         
         <main className={``}>
 
-              <PageWrapper>{children}</PageWrapper>
+            <div className={'fixed w-full h-full inset-0 details-bg z-[-1]'}/>
+
+             <PageWrapper>{children}</PageWrapper>
 
         </main>
 
