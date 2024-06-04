@@ -67,7 +67,7 @@ export default function About() {
 
 			<p className={'text-xl'}>No any sales. Drinks and food bring with you.</p>
 
-			<div className={'pt-5'}>
+			<div className={'pt-2.5'}>
 
 			<ul className={"font-[Audiowide] text-left pl-8 w-full grid justify-center grid-cols-[auto] mx-auto px-5 mx-auto text-base   h-[250px] relative "}  >
 				{djs && djs.map((dj,pos) =>
