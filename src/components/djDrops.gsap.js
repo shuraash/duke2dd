@@ -28,6 +28,7 @@ const
 		['Mechanical Trip', 'Boevange.LU'],
 		['PsyGogh', 'Amsterdam.NL'],
 		['Frequency-F', 'Esch-sur-Alzette.LU'],
+		['Narah Gaia', 'Amsterdam.NL'],
 
 	],
 
