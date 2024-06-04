@@ -47,7 +47,7 @@ export default function Header()
 		      style={path != '/' ? {background: 'linear-gradient(to top, #714877a1, #070e2d7a)'} : {}}
 		>
 
-			<div className={'w-fit h-fit mx-auto'}>
+			<div className={'w-fit h-fit mx-auto mt-1'}>
 
 				<PsycoTexto duration={0.5} delay={1.5} className={`drop-shadow-xl text-3xl sm:text-4xl font-semibold text-orange-500  flex gap-x-4 items-center h-fit w-fit mx-auto`}>
 					{/*Duke<b className={'text-2xl'}>d</b>elic Duke<b className={'text-2xl'}>d</b>ance*/}

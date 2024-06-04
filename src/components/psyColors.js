@@ -9,7 +9,7 @@ const
 		['#ff99aa','#ff00f4', '#ff3155'],
 	],
 
-	psyDJS = [
+	djColors = [
 		['#ff00f4ff', '#00fff7', '#5eff00a8' ],
 		['#fdff2c', '#5eff00a8', '#ff0000'],
 		['#5eff00a8',	'#fdff2c', '#00fff7'],
@@ -91,4 +91,4 @@ const
 //.sort(sortFn)
 
 
-export {psyColors, briNeon,psyShadows, psyDJS}
+export {psyColors, briNeon,psyShadows, djColors}

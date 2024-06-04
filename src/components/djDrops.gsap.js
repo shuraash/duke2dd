@@ -3,7 +3,7 @@
 import {useEffect, useRef, useState} from "react";
 
 import {arrRandomCycler, randomInt, wrapCycle} from "@src/util";
-import {briNeon, psyColors, psyDJS, psyShadows} from "@src/components/psyColors";
+import {briNeon, psyColors, djColors, psyShadows} from "@src/components/psyColors";
 import {twMerge} from "tailwind-merge";
 
 import gsap from 'gsap';
@@ -13,13 +13,12 @@ import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";
 import {LinkIcon} from "@nextui-org/react";
 import {IconChevronDown} from "@src/components/psy.icons";
 
-gsap.registerPlugin(useGSAP, Flip);
+// gsap.registerPlugin(useGSAP, Flip);
 
 const
 
 	djs = [
-		['Shiva ASH', 'Esch-sur-Alzette.LU'],
-		['Input Malfunction', 'Antwerp.BE'],
+
 		['M️♥Love', 'Leuven.BE'],
 		['Mini Spacer', 'Namur.BE'],
 		['Anormic', 'Mertzig.LU'],
@@ -29,22 +28,24 @@ const
 		['PsyGogh', 'Amsterdam.NL'],
 		['Frequency-F', 'Esch-sur-Alzette.LU'],
 		['Narah Gaia', 'Amsterdam.NL'],
+		['Shiva ASH', 'Esch-sur-Alzette.LU'],
+		['Input Malfunction', 'Antwerp.BE'],
 
 	],
 
-	ddDjs =  arrRandomCycler(djs, 5),
+	ddDjs =  wrapCycle(djs),
 
-	ddDJColor = arrRandomCycler(psyDJS, 1)    ,
+	ddDJColor = wrapCycle(djColors)    ,
 
 	djPoses = ['dj-t-l', 'dj-t-r', 'dj-b-l', 'dj-b-r'],
 
-	djPose = arrRandomCycler(djPoses, 2),
+	djPose = wrapCycle(djPoses ),
 
 	bubblerPics = Array.from({length: 9}, (_, i) => `/bubbles/00${i+1}.png`),
 
-	bubblePic =  arrRandomCycler(bubblerPics, 1),
+	bubblePic =  wrapCycle(bubblerPics ),
 	// bubblePic =  arrRandomCycler([`/bubbles/002.png`], 1),
-	bublerHues =  arrRandomCycler([0, 50, 100, 150, 200, 250, 300], 4),
+	bublerHues =  wrapCycle([0, 50, 100, 150, 200, 250, 300] ),
 
 	pos2av = {
 		'dj-t-l': ['2%',  '2%',   '50%', '25%',   '0%',    '0%'],
@@ -101,7 +102,7 @@ export default function DjDropsGsap({className, djCalss, playing})
 
 		upDjData = (d) => {
 
-			console.log(`set dj ${d.djid}`)
+		//	console.log(`set dj ${d.djid}`)
 			setDjData(d)
 		},
 
@@ -198,14 +199,14 @@ export default function DjDropsGsap({className, djCalss, playing})
 			}, '<')
 
 			tl.current.to(bubble, {
-				scale: 9,
+				scale: 3,
 				duration: 1.6,
 				ease: "power1.out",
 				x: '-50%',
 				y: '-50%',
 				left: '50%',
 				top: '50%',
-			})
+			}, '>2.5')
 
 			tl.current.to(bubble.querySelector('.cardad'), {
 				opacity: 0,
@@ -263,7 +264,7 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 	<figure
 		// ref={container}
 		id={djData.djid}
-		className={twMerge(`opacity-0 scale-0  dj-card  overflow-visible absolute font-['Changa']  
+		className={twMerge(`z-30 opacity-0 scale-0  dj-card  overflow-visible absolute font-['Changa']  
 					w-fit min-w-[45%] md:min-w-[30%] h-auto aspect-square   rounded-full  flex items-center justify-center`, className)}
 
 		  // onPointerDown={ e => doExplo() }
@@ -302,7 +303,9 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 										</span>
 
 									:  <div className={'px-2 max-w-full w-fit grid justify-items-center items-center grid-cols-[auto] '}>
-											{djData.dj[0].split(djData.dj[0] == 'Shiva ASH' ? 'zzz' : ' ').map(nn => <PsycoTitlo text={nn} className={'w-fit px-2'}/>)}
+											{djData.dj[0].split(djData.dj[0].length < 13 ? '§' : ' ').map((nn,i) =>
+												<span key={nn+i} text={nn} className={'w-fit px-2 whitespace-nowrap'}>{nn}</span>
+											)}
 										</div>
 								}
 						</div>

@@ -39,12 +39,16 @@ function arrRandomCycler(array, noRepLen = 1)
 	return g
 }
 
+export const rAarr = (a) => gsap.utils.shuffle([...a])
+
 export {arrRandomCycler}
 
 
-export function* wrapCycle(array, max = Number.MAX_SAFE_INTEGER)
+export function* wrapCycle(array, shuffle=true, max = Number.MAX_SAFE_INTEGER)
 {
-	let idx = 0, wf =  gsap.utils.wrap(array)
+	let idx = 0,
+		wf =  gsap.utils.wrap( shuffle ? rAarr(array) : array)
+
 	while (idx < max)
 		yield wf(++idx)
 }

@@ -54,7 +54,15 @@ const
 
 			return <div ref={ref} className={twMerge( `psy-titlo w-fit h-fit min-w-fit flex items-center justify-evenly gap-x-1 `, className)} {...rest}>
 
-				{chars.map((c,i) => <span key={c+i} className={twMerge(`w-fit h-fit min-w-fit psy-char ${colors && colors[i] ? `text-[${colors[i]}]` : ''} `, charsClass)}>{c}</span>)}
+				{chars.map((c,i) =>
+
+					<span
+						key={c+i}
+						className={twMerge(`w-fit h-fit min-w-fit psy-char ${colors && colors[i] ? `text-[${colors[i]}]` : ''} `, charsClass)}
+					>
+						{c}
+					</span>
+				)}
 
 			</div>
 
@@ -190,8 +198,8 @@ const
 				}
 				else
 				{
-					psyChars.filter(c => c.innerText == 'D').map(c => c.style.color = colors.d)
-					psyChars.filter(c => c.innerText != 'D').map(c => c.style.color = colors.r.next().value)
+					psyChars.filter(c => c.innerText == 'D').forEach(c => c.style.color = colors.d)
+					psyChars.filter(c => c.innerText != 'D').forEach(c => c.style.color = colors.r.next().value)
 				}
 
 				setlColors(colors)
@@ -210,6 +218,11 @@ const
 
 		</div>
 	}
+
+
+
+
+export {PsycoRow, PsycoTitlo, DDCrest, PsycoTexto}
 
 
 
@@ -347,8 +360,5 @@ const
 // 	</div>
 //
 // }
-
-
-export {PsycoRow, PsycoTitlo, DDCrest, PsycoTexto}
 
 //, PsyTextRow, PsyTextCrest, PsyChar}
