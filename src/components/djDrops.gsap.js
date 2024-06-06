@@ -265,7 +265,7 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 		// ref={container}
 		id={djData.djid}
 		className={twMerge(`z-30 opacity-0 scale-0  dj-card  overflow-visible absolute font-['Changa']  
-					w-fit min-w-[45%] md:min-w-[30%] h-auto aspect-square   rounded-full  flex items-center justify-center`, className)}
+					w-fit min-w-[45%] md:min-w-[30%] h-auto aspect-square rounded-full  flex items-center justify-center`, className)}
 
 		  // onPointerDown={ e => doExplo() }
 
@@ -281,13 +281,13 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 					 style={{animation: `e-rotatoid ${randomInt(10, 50)/10}s linear infinite ${['','reverse'][randomInt(0,1)]}`,
 						 // animationComposition: 'add'
 					 }}
-					 className='djBubbler2 abs-full opacity-100 '
+					 className='djBubbler2  w-full h-auto opacity-100 '
 
 				     // onExploStart={e => expoStart()}
 				     // onExploEnd={e => expoEnd()}
 				/>
 
-				<div className={'ohuevator py-1 px-2 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center grid justify-center'}>
+				<div className={'ohuevator py-1 px-2 cardad rounded-xl opacity-1 w-fit h-fit leading-none text-center abs-center grid justify-center items-center grid-rows-[min-content_min-content]'}>
 					{/*textShadow: genShadow(),*/}
 					<div
 						className=' mb-1 text-[18px] sm:text-[28px] md:text-[32px] w-fit h-fit mx-auto'
