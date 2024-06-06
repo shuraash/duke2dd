@@ -69,7 +69,7 @@ export default function About() {
 
 			<div className={'pt-2.5'}>
 
-			<ul className={"font-[Audiowide] text-left pl-8 w-full grid justify-center grid-cols-[auto] mx-auto px-5 mx-auto text-base   h-[350px] relative "}  >
+			<ul className={"font-[Audiowide] text-left pl-8 w-full grid justify-center grid-cols-[auto] mx-auto px-5 mx-auto text-base   h-[400px] relative "}  >
 				{djs && djs.map((dj,pos) =>
 					<li key={dj[0]} id={'dj' + dj[0].replaceAll(' ','_')}
 						className={'absolute w-full text-center grid justify-center items-center grid-cols-[auto_auto] gap-x-3'}
