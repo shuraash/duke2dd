@@ -20,7 +20,6 @@ const
 	djs = [
 
 		['M️♥Love', 'Leuven.BE'],
-		['Mini Spacer', 'Namur.BE'],
 		['Anormic', 'Mertzig.LU'],
 		['GriSha', 'London.UK'],
 		['Hyperactive Mode', 'Antwerp.BE'],
