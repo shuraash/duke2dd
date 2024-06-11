@@ -8,11 +8,11 @@ export const metadata = {
     description: 'Event by PSYTRANCE.LU and friends',
 
     icons: [`/favicon.png`],
-    thumbnail:  `https://duke2dd.vercel.app/og.jpg`,
+    thumbnail:  `https://psytrance.lu/og.jpg`,
     openGraph: {
         title: 'Dukedelic Dukedance',
         description: 'Event by PSYTRANCE.LU and friends',
-        images: [{url: `https://duke2dd.vercel.app/og.jpg`, height: 640, width: 640}]
+        images: [{url: `https://psytrance.lu/og.jpg`, height: 640, width: 640}]
     }
 }
 

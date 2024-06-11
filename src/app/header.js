@@ -42,7 +42,7 @@ export default function Header()
 			>
 
 
-		<Link href={path == '/' ? '/details' : '/'}
+		<a href={path == '/' ? '/details.html' : '/'}
 		      className={path != '/' ? 'flex bg-[#00000070] px-6 py-3 pb-14 rounded-xl' : ''}
 		      style={path != '/' ? {background: 'linear-gradient(to top, #714877a1, #070e2d7a)'} : {}}
 		>
@@ -68,7 +68,7 @@ export default function Header()
 				</div>
 
 			</div>
-		</Link>
+		</a>
 
 	</header>
 

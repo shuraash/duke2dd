@@ -82,7 +82,7 @@ const DDPlayer = ({ className }) =>
 	<div ref={ref} className={' fixed w-full bottom-0 h-fit z-40  mix-blend-screen px-5'}>
 
  		<audio className={'absolute left-[-6789px] h-0 w-0 opacity-0'} ref={muzRef}
-	           src="https://trancescript.ddns.net/audio/opdakop.mp3"
+	           src="/opdakop.mp3"
 
 	           playsInline={true}
 	           autoPlay={true}
