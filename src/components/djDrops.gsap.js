@@ -21,7 +21,6 @@ const
 
 		['M️♥Love', 'Leuven.BE'],
 		['Anormic', 'Mertzig.LU'],
-		['GriSha', 'London.UK'],
 		['Hyperactive Mode', 'Antwerp.BE'],
 		['Mechanical Trip', 'Boevange.LU'],
 		['PsyGogh', 'Amsterdam.NL'],
@@ -30,6 +29,8 @@ const
 		['Shiva ASH', 'Esch-sur-Alzette.LU'],
 		['Input Malfunction', 'Antwerp.BE'],
 		['Helloki', 'Kalmthout.BE'],
+		['SonGoa', 'Amsterdam.NL'],
+		['GriSha', 'London.UK'],
 
 	],
 
