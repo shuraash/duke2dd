@@ -31,6 +31,8 @@ const
 		['Helloki', 'Kalmthout.BE'],
 		['SonGoa', 'Amsterdam.NL'],
 		['GriSha', 'London.UK'],
+		['Jim Madness', 'Audun-le-Tiche.FR'],
+		['Ozion', '* * * * *.PT'],
 
 	],
 
