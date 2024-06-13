@@ -2,11 +2,11 @@ export const djs = [
 	[
 		"M️♥Love",
 		"Leuven.BE",
-		`
-		BlabLaBla
-		`
+
 	],
+
 	["Anormic", "Mertzig.LU"],
+
 	["Hyperactive Mode", "Antwerp.BE"],
 	["Mechanical Trip", "Boevange.LU"],
 	["PsyGogh", "Amsterdam.NL"],
