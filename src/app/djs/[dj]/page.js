@@ -36,7 +36,7 @@ export default  function Djs({params})
 
 					<img src={'/djs/'+params.dj.toLowerCase()+'.jpg'} className={'w-3/5 shrink-0 h-auto p-0.5 border rounded-full overflow-x-hidden object-cover'}/>
 
-					<div className={'mt-2 w-full p-2 text-base shrink-0'}>
+					<div className={'mt-2 w-full p-2 text-lg shrink-0'}>
 						{dj[2] ? dj[2] : <>
 
 							<p>Some description text</p>

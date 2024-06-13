@@ -12,12 +12,14 @@ export const djs = [
 	["PsyGogh", "Amsterdam.NL"],
 	["Frequency-F", "Esch-sur-Alzette.LU",
 <>
-	 <div className={`text-2xl text-orange-500 font-semibold text-center`}>
+	 <div className={`text-xl text-orange-500 font-semibold text-center`}>
 		 First time!
 	 </div>
 
 	 <div className={'text-center'}>
-		 dj Psycorax and dj Fabi first time prsent they new project.
+		 You read that right, this couple, dj Psycorax and dj Nunkki, are presenting
+		 their new project, where they`ll be battling it
+		 out on the decks! <p> Don`t miss it! </p>
 	 </div>
 </>
 	],
