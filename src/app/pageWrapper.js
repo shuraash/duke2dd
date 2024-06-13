@@ -38,7 +38,9 @@ export default function PageWrapper ({ children }){
                             rotateY: {duration: 1, delay: 0.5  },
                             scale: {duration: 1, delay: 0.5 },
 
-                            border: {duration: 0.1, delay: 1.4}
+                            border: {duration: 0.1, delay: 1.4},
+
+                       //     duration: 2
                         }
                     }}
 
@@ -52,7 +54,9 @@ export default function PageWrapper ({ children }){
                             rotateY: {duration: 1, delay: 0},
                             opacity: {duration: 1, delay: 0 },
 
-                            border: {duration: 0.1, delay: 0}
+                            border: {duration: 0.1, delay: 0},
+
+                         //   duration: 2
 
                         }
                     }}
@@ -62,7 +66,9 @@ export default function PageWrapper ({ children }){
 
                   {/*<PsyBG className={' abs-full z-0'} onInfoUpdate={undefined} />*/}
 
-                  <section className={'psy-page pt-5 min-h-full  max-w-screen w-screen overflow-x-hidden overflow-y-auto z-10 '}>
+                  <section className={'psy-page overflow-x-hidden max-w-full min-w-full w-full overflow-y-auto h-[calc(100%_-_100px)] pt-[72px] z-10 '}>
+
+
                       <div className={'w-full max-w-full md:max-w-screen-md h-auto mx-auto '}>
                           {children}
                       </div>

@@ -26,7 +26,7 @@ export default function About() {
 
 		setDjd(shuffledDJ())
 
-		setInterval(() =>  makafaka(), 888*6)
+		setInterval(() =>  makafaka(), 888*8)
 
 	}, [])
 
@@ -35,7 +35,7 @@ export default function About() {
 		<>
 
 
-		<div className={'mt-[100px] w-full max-w-screen-sm mx-auto px-4 sm:px-0 py-5  sm:bg-neutral-600/50 text-center'}>
+		<div className={' w-full max-w-screen-sm mx-auto px-4 sm:px-8 sm:mt-8 sm:py-4 sm:rounded-xl bg-neutral-600/50 text-center'}>
 
 			<div className={'flex justify-center text-2xl'}>
 				<PsycoTexto className={'flex items-center '}><PsycoTitlo text={'* Free partY *'} className={'uppercase text-orange-300'}/></PsycoTexto>
@@ -43,45 +43,27 @@ export default function About() {
 
 			{/*<div className={'text-xl text-rose-400'}>FULL TRUE LOVE AND HAPPINESS!</div>*/}
 
-			<div className={'text-xl'}>
+			<div className={'text-xl my-1 h-fit w-full'}>
 				<a href={'https://maps.app.goo.gl/fiCzbZd4iYYzwX5h6'} target={'_blank'} >
 					<div className={'w-fit mx-auto text-sm uppercase'}>Place</div>
-					<img src={'/gmapsc.png'} alt="gmap link" className={'w-[180px] p-1 border rounded-xl h-auto mx-auto'}/>
+					<img src={'/gmapsc.png'} alt="gmap link" className={'w-[164px] p-1 border rounded-xl h-auto mx-auto'}/>
 				</a>
 			</div>
 
-			<br/>
-			<br/>
+ 			<div className={'text-xl pt-3'}>Will be no any sales. Drinks and food bring with you please.</div>
 
+			<div className={'px-2 sm:px-0 border pt-5 rounded-xl'}>
 
-{/*<div>*/}
-{/*			WE DO NOT ALLOW:*/}
-
-{/*			<ul className={"text-left pl-12 w-fit mx-auto text-sm"}>*/}
-{/*				<li>BAD VIBES</li>*/}
-{/*				<li>BAD ATTITUDES</li>*/}
-{/*				<li>DRUGS</li>*/}
-{/*				<li>PUBLICITY OF ANY KIND</li>*/}
-{/*				<li>LACK OF RESPECT to nature or persons</li>*/}
-{/*				<li>FIRE (we will provide our own firecamp for your pleasure)</li>*/}
-{/*				<li>CAMPING OUT OF THE CAMPING PLACE</li>*/}
-{/*			</ul>*/}
-{/*</div>*/}
-
-			<p className={'text-xl'}>Will be no any sales. Drinks and food bring with you please.</p>
-
-			<div className={'pt-2.5'}>
-
-			<ul className={"font-[Audiowide] text-left pl-8 w-full grid justify-center grid-cols-[auto]  px-5 mx-auto text-base   h-[500px] relative "}  >
-				{djs && djs.map((dj,pos) =>
-					<li key={dj[0]} id={'dj' + dj[0].replaceAll(' ','_')}
-						className={'absolute w-full text-center grid justify-center items-center grid-cols-[auto_auto] gap-x-3'}
-					    style={{top: (pos * 25) + 'px', transition: 'all ' + (0.888*4.5 + Math.random()/2) + 's ease-in-out'}}
-					>
-						<PsycoTexto className={'flex items-center '}><PsycoTitlo text={dj[0]} className={'uppercase text-orange-300'}/></PsycoTexto>
-						<div className={'text-neutral-300 translate-y-1'}> {dj[1]}</div>
-					</li>)}
-			</ul>
+				<ul className={"font-[Audiowide] text-leftw-full grid justify-center grid-cols-[auto]  px-5  pl-8 mx-auto text-base   h-[400px] relative "}  >
+					{djs && djs.map((dj,pos) =>
+						<li key={dj[0]} id={'dj' + dj[0].replaceAll(' ','_')}
+							className={'text-xs sm:text-base absolute w-full text-center grid justify-center items-center grid-cols-[auto_auto] gap-x-3'}
+						    style={{top: (pos * 27.5) + 'px', transition: 'all ' + (0.888*4.5 + Math.random()/2) + 's ease-in-out'}}
+						>
+							<PsycoTexto className={'flex items-center '}><PsycoTitlo text={dj[0]} className={'uppercase text-orange-300'}/></PsycoTexto>
+							<div className={'text-neutral-300 translate-y-1'}> {dj[1]}</div>
+						</li>)}
+				</ul>
 
 			</div>
 

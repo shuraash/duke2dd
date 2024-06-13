@@ -3,15 +3,11 @@
 import {useEffect, useRef, useState} from "react";
 
 import {arrRandomCycler, randomInt, wrapCycle} from "@src/util";
-import {briNeon, psyColors, djColors, psyShadows} from "@src/components/psyColors";
+import {djColors, psyShadows} from "@src/components/psyColors";
 import {twMerge} from "tailwind-merge";
 
 import gsap from 'gsap';
-import {Flip} from "gsap/Flip";
-import {useGSAP} from '@gsap/react';
-import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";
-import {LinkIcon} from "@nextui-org/react";
-import {IconChevronDown} from "@src/components/psy.icons";
+import {PsycoTitlo} from "@src/components/psyTexts";
 
 // gsap.registerPlugin(useGSAP, Flip);
 

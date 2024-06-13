@@ -10,10 +10,6 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
-    "@nextui-org/progress": "^2.0.28",
-    "@nextui-org/react": "^2.3.6",
-    "@nextui-org/system": "^2.1.2",
-    "@nextui-org/theme": "^2.2.3",
     "framer-motion": "^11.2.6",
     "gsap": "^3.12.5",
     "next": "latest",
@@ -28,7 +24,7 @@
     "@types/react": "18.3.1",
     "autoprefixer": "latest",
     "postcss": "latest",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.4",
     "typescript": "5.4.5"
   }
 }

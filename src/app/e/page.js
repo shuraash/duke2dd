@@ -115,9 +115,9 @@ export default function Experiments() {
 	return (
 		<>
 
-		<div className={'fixed w-full h-full inset-0 details-bg z-[-1] opacity-30'}/>
+		{/*<div className={'fixed w-full h-full inset-0 details-bg z-[-1] opacity-30'}/>*/}
 
-		<div className={'mt-[100px] w-full max-w-screen-md mx-auto px-4 sm:px-0 py-10 rounded-xl border bg-neutral-600/50 text-center relative min-h-[888px]'}>
+		<div className={' w-full max-w-screen-md mx-auto px-4 sm:px-0 py-10 rounded-xl border bg-neutral-600/50 text-center relative min-h-[888px]'}>
 
 			<button onClick={e => cvCpImg(ref.current, cref.current.getContext("2d"), cref.current.offsetWidth, cref.current.offseHeight)}>CLCC!@!</button>
 

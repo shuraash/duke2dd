@@ -1,5 +1,4 @@
 import {useEffect, useRef, useState} from "react";
-import {Progress} from "@nextui-org/react";
 import {IconPlayCircle, IconPlayPause} from "@src/components/psy.icons";
 import {formatTS} from "@src/util";
 
@@ -98,7 +97,9 @@ const DDPlayer = ({ className }) =>
 
 		<div className={`h-6 w-full left-0 bottom-1.5 -translate-y-1 opacity-50 fixed ohuevator ${isExplo ? ' aka-player' : '' }`}/>
 
-		<div className={' flex justify-normal  items-center  -translate-y-1  w-full max-w-sm mx-auto h-fit  '}>
+		<div className={'max-w-screen-sm mx-auto w-full flex h-fit justify-center sm:justify-end'}>
+
+			<div className={' flex justify-normal  items-center  -translate-y-1  w-full max-w-[333px]  h-fit  '}>
 
 			<div className={'w-fit h-fit  z-30 cursor-pointer  '}
 			     onClick={e => isExplo ?  ref.current.querySelector('audio').pause()  :  ref.current.querySelector('audio').play()  }
@@ -124,6 +125,8 @@ const DDPlayer = ({ className }) =>
 			<div className={'text-neutral-200 shrink-0 text-xs font-[Audiowide] space-x-0 w-fit h-fit'}>
 				{formatTS(tlen/100*playPos)}/{formatTS(tlen)}
 			</div>
+
+		</div>
 
 		</div>
 
