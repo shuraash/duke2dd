@@ -19,10 +19,12 @@ export default  function Djs({params})
 
 	return  (
 
-		<div ref={r} className={'opacity-0 pt-8 pb-6 mx-auto w-full max-w-screen-sm px-5'}>
+		<div ref={r} className={'opacity-0 pt-8 pb-6 mx-auto w-full max-w-screen-sm px-5 '}>
+
+			<div className={'fixed w-full h-full inset-0  bg-[url(/cryz.jpeg)] bg-cover  z-[-1]'}/>
 
 
-			{dj && <div className={'border rounded-xl w-full h-fit px-4 py-8 text-base text-neutral-100'}>
+			{dj && <div className={'border rounded-xl w-full h-fit px-4 py-8 text-base text-neutral-100 bg-[#00000088]'}>
 
 
 				<div className={'grid items-center justify-center justify-items-center w-full mb-2'}>
