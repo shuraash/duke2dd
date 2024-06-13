@@ -17,7 +17,7 @@ export const djs = [
 	 </div>
 
 	 <div className={'text-center'}>
-		 You read that right, this couple, dj Psycorax and dj Nunkki, are presenting
+		 You read that right, this couple, dj Synckorax and dj Nunkki, are presenting
 		 their new project, where they`ll be battling it
 		 out on the decks! <p> Don`t miss it! </p>
 	 </div>
