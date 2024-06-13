@@ -31,9 +31,20 @@ const DDPlayer = ({ className }) =>
 		// 	{repeat: Infinity, repeatType: "loop", delay: 7.5, repeatDelay: 7.5}
 		// )
 
-		window.addEventListener('pointerdown', () =>
-			requestAnimationFrame( () =>  ref.current.querySelector('audio').play()   ),
-		{once: true})
+		window.addEventListener('click', () => requestAnimationFrame( () =>
+			{
+				try
+				{
+					ref.current.querySelector('audio').play()
+				}
+				catch(e)
+				{
+					//silence
+				}
+			}),
+
+			{once: true}
+		)
 
 	}, [])
 
@@ -78,10 +89,10 @@ const DDPlayer = ({ className }) =>
 
 
 
-	<div ref={ref} className={' fixed w-full bottom-0 h-fit z-40  mix-blend-screen px-5'}>
+	<div ref={ref} className={' fixed w-full bottom-0 h-fit z-50  mix-blend-screen px-5'}>
 
  		<audio className={'absolute left-[-6789px] h-0 w-0 opacity-0'} ref={muzRef}
-	           src="/opdakop.mp3"
+	           src="https://trancescript.ddns.net/audio/opdakop.mp3"
 
 	           playsInline={true}
 	           autoPlay={true}
@@ -95,7 +106,7 @@ const DDPlayer = ({ className }) =>
 
 		{/*/!*<progress className={'h-8 bg-transparent text-orange-500 w-full max-w-screen-sm bottom-1 abs-h-center '} value={13} max={100}/>*!/*/}
 
-		<div className={`h-6 w-full left-0 bottom-1.5 -translate-y-1 opacity-50 fixed ohuevator ${isExplo ? ' aka-player' : '' }`}/>
+		<div className={`h-6 w-full left-0 -bottom-4 opacity-50 fixed ohuevator ${isExplo ? ' aka-player' : '' }`}/>
 
 		<div className={'max-w-screen-sm mx-auto w-full flex h-fit justify-center sm:justify-end'}>
 

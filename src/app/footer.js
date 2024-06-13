@@ -15,7 +15,8 @@ export default function Footer()
 
 	useEffect(() => {
 
-		animate(ref.current, {bottom:  2, opacity: 1}, {duration: 1.2, ease: "easeIn", delay: 1.8})
+		animate(ref.current, {bottom:  0, opacity: 1}, {duration: 1.2, ease: "easeIn", delay: 1.8})
+		animate(ref.current.querySelector('a'), {opacity: 1}, {duration: 1.2, ease: "easeIn", delay: 1.8})
 
 		animate(
 			[
@@ -29,22 +30,23 @@ export default function Footer()
 	}, [path])
 
 	let isHome = path == '/' || path == '';
+	let isDetails = path == '/details' || path == 'details';
 
 	return <>
 
 		<footer ref={ref}
-		        className={`z-10 fixed w-full h-[98px] left-0 -bottom-32  opacity-0 flex items-center justify-center text-center
+		        className={`z-40 fixed w-full h-[98px] left-0 bottom-0 sm:-bottom-32  flex items-center justify-center text-center
 		        
 		            bg-gradient-to-b from-[#52525280] to-[#134415] sm:bg-none
 		        `}
 
 		        style={{
-				    background: isHome ? 'transparent' : ' ',
+				    background: isDetails ? '' : 'transparent',
 			        textShadow: `#dedede 0px 0px 8px, #eeeeeeee 0px 0px 20px, 0px 0px 1px #00000054`
 				}}
 		>
 
-			<Link href={path == '/' ? '/details' : '/'} className={'  uppercase text-sm sm:text-base tracking-wide z-30 absolute  top-2 sm:top-auto sm:bottom-1.5 sm:translate-x-[-100%] '}>
+			<Link href={isHome  ? '/details' : '/'} className={'opacity-0 uppercase text-sm sm:text-base tracking-wide z-50 absolute  top-2 sm:top-auto sm:bottom-1.5 sm:translate-x-[-100%] '}>
 				<PsycoTexto className={'p-2 border rounded-xl'}>
 					<PsycoTitlo className={'gap-x-2'} text={path == '/' ? 'Details' : 'back to flyer'}/>
 				</PsycoTexto>

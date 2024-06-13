@@ -8,29 +8,12 @@ import {twMerge} from "tailwind-merge";
 
 import gsap from 'gsap';
 import {PsycoTitlo} from "@src/components/psyTexts";
+import {djs} from "@src/components/djs";
+import Link from "next/link";
 
 // gsap.registerPlugin(useGSAP, Flip);
 
 const
-
-	djs = [
-
-		['M️♥Love', 'Leuven.BE'],
-		['Anormic', 'Mertzig.LU'],
-		['Hyperactive Mode', 'Antwerp.BE'],
-		['Mechanical Trip', 'Boevange.LU'],
-		['PsyGogh', 'Amsterdam.NL'],
-		['Frequency-F', 'Esch-sur-Alzette.LU'],
-		['Narah Gaia', 'Amsterdam.NL'],
-		['Shiva ASH', 'Esch-sur-Alzette.LU'],
-		['Input Malfunction', 'Antwerp.BE'],
-		['Helloki', 'Kalmthout.BE'],
-		['SonGoa', 'Amsterdam.NL'],
-		['GriSha', 'London.UK'],
-		['Jim Madness', 'Audun-le-Tiche.FR'],
-		['Ozion', '* * * * *.PT'],
-
-	],
 
 	ddDjs =  wrapCycle(djs),
 
@@ -125,6 +108,7 @@ export default function DjDropsGsap({className, djCalss, playing})
 		gsap.globalTimeline.remove( tl.current )
 		setDjData(genDJ(dwr.next().value))
 
+		bubble.querySelector('a').click()
 	//	bubble.querySelector('.explo-pic')._doExplode()
 
 
@@ -327,6 +311,8 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 
 					</div>
 				</div>
+
+				<Link href={'/djs/'+djData.dj[0].replaceAll(' ', '').replace("M️♥Love","MLove")} className={'absolute h-0 w-0'}/>
 	</figure>
 
 

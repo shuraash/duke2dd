@@ -1,14 +1,16 @@
 "use client"
 
-import Link from "next/link";
 import {shuffledDJ} from "@src/components/djDrops.gsap";
 import {useEffect, useRef, useState} from "react";
 import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";
+import Link from "next/link";
 
 
 export default function About() {
 
 	const [djs, setDjd] = useState()
+
+	const pgRef = useRef()
 
 	const makafaka = () => {
 
@@ -28,14 +30,34 @@ export default function About() {
 
 		setInterval(() =>  makafaka(), 888*8)
 
+		pgRef.current.classList.add('fade-in')
+
 	}, [])
+
+	//
+	// function openDJ(dj)
+	// {
+	// 	window,o
+	// }
 
 
 	return (
 		<>
 
 
-		<div className={' w-full max-w-screen-sm mx-auto px-4 sm:px-8 sm:mt-8 sm:py-4 sm:rounded-xl bg-neutral-600/50 text-center'}>
+		<div className={'fixed w-full h-full inset-0 details-bg z-[-1]'}/>
+
+		<div ref={pgRef} className={'opacity-0 w-full max-w-screen-sm mx-auto px-4 sm:px-8 sm:mt-12 sm:py-4 sm:rounded-xl bg-neutral-600/50 text-center sm:mt-4'}>
+
+			{/*<PsycoTexto className={`   text-base  font-semibold  h-fit w-fit mx-auto shrink-0 truncate !drop-shadow-none !shadow-none`}>*/}
+			{/*	<PsycoTitlo text='June 22 13:00 - June 23 17:00' className={'!drop-shadow-none !shadow-none'}*/}
+			{/*	            style={{textShadow: 'none'}}*/}
+			{/*	/>*/}
+			{/*</PsycoTexto>*/}
+
+			<div className={`   text-base sm:text-lg pt-1  font-semibold  h-fit w-fit mx-auto shrink-0 truncate !drop-shadow-none !shadow-none`}>
+				June 22 13:00 - June 23 17:00
+			</div>
 
 			<div className={'flex justify-center text-2xl'}>
 				<PsycoTexto className={'flex items-center '}><PsycoTitlo text={'* Free partY *'} className={'uppercase text-orange-300'}/></PsycoTexto>
@@ -57,11 +79,12 @@ export default function About() {
 				<ul className={"font-[Audiowide] text-leftw-full grid justify-center grid-cols-[auto]  px-5  pl-8 mx-auto text-base   h-[400px] relative "}  >
 					{djs && djs.map((dj,pos) =>
 						<li key={dj[0]} id={'dj' + dj[0].replaceAll(' ','_')}
-							className={'text-xs sm:text-base absolute w-full text-center grid justify-center items-center grid-cols-[auto_auto] gap-x-3'}
+							className={'cursor-pointer text-xs sm:text-base absolute w-full text-center grid justify-center items-center grid-cols-[auto_auto] gap-x-3'}
 						    style={{top: (pos * 27.5) + 'px', transition: 'all ' + (0.888*4.5 + Math.random()/2) + 's ease-in-out'}}
 						>
 							<PsycoTexto className={'flex items-center '}><PsycoTitlo text={dj[0]} className={'uppercase text-orange-300'}/></PsycoTexto>
 							<div className={'text-neutral-300 translate-y-1'}> {dj[1]}</div>
+							<Link href={'/djs/'+dj[0].replaceAll(' ', '').replace("M️♥Love","MLove")} className={'absolute inset-0'}/>
 						</li>)}
 				</ul>
 

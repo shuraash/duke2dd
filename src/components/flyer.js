@@ -157,7 +157,7 @@ export default function DDFLyear({className})
 	{/*</div>*/}
 
 
-	<figure ref={flyRef}  className={'huemana z-30 abs-center w-full md:max-w-screen-md h-auto mx-auto aspect-square opacity-0 scale-[0] p-2 md:p-0 fixed select-none cursor-grab  '}>
+	<figure ref={flyRef}  className={'huemana z-30 abs-center !top-[50dvh] w-full md:max-w-screen-md h-auto mx-auto aspect-square opacity-0 scale-[0] p-2 md:p-0 fixed select-none cursor-grab  '}>
 
 
 			<div className={'relative w-full h-fit '} >

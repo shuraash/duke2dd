@@ -15,6 +15,7 @@ export default function Header()
 	useEffect(() => {
 
 		animate(ref.current, {top: 0, opacity: 1}, {duration: 1, ease: "easeIn", delay: 1.2})
+		animate(ref.current.querySelector('a'), {opacity: 1}, {duration: 1, ease: "easeIn", delay: 1.2})
 
 		animate(
 			[
@@ -37,30 +38,31 @@ export default function Header()
 	}, [path])
 
 	let isHome = path == '/';
+	let isDetails = path == '/details' || path == 'details';
 
 	return <header
 	                ref={ref}
-	                className={`z-[1] fixed w-full h-fit left-0 -top-32 translate-y-[-125%]   
-	                    opacity-0 flex items-center justify-center text-center	   
+	                className={`z-[1] fixed w-full h-fit left-0 top-0 sm:-top-32   
+	                    opacity-1   flex items-center justify-center text-center	   
 	                    sm:pt-4           
 	                    bg-gradient-to-t from-[#52525280] to-[#18598c] sm:bg-none    
 	                  `}
 
 	                style={{
-						background: isHome ? 'transparent' :  '',
+		                background: isDetails ? '' : 'transparent',
 		                textShadow: `#dedede 0px 0px 8px, #eeeeeeee 0px 0px 20px, 0px 0px 1px #00000054`
 					}}
 	      >
 
 
-		<Link href={path == '/' ? '/details' : '/'}
-		      className={path != '/' ? 'flex pb-3   ' : ''}
+		<Link href={isHome ? '/details' : '/'}
+		      className={(isHome ? 'flex pb-3   ' : '') + 'opacity-0'}
 		      // style={path != '/' ? {background: 'linear-gradient(to top, #714877a1, #070e2d7a)'} : {}}
 		>
 
 			<div className={'w-fit h-fit mx-auto mt-1'}>
 
-				<PsycoTexto duration={0.5} delay={1.5} className={`drop-shadow-xl text-2xl sm:text-3xl lg:text-4xl  font-semibold text-orange-500  flex gap-x-4 items-center h-fit w-fit mx-auto`}>
+				<PsycoTexto duration={0.5} delay={1.5} className={`  text-2xl sm:text-3xl lg:text-4xl  font-semibold text-orange-500  flex gap-x-4 items-center h-fit w-fit mx-auto`}>
 					{/*Duke<b className={'text-2xl'}>d</b>elic Duke<b className={'text-2xl'}>d</b>ance*/}
 					<div className={'psyco-row flex items-center gap-x-1'}>
 						<PsycoTitlo text='Duke' className={''}/>
@@ -74,9 +76,17 @@ export default function Header()
 					</div>
 				</PsycoTexto>
 
-				<div className={ ' mt-1 ohuevator text-sm sm:text-base  text-emerald-300  h-fit w-fit mx-auto shrink-0 truncate'}>
-					 June 22 13:00 - June 23 17:00. Differdnage.
-				</div>
+				{/*<div className={ ' mt-1 ohuevator text-sm sm:text-base  text-emerald-300  h-fit w-fit mx-auto shrink-0 truncate'}>*/}
+				{/*	 June 22 13:00 - June 23 17:00. Differdnage.*/}
+				{/*</div>*/}
+
+				{isHome &&
+				<PsycoTexto className={`   text-base  font-semibold  h-fit w-fit mx-auto shrink-0 truncate !drop-shadow-none !shadow-none`}>
+					<PsycoTitlo text='June 22 13:00 - June 23 17:00' className={'!drop-shadow-none !shadow-none'}
+						style={{textShadow: 'none'}}
+					/>
+				</PsycoTexto>
+				}
 
 			</div>
 		</Link>

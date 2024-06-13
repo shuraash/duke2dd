@@ -52,7 +52,10 @@ const
 
 			}, [text])
 
-			return <div ref={ref} className={twMerge( `psy-titlo w-fit h-fit min-w-fit flex items-center justify-evenly gap-x-1 `, className)} {...rest}>
+			return <div ref={ref}
+			            className={twMerge( `psy-titlo w-fit h-fit min-w-fit flex items-center justify-evenly gap-x-1 `, className)}
+			            {...rest}
+			>
 
 				{chars.map((c,i) =>
 

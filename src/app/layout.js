@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={'overflow-x-hidden w-screen  '}>
 
-      <body className={'relative w-screen h-screen h-dvh min-h-screen min-h-dvh overflow-x-hidden dark   '}>
+      <body className={'relative w-screen   h-dvh  min-h-dvh overflow-x-hidden dark   '}>
 
         {/*<PsyBG className={'abs-full fixed '} onInfoUpdate={undefined} />*/}
 
@@ -31,7 +31,6 @@ export default function RootLayout({ children }) {
         {/*<main className={`overflow-x-hidden max-w-full min-w-full w-full overflow-y-auto h-[calc(100%_-_164px)] pt-[0px]`}>*/}
         <main className={` `}>
 
-            <div className={'fixed w-full h-full inset-0 details-bg z-[-1]'}/>
 
              <PageWrapper>{children}</PageWrapper>
 
