@@ -32,7 +32,7 @@ export default  function Djs({params})
 
 				<div className={'grid grid-cols-[auto] justify-items-center justify-center items-center w-full h-fit relative'}>
 
-					<img src={'/djs/'+params.dj+'.jpg'} className={'w-3/5 shrink-0 h-auto p-0.5 border rounded-full overflow-x-hidden object-cover'}/>
+					<img src={'/djs/'+params.dj.toLowerCase()+'.jpg'} className={'w-3/5 shrink-0 h-auto p-0.5 border rounded-full overflow-x-hidden object-cover'}/>
 
 					<div className={'mt-2 w-full p-2 text-base shrink-0'}>
 						{dj[2] ? dj[2] : <>
