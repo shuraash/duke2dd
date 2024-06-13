@@ -69,9 +69,9 @@ export default function PageWrapper ({ children }){
                   <section className={'psy-page overflow-x-hidden max-w-full min-w-full w-full overflow-y-auto h-[calc(100%_-_100px)] pt-[72px] z-10 '}>
 
 
-                      <div className={'w-full max-w-full md:max-w-screen-md h-auto mx-auto '}>
+                      {/*<div className={'w-full max-w-full md:max-w-screen-md h-auto mx-auto '}>*/}
                           {children}
-                      </div>
+                      {/*</div>*/}
                   </section>
 
               </FrozenRouter>
