@@ -39,10 +39,7 @@ export default  function Djs({params})
 					<div className={'mt-2 w-full p-2 text-lg shrink-0'}>
 						{dj[2] ? dj[2] : <>
 
-							<p>Some description text</p>
-							<p>Some description text</p>
-							<p>Some description text</p>
-							<p>Some description text</p>
+							<PsycoTexto className={'w-fit mt-3 mx-auto'}><PsycoTitlo text='Just bring you a vibe(s)!' className={'text-2xl text-center'}/></PsycoTexto>
 
 						</>}
 					</div>

@@ -8,7 +8,7 @@ export const djs = [
 	["Anormic", "Mertzig.LU"],
 
 	["Hyperactive Mode", "Antwerp.BE"],
-	["Mechanical Trip", "Boevange.LU"],
+	["Sophio", "Haarlem.NL"],
 	["PsyGogh", "Amsterdam.NL"],
 	["Frequency-F", "Esch-sur-Alzette.LU",
 <>
@@ -33,3 +33,4 @@ export const djs = [
 	["Ozion", "* * * * *.PT"],
 
 ]
+
