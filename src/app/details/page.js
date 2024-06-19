@@ -10,6 +10,8 @@ export default function About() {
 
 	const [djs, setDjd] = useState()
 
+	const [ttMode, setTTMode] = useState()
+
 	const pgRef = useRef()
 
 	const makafaka = () => {
@@ -67,14 +69,21 @@ export default function About() {
 
 			<div className={'text-xl my-1 h-fit w-full'}>
 				<a href={'https://maps.app.goo.gl/fiCzbZd4iYYzwX5h6'} target={'_blank'} >
-					<div className={'w-fit mx-auto text-sm uppercase'}>Place</div>
+					{/*<div className={'w-fit mx-auto text-sm uppercase'}>Place</div>*/}
 					<img src={'/gmapsc.png'} alt="gmap link" className={'w-[164px] p-1 border rounded-xl h-auto mx-auto'}/>
 				</a>
 			</div>
 
- 			<div className={'text-xl pt-3'}>Will be no any sales. Drinks and food bring with you please.</div>
+ 			<div className={'text-balance pt-3 pb-2 px-3 bg-fuchsia-700 rounded-xl text-center border flex items-center '}>Will be no any sales. Drinks and food bring with you please.</div>
 
-			<div className={'px-2 sm:px-0 border pt-5 rounded-xl'}>
+			<div className={`mt-2 text-balance flex gap-x-4 items-center py-1.5 justify-center`}>
+				<div onClick={e => ttMode ? setTTMode(false) : null}  className={'border px-5 pt-3.5 rounded-xl flex items-center cursor-pointer'} style={{background: ttMode ? '' : '#2bce59'}}>DJ's</div>
+				<div onClick={e => !ttMode ? setTTMode(true) : null} className={'border px-5 pt-3.5 rounded-xl flex items-center cursor-pointer'} style={{background: ttMode ? '#2bce59' : ''}}>Time Table</div>
+			</div>
+
+
+			{!ttMode &&
+				<div className={'px-2 sm:px-0 border pt-5 rounded-xl'}>
 
 				<ul className={"font-[Audiowide] text-leftw-full grid justify-center grid-cols-[auto]  px-5  pl-8 mx-auto text-base   h-[400px] relative "}  >
 					{djs && djs.map((dj,pos) =>
@@ -89,6 +98,13 @@ export default function About() {
 				</ul>
 
 			</div>
+			}
+
+			{ttMode &&
+				<div className={'overflow-x-hidden mt-2 pb-3'}>
+					<img alt='time table' src={'/timetable.jpg'} className={ 'w-full max-w-screen-sm h-auto object-contain'}/>
+				</div>
+			}
 
 		</div>
 

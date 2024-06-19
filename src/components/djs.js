@@ -4,9 +4,7 @@ export const djs = [
 		"Leuven.BE",
 
 	],
-
 	["Anormic", "Mertzig.LU"],
-
 	["Hyperactive Mode", "Antwerp.BE"],
 	["Sophio", "Haarlem.NL"],
 	["PsyGogh", "Amsterdam.NL"],
