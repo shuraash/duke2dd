@@ -74,9 +74,9 @@ export default function About() {
 				</a>
 			</div>
 
-			<div className={'flex justify-center text-lg w-fit mx-auto mt-2 items-center mt-1 py-1.5 px-10 bg-gradient-to-b from-[#3f51b5] to-[#9C27B0] rounded-xl'}>
-				<PsycoTexto className={'flex items-center '}><PsycoTitlo text={'deco by SkvoSpace'} className={' text-orange-300'}/></PsycoTexto>
-			</div>
+			<Link href="/djs/skvo" className={'flex justify-center text-lg w-fit mx-auto mt-2 items-center mt-1 py-1.5 px-10 bg-gradient-to-b from-[#3f51b5] to-[#9C27B0] rounded-xl'}>
+				<PsycoTexto className={'flex items-center '}><PsycoTitlo text={"deco by skvo's-space"} className={' text-orange-300'}/></PsycoTexto>
+			</Link>
 
 			<div className={`mt-1 text-balance flex gap-x-4 items-center py-1.5 justify-center`}>
 				<div onClick={e => ttMode ? setTTMode(false) : null}  className={'border px-5 pt-2.5 pb-0 rounded-xl flex items-center cursor-pointer'} style={{background: ttMode ? '' : '#2bce59'}}>DJ's</div>

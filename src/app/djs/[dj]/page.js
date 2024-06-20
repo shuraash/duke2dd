@@ -3,12 +3,22 @@
 import {djs} from "@src/components/djs";
 import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";
 import {useEffect, useRef} from "react";
+import Link from "next/link";
 
 export default  function Djs({params})
 {
 
 	const
-		dj = djs.find(d => d[0].replaceAll(' ', '').replace("M️♥Love","MLove").toLowerCase() == params.dj.toLowerCase()),
+		dj = params.dj.toLowerCase() == 'skvo'
+
+			? 	["skvo's-space", "Ko Pha Ngan.TW",
+					<Link href={'https://www.instagram.com/skvo.s.space'} target={'_blank'}>
+						<PsycoTexto className={'w-fit mt-3 mx-auto'}><PsycoTitlo text='Just design by life(s)!' className={'text-2xl text-center'}/></PsycoTexto>
+					</Link>
+				]
+
+			: djs.find(d => d[0].replaceAll(' ', '').replace("M️♥Love","MLove").toLowerCase() == params.dj.toLowerCase()),
+
 		r = useRef()
 
 	useEffect(()=>{
