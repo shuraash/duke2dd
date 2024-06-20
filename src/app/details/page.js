@@ -70,13 +70,17 @@ export default function About() {
 			<div className={'text-xl my-1 h-fit w-full'}>
 				<a href={'https://maps.app.goo.gl/fiCzbZd4iYYzwX5h6'} target={'_blank'} >
 					{/*<div className={'w-fit mx-auto text-sm uppercase'}>Place</div>*/}
-					<img src={'/gmapsc.png'} alt="gmap link" className={'w-[164px] p-1 border rounded-xl h-auto mx-auto'}/>
+					<img src={'/gmapsc.png'} alt="gmap link" className={'w-[112px] p-1 border rounded-xl h-auto mx-auto'}/>
 				</a>
 			</div>
 
- 			<div className={'text-balance pt-3 pb-2 px-3 bg-fuchsia-700 rounded-xl text-center border flex items-center '}>Will be no any sales. Drinks and food bring with you please.</div>
+ 			<div className={'text-base pt-3 pb-2 px-3 bg-fuchsia-700 rounded-xl text-center border flex items-center '}>Will be no any sales. Drinks and food bring with you please.</div>
 
-			<div className={`mt-2 text-balance flex gap-x-4 items-center py-1.5 justify-center`}>
+			<div className={'flex justify-center text-lg items-center mt-1'}>
+				<PsycoTexto className={'flex items-center '}><PsycoTitlo text={'deco by SkvoSpace'} className={' text-orange-300'}/></PsycoTexto>
+			</div>
+
+			<div className={`mt-1 text-balance flex gap-x-4 items-center py-1.5 justify-center`}>
 				<div onClick={e => ttMode ? setTTMode(false) : null}  className={'border px-5 pt-3.5 rounded-xl flex items-center cursor-pointer'} style={{background: ttMode ? '' : '#2bce59'}}>DJ's</div>
 				<div onClick={e => !ttMode ? setTTMode(true) : null} className={'border px-5 pt-3.5 rounded-xl flex items-center cursor-pointer'} style={{background: ttMode ? '#2bce59' : ''}}>Time Table</div>
 			</div>
