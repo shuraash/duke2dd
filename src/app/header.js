@@ -82,7 +82,7 @@ export default function Header()
 
 				{isHome &&
 				<PsycoTexto className={`   text-base  font-semibold  h-fit w-fit mx-auto shrink-0 truncate !drop-shadow-none !shadow-none`}>
-					<PsycoTitlo text='June 22 13:00 - June 23 17:00' className={'!drop-shadow-none !shadow-none'}
+					<PsycoTitlo text='June 22 12:00 - June 23 17:00' className={'!drop-shadow-none !shadow-none'}
 						style={{textShadow: 'none'}}
 					/>
 				</PsycoTexto>
