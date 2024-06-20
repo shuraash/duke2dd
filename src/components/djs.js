@@ -29,6 +29,6 @@ export const djs = [
 	["SonGoa", "Amsterdam.NL"],
 	["GriSha", "London.UK"],
 	["Jim Madness", "Audun-le-Tiche.FR"],
-	["Ozion", "* * * * *.PT"],
+
 
 ]
