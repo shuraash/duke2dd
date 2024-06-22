@@ -104,7 +104,7 @@ export default function About() {
 
 			{ttMode &&
 				<div className={'overflow-x-hidden mt-2 pb-3'}>
-					<img alt='time table' src={'/timetable.jpg'} className={ 'w-full max-w-screen-sm h-auto object-contain'}/>
+					<img alt='time table' src={'/timetable.jpg'} className={ 'ohuevator w-full max-w-screen-sm h-auto object-contain'}/>
 				</div>
 			}
 
