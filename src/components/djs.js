@@ -26,7 +26,7 @@ export const djs = [
 	["Shiva ASH", "Esch-sur-Alzette.LU"],
 	["Input Malfunction", "Antwerp.BE"],
 	["Helloki", "Antwerp.BE"],
-	["SonGoa", "Amsterdam.NL"],
+	// ["SonGoa", "Amsterdam.NL"],
 	["GriSha", "London.UK"],
 	["Jim Madness", "Audun-le-Tiche.FR"],
 
