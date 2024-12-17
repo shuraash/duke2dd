@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
 
 function PsyHeader({}) {
 
-    return <header className={'w-fit mx-auto max-w-screen-lg p-2 grid grid-cols-[auto_auto] gap-x-4 items-center font-sans drop-shadow-[3px_3px_3px#fff8f888]'}>
+    return <header className={'relative z-40 w-fit mx-auto max-w-screen-lg p-2 grid grid-cols-[auto_auto] gap-x-4 items-center font-sans drop-shadow-[3px_3px_3px#fff8f888]'}>
 
         <img src={'psytrance_lu.png'} className={`w-auto h-24 psy-logo-huer`}/>
 
@@ -53,6 +53,6 @@ function PsyHeader({}) {
             <h3 className={'text-[14px] tracking-[0px] text-red-300 '}>Non-profit cultural society</h3>
         </div>
         {/*<h1 className={'font-bold text-2xl text-lime-300 ohuevator-c'}>PSYTRANCE.LU</h1>*/}
-
+        <a href={"/"} className={'absolute inset-0 opacity-0 z-10 cursor-pointer '} alt={"home"}/>
     </header>
 }

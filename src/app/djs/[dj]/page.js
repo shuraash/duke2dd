@@ -23,6 +23,8 @@ export default  function Djs({params})
 
 	useEffect(()=>{
 
+	//	alert(JSON.stringify(dj, null, 4))
+
 		r.current.classList.add('fade-in')
 
 	}, [])
