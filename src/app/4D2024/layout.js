@@ -1,7 +1,7 @@
-import './globals.css?2'
-import Footer from "./4D2024/footer";
-import Header from "./4D2024/header";
-import PageWrapper from "./4D2024/pageWrapper";
+import './../globals.css?2'
+import Footer from "./footer";
+import Header from "./header";
+import PageWrapper from "./pageWrapper";
 
 export const metadata = {
     title: 'Dukedelic Dukedance',
