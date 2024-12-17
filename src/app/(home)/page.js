@@ -1,8 +1,13 @@
-import DDFLyear from "@src/components/flyer";
-import PsyBG from "@src/components/psyBG";
+import NY2005Eve from "@src/app/(home)/ny2025Eve";
 
-export default function Home() {
 
-	return <> <PsyBG className={'abs-full fixed'}/> <DDFLyear className={'z-20'}/> </>
+export default async function Home() {
+
+	return <NY2005Eve/>
+
+	// <>
+		/*<PsyBG className={'abs-full fixed'}/>*/
+		/*<DDFLyear className={'z-20'}/>*/
+	// </>
 
 }

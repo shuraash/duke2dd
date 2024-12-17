@@ -918,3 +918,18 @@ main{
 .ddpicg img{
    filter: drop-shadow(0px 0px 2px #ffa500aa) drop-shadow(0px 0px 13px #ffa50088);
 }
+
+
+.psy-logo-huer{
+  /*animation: w-huevator 6.33s ease-in-out infinite, w-rotatoid 7.7s linear infinite;*/
+  animation: rotateHUE360 7.7s linear infinite;
+}
+
+.ny-quarter{
+  animation: o-huevate-c 7.7s linear infinite;
+}
+
+
+.ny-title{
+  animation: o-huevate-c 4.7s linear infinite;
+}
