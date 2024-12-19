@@ -17,7 +17,8 @@ export default function NY2005Eve() {
 
         vidRef.current.addEventListener('canplaythrough', e => auPlay())
         console.log(`ev added`)
-        vidRef.current.src = '/ny2025/cqe.mp4'
+        //vidRef.current.src = '/ny2025/cqe.mp4'
+        vidRef.current.src = '/ny2025/cqe_v2_640.mp4'
 
     }, []);
 
