@@ -73,9 +73,22 @@ export default function NY2005Eve() {
         </div>
 
 
-        <div className={'mt-10 text-lg text-white text-center pb-8'}>
-            <span>All info by email: </span>
-            <a href="mailto:psytrance.lux@gmail.com?subject=New Year Eve 2025&cc=shuraash@gmail.com,tiagooosimoes@gmail.com" className={'font-sans text-lime-200'}  >psytrance.lux@gmail.com</a>
+        <div className={'mt-12 mb-10 text-lg sm:text-xl text-white text-center pb-8'}>
+            <div>
+                <span>All info by email </span>
+                <a href="mailto:psytrance.lux@gmail.com?subject=New Year Eve 2025&cc=shuraash@gmail.com,tiagooosimoes@gmail.com" className={'font-sans text-lime-200'}  >psytrance.lux@gmail.com</a>
+            </div>
+            <div>
+                <span>messenger </span>
+                <a href={'https://www.messenger.com/t/100001073395392/'}   className={'font-sans text-lime-200'}  target={"_blank"}>www.messenger.com/t/TiagoaPsy/</a>
+            </div>
+            
+
+            <div>
+                <span>telegramm </span>
+                <a href={'https://t.me/shuraash'} className={'font-sans text-lime-200'}  target={"_blank"}>t.me/shuraash</a>
+            </div>
+
         </div>
 
     </div>
