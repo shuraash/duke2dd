@@ -18,7 +18,7 @@ export default function NY2005Eve() {
         vidRef.current.addEventListener('canplaythrough', e => auPlay())
         console.log(`ev added`)
         //vidRef.current.src = '/ny2025/cqe.mp4'
-        vidRef.current.src = '/ny2025/cqe_v3_640.mp4'
+        vidRef.current.src = '/ny2025/cqe_v2_640.mp4'
 
     }, []);
 
@@ -68,7 +68,7 @@ export default function NY2005Eve() {
                 // onCanPlay={e => auPlay()}
             />
 
-            <img src={'/ny2025/djlist3.webp'} className={'border rounded-xl overflow-hidden w-full max-w-[555px] ny-quarter h-auto mx-auto mt-10'}/>
+            <img src={'/ny2025/djlist.jpg'} className={'border rounded-xl overflow-hidden w-full max-w-[555px] ny-quarter h-auto mx-auto mt-10'}/>
 
         </div>
 
