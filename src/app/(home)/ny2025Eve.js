@@ -25,10 +25,18 @@ export default function NY2005Eve() {
     return <div className={`  px-3 pb-3 relative `}>
 
 
-        <div className={'font-sans rounded-xl bg-black/60 px-16 py-3 pt-4 border w-fit mx-auto ny-title'}>
+        <div className={'font-sans rounded-xl bg-black/60 px-16 py-3 pt-2 border w-fit mx-auto ny-title'}>
             <h2 className={'text-xl text-sky-300 text-center'}>New Year Eve 2025</h2>
-            <h3 className={'text-sm text-emerald-300 text-center'}>31.12.24 21:00 - 01.01.25 12:00</h3>
+            <h3 className={'text-sm text-emerald-300 text-center'}>31.12.24 22:00 - 01.01.25 12:00</h3>
         </div>
+
+        <div className={'mt-7 font-sans rounded-xl text-red-600 font-semibold bg-white/80 px-16 py-4  pt-2 border w-full mx-auto ny-title'}>
+            <a href={'https://maps.app.goo.gl/ckTEKVRinjZoHS5m9'} target={"_blank"} className={'text-xl  text-center flex items-center justify-center gap-x-3 '}>LOCATION: 5 zone industrielle Grasbusch, Leudelange
+            <img src={"https://www.google.com/favicon.ico"} className={'w-8 h-8'}/>
+            </a>
+            <h3 className={'text-base text-emerald-700 text-center'}>Entry till 31.01.24 23:59 - 15 €, from 2025 - 20 € </h3>
+        </div>
+
 
         <div className={'mt-10'}  >
 
@@ -94,3 +102,53 @@ export default function NY2005Eve() {
     </div>
 
 }
+
+/*
+
+There is a list of DJ's and where they from. List is for New Year eve 2005 - psytrance rave party.
+Put this list on appropriate DARK background.
+    All names need to be clearly readable and without mistakes.
+    Colors is bright and psychedelic.
+    City and country letters is smaller than DJ name letters.
+    On the background need to be some festive elements: cd, players, dj-mixer, etc.
+    List of a DJ's need to painted like letters on the half-transparent glass.
+All composition need to match psychedelic hippie style.
+    Attention to the text - text need to match exactly what im written in the list. Exactly same words in the same order.
+
+    DJ LIST:
+
+    Neill Moore / NEO (London, UK),
+    Shiva ASH (Esch-sur-Alzette, LU),
+    Catronomix (Antwerp, BE),
+    E.T. (Zurich/Vienna, AUT/CH),
+    Ad'am (Porto, PT),
+Sophio (Haarlem, NL),
+    GriSha (London, UK)
+
+Neill Moore / NEO
+Shiva ASH
+E.T.
+    Catronomix
+Ad'am
+Sophio
+GriSha
+
+(London, UK)
+(Esch-sur-Alzette, LU)
+(Zurich/Vienna, AUT/CH)
+(Antwerp, BE)
+(Porto, PT)
+(Haarlem, NL)
+(London, UK)
+
+
+London, UK
+Esch-sur-Alzette, LU
+Zurich/Vienna, AUT/CH
+Antwerp, BE
+Porto, PT
+Haarlem, NL
+London, UK
+
+*/
+
