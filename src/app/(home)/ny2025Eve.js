@@ -15,10 +15,10 @@ export default function NY2005Eve() {
 
     useEffect(() => {
 
-        vidRef.current.addEventListener('canplaythrough', e => auPlay())
-        console.log(`ev added`)
-        //vidRef.current.src = '/ny2025/cqe.mp4'
-        vidRef.current.src = '/ny2025/cqe_v2_640.mp4'
+        // vidRef.current.addEventListener('canplaythrough', e => auPlay())
+        // console.log(`ev added`)
+        // //vidRef.current.src = '/ny2025/cqe.mp4'
+        // vidRef.current.src = '/ny2025/cqe_v2_640.mp4'
 
     }, []);
 
@@ -26,15 +26,15 @@ export default function NY2005Eve() {
 
 
         <div className={'font-sans rounded-xl bg-black/60 px-16 py-3 pt-2 border w-fit mx-auto ny-title'}>
-            <h2 className={'text-xl text-sky-300 text-center'}>New Year Eve 2025</h2>
-            <h3 className={'text-sm text-emerald-300 text-center'}>31.12.24 22:00 - 01.01.25 12:00</h3>
+            <h2 className={'text-xl text-sky-300 text-center'}>New Year Eve 2025 REFLEX</h2>
+            <h3 className={'text-sm text-emerald-300 text-center'}>04.01.25 22:00 - 05.01.25 10:00</h3>
         </div>
 
         <div className={'mt-7 font-sans rounded-xl text-red-600 font-semibold bg-white/80 px-16 py-4  pt-2 border w-full mx-auto ny-title'}>
             <a href={'https://maps.app.goo.gl/ckTEKVRinjZoHS5m9'} target={"_blank"} className={'text-xl  text-center flex items-center justify-center gap-x-3 '}>LOCATION: 5 zone industrielle Grasbusch, Leudelange
             <img src={"https://www.google.com/favicon.ico"} className={'w-8 h-8'}/>
             </a>
-            <h3 className={'text-base text-emerald-700 text-center'}>Entry till 31.01.24 23:59 - 15 €, from 2025 - 20 € </h3>
+            <h3 className={'text-base text-emerald-700 text-center'}>Entry till  23:59 - 5 €, from 00:00 - 10 € </h3>
         </div>
 
 
@@ -65,18 +65,18 @@ export default function NY2005Eve() {
 
             {/*<img src={'/ny2025/300pxO.gif'} className={'border rounded-xl overflow-hidden w-full max-w-[555px] h-auto mx-auto mt-10'}/>*/}
 
-            <video
-                // src={'/ny2025/cqe.mp4'}
-                loop={true}
-                playsInline={true}
-                muted={true}
-                controls={true}
-                className={'border rounded-xl overflow-hidden w-full max-w-[555px] h-auto mx-auto mt-10'}
-                ref={vidRef}
-                // onCanPlay={e => auPlay()}
-            />
+            {/*<video*/}
+            {/*    // src={'/ny2025/cqe.mp4'}*/}
+            {/*    loop={true}*/}
+            {/*    playsInline={true}*/}
+            {/*    muted={true}*/}
+            {/*    controls={true}*/}
+            {/*    className={'border rounded-xl overflow-hidden w-full max-w-[555px] h-auto mx-auto mt-10'}*/}
+            {/*    ref={vidRef}*/}
+            {/*    // onCanPlay={e => auPlay()}*/}
+            {/*/>*/}
 
-            <img src={'/ny2025/djlist.jpg'} className={'border rounded-xl overflow-hidden w-full max-w-[555px] ny-quarter h-auto mx-auto mt-10'}/>
+            {/*<img src={'/ny2025/djlist.jpg'} className={'border rounded-xl overflow-hidden w-full max-w-[555px] ny-quarter h-auto mx-auto mt-10'}/>*/}
 
         </div>
 
