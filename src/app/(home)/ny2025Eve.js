@@ -76,7 +76,7 @@ export default function NY2005Eve() {
             {/*    // onCanPlay={e => auPlay()}*/}
             {/*/>*/}
 
-            <img src={'/ny2025/reflex.png'} className={'border rounded-xl overflow-hidden w-full max-w-[555px] ny-quarter h-auto mx-auto mt-10'}/>
+            <img src={'/ny2025/flyzaeb2.png'} className={'border rounded-xl overflow-hidden w-full max-w-[555px] ny-quarter h-auto mx-auto mt-10'}/>
 
         </div>
 
