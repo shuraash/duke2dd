@@ -89,7 +89,7 @@ const DDPlayer = ({ className }) =>
 
 
 
-	<div ref={ref} className={' fixed w-full bottom-0 h-fit z-50  mix-blend-screen px-5'}>
+	<div ref={ref} className={' fixed w-full bottom-0 h-fit z-30 mix-blend-screen px-5'}>
 
  		<audio className={'absolute left-[-6789px] h-0 w-0 opacity-0'} ref={muzRef}
 	           src="https://trancescript.ddns.net/audio/opdakop.mp3"
@@ -112,7 +112,7 @@ const DDPlayer = ({ className }) =>
 
 			<div className={' flex justify-normal  items-center  -translate-y-1  w-full max-w-[333px]  h-fit  '}>
 
-			<div className={'w-fit h-fit  z-30 cursor-pointer  '}
+			<div className={'w-fit h-fit  z-50  relative cursor-pointer  '}
 			     onClick={e => isExplo ?  ref.current.querySelector('audio').pause()  :  ref.current.querySelector('audio').play()  }
 			>
 				{isExplo
@@ -122,7 +122,7 @@ const DDPlayer = ({ className }) =>
 
 			</div>
 
-			<div className={'px-2 py-1 h-6 w-full  shrink-1 overflow-hidden cursor-pointer z-40'}
+			<div className={'px-2 py-1 h-6 w-full  shrink-1 overflow-hidden cursor-pointer z-50    relative'}
 
 			     onClick={ e => setAPos(e) }
 			>
