@@ -74,7 +74,7 @@ export default function About() {
 				</a>
 			</div>
 
-			<Link href="/djs/skvo" className={'flex justify-center text-lg w-fit mx-auto mt-2 items-center mt-1 py-1.5 px-10 bg-gradient-to-b from-[#3f51b5] to-[#9C27B0] rounded-xl'}>
+			<Link href="/4D2024/djs/skvo" className={'flex justify-center text-lg w-fit mx-auto mt-2 items-center mt-1 py-1.5 px-10 bg-gradient-to-b from-[#3f51b5] to-[#9C27B0] rounded-xl'}>
 				<PsycoTexto className={'flex items-center '}><PsycoTitlo text={"deco by skvo's-space"} className={' text-orange-300'}/></PsycoTexto>
 			</Link>
 
