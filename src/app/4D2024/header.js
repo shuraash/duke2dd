@@ -37,8 +37,10 @@ export default function Header()
 
 	}, [path])
 
-	let isHome = path == '/';
-	let isDetails = path == '/details' || path == 'details';
+	// let isHome = path == '/4D2024';
+	// let isDetails = path == '/details' || path == 'details';
+	let isHome = path == '/4D2024' || path == '/4D2024/';
+	let isDetails = path.endsWith('/details') // || path == 'details';
 
 	return <header
 	                ref={ref}
@@ -55,7 +57,7 @@ export default function Header()
 	      >
 
 
-		<Link href={isHome ? '/details' : '/'}
+		<Link href={isHome ? '/4D2024/details' : '/4D2024'}
 		      className={(isHome ? 'flex pb-3   ' : '') + 'opacity-0'}
 		      // style={path != '/' ? {background: 'linear-gradient(to top, #714877a1, #070e2d7a)'} : {}}
 		>

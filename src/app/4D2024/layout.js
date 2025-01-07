@@ -1,4 +1,4 @@
-import './../globals.css?2'
+
 import Footer from "./footer";
 import Header from "./header";
 import PageWrapper from "./pageWrapper";

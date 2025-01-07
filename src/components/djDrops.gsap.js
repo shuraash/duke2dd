@@ -312,7 +312,7 @@ const DJBubblo = ({djData, atl,  className = '', onea, expoEnd, ...rest}) =>
 					</div>
 				</div>
 
-				<Link href={'/djs/'+djData.dj[0].replaceAll(' ', '').replace("M️♥Love","MLove")} className={'absolute h-0 w-0'}/>
+				<Link href={'/4D2024/djs/'+djData.dj[0].replaceAll(' ', '').replace("M️♥Love","MLove")} className={'absolute h-0 w-0'}/>
 	</figure>
 
 

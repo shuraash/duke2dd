@@ -29,8 +29,9 @@ export default function Footer()
 
 	}, [path])
 
-	let isHome = path == '/' || path == '';
-	let isDetails = path == '/details' || path == 'details';
+	// let isHome = path == '/' || path == '';
+	let isHome = path == '/4D2024' || path == '/4D2024/';
+	let isDetails = path.endsWith('/details') // || path == 'details';
 
 	return <>
 
@@ -46,9 +47,9 @@ export default function Footer()
 				}}
 		>
 
-			<Link href={isHome  ? '/details' : '/'} className={'opacity-0 uppercase text-sm sm:text-base tracking-wide z-50 absolute  top-2 sm:top-auto sm:bottom-1.5 sm:translate-x-[-100%] '}>
+			<Link href={isHome  ? '/4D2024/details' : '/4D2024'} className={'opacity-0 uppercase text-sm sm:text-base tracking-wide z-50 absolute  top-2 sm:top-auto sm:bottom-1.5 sm:translate-x-[-100%] '}>
 				<PsycoTexto className={'p-2 border rounded-xl'}>
-					<PsycoTitlo className={'gap-x-2'} text={path == '/' ? 'Details' : 'back to flyer'}/>
+					<PsycoTitlo className={'gap-x-2'} text={isHome ? 'Details' : 'back to flyer'}/>
 				</PsycoTexto>
 			</Link>
 
