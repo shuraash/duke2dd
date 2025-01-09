@@ -39,7 +39,7 @@ export default function PsyLU()
 				</li>
 
 
-				<li className={'pl-8 relative mt-2'}>
+				<li className={'pl-8 relative mt-3'}>
 					<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>
 					<a href="https://trancescript.ddns.net/video/NY2025/ny2025_tiago.mp4" className={'font-sans text-[#3bebff]'}  target={"_blank"}>
 						New Year Eve 2025 after movie One
@@ -47,14 +47,22 @@ export default function PsyLU()
 					</a>
 				</li>
 
-				<li className={'pl-8 relative  mt-2'}>
+				<li className={'pl-8 relative mt-3'}>
+					<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>
+					<a href="https://trancescript.ddns.net/audio/ny2025/Shiva%20ASH%20-%20NYE2025.mp3" className={'font-sans text-[#ffeb3b]'}  target={"_blank"}>
+						Shiva ASH mix for New Year Eve 2025 (recorded live)
+						<div className={'text-xs'}>Don't worry about 'privacy error' - just need new certificate. Will be done soon.</div>
+					</a>
+				</li>
+
+				<li className={'pl-8 relative  mt-3'}>
 					<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>
 					<a href="/4D2024" className={'font-sans text-[#ffa8c5]'}  >
 						Dukedelik Dukedance 2024 micro-site
 					</a>
 				</li>
 
-				<li className={'pl-8 relative  mt-2'}>
+				<li className={'pl-8 relative  mt-3'}>
 					<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>
 					<a href="https://trancescript.ddns.net/video/duke4d.2024.mp4" className={'font-sans text-[#ffeb3b]'}  target={'_blank'}>
 						Dukedelik Dukedance 2024 after movie
