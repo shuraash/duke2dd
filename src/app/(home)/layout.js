@@ -6,14 +6,14 @@ export default function RootLayout({ children }) {
   return (
 
 
-    <body className={'relative w-screen h-svh min-h-svh overflow-x-hidden'}>
+    <body className={'relative w-screen h-svh min-h-svh overflow-x-hidden !bg-white'}>
 
-                <PsyBG className={'abs-full !fixed '}  />
+                {/*<PsyBG className={'abs-full !fixed '}  />*/}
 
 
-                <PsyHeader/>
+                {/*<PsyHeader/>*/}
 
-                <main className={'relative w-full max-w-screen-lg mx-auto pt-0.5'}>
+                <main className={'relative w-full max-w-screen-lg mx-auto pt-0.5 !bg-white'}>
 
                     {/*<PgTemplate>{children}</PgTemplate>*/}
 
