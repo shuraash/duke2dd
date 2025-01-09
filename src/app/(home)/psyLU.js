@@ -39,12 +39,13 @@ export default function PsyLU()
 				</li>
 
 
-				{/*<li className={'pl-8 relative mt-2'}>*/}
-				{/*	<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>*/}
-				{/*	<a href="" className={'font-sans text-[#3bebff]'}  >*/}
-				{/*		New Year Eve 2025 after movie*/}
-				{/*	</a>*/}
-				{/*</li>*/}
+				<li className={'pl-8 relative mt-2'}>
+					<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>
+					<a href="https://trancescript.ddns.net/video/NY2025/ny2025_tiago.mp4" className={'font-sans text-[#3bebff]'}  target={"_blank"}>
+						New Year Eve 2025 after movie One
+						<div className={'text-xs'}>Don't worry about 'privacy error' - just need new certificate. Will be done soon.</div>
+					</a>
+				</li>
 
 				<li className={'pl-8 relative  mt-2'}>
 					<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>
