@@ -1,8 +1,9 @@
-import PsyLU from '@src/app/(home)/psyLU';
+import NY2005Eve from "./ny2025Eve";
+
 
 export default async function Home() {
 
-	return <PsyLU/>
+	return <NY2005Eve/>
 
 	// <>
 		/*<PsyBG className={'abs-full fixed'}/>*/

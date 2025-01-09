@@ -10,10 +10,9 @@ export default function RootLayout({ children }) {
 
                 <PsyBG className={'abs-full !fixed '}  />
 
-
                 <PsyHeader/>
 
-                <main className={'relative w-full max-w-screen-lg mx-auto pt-0.5'}>
+                <main className={'relative w-full max-w-screen-lg mx-auto pt-14'}>
 
                     {/*<PgTemplate>{children}</PgTemplate>*/}
 
@@ -33,11 +32,7 @@ function PsyHeader({}) {
 
     return <header className={'relative z-40 w-fit mx-auto max-w-screen-lg p-2 grid grid-cols-[auto_auto] gap-x-4 items-center font-sans drop-shadow-[3px_3px_3px#fff8f888]'}>
 
-
-        <div className={'relative h-24 w-fit py-1'}>
-            {/*id={'psy-logo'}*/}
-            <img src={'psytrance_lu.png'} className={`w-auto h-full object-contain psy-logo-huer`} />
-        </div>
+        <img src={'psytrance_lu.png'} className={`w-auto h-24 psy-logo-huer`}/>
 
 
         <div className={'uppercase font-[Audiowide]  -translate-y-1 ohuevator-c'}>
