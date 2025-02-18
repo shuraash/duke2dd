@@ -48,3 +48,6 @@ function PsyHeader({}) {
         <a href={"/"} className={'absolute inset-0 opacity-0 z-10 cursor-pointer '} alt={"home"}/>
     </header>
 }
+
+
+
