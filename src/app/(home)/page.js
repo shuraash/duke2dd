@@ -11,7 +11,7 @@ export default async function Home() {
 
 }
 
-// try again
+// try again 2
 // <div className={'p-12 text-xl text-black '}>
 //
 // 	site is closed
