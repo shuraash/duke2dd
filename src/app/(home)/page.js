@@ -1,4 +1,6 @@
 import PsyLU from '@src/app/(home)/psyLU';
+import PsyBG from '@src/components/psyBG';
+import DDFLyear from '@src/components/flyer';
 
 export default async function Home() {
 
