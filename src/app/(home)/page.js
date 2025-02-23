@@ -4,12 +4,12 @@ import DDFLyear from '@src/components/flyer';
 
 export default async function Home() {
 
-	return <PsyLU/>
 
-	// return <>
-	// 	<PsyBG className={'abs-full fixed'}/>
-	// 	<DDFLyear className={'z-20'}/>
-	//  </>
+	return <>
+		<PsyBG className={'abs-full fixed'}/>
+		<PsyLU/>
+		{/*<DDFLyear className={'z-20'}/>*/}
+	 </>
 
 }
 
