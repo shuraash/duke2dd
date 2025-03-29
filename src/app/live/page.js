@@ -19,7 +19,12 @@ export default function Live({})
 
 	}, []);
 
-	return <div className={'w-full h-full max-w-[100vw] max-h-[100vh] relative grid grid-cols-1'}>
+	return <div className={'w-[100vw] h-[100vh] fixed grid grid-cols-1'}>
+
+		<div className={'text-white font-semibold bg-[#aa000088] border pt-2 px-4 rounded-xl overflow-y-hidden top-4 right-4 absolute z-10 h-fit w-fit flex items-center'}>
+			<a href="https://t.me/psytrance_lu" target={'_blank'} className={''}>{'chat: t.me/psytrance_lu'}</a>
+		</div>
+
 
 		<Script
 			src="https://cdn.jsdelivr.net/npm/hls.js@latest"
