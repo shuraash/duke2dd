@@ -11,7 +11,7 @@ export default function Live({})
 
 		var video = document.getElementById('livideo');
 		var hls = new Hls();
-		hls.loadSource('http://trancescript.ddns.net/hls/ash.m3u8');
+		hls.loadSource('https://trancescript.ddns.net/hls/ash.m3u8');
 		hls.attachMedia(video);
 		hls.on(Hls.Events.MANIFEST_PARSED,function() {
 			video.play();
