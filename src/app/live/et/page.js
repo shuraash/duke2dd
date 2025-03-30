@@ -25,6 +25,9 @@ export default function Live({})
 		<div className={'text-white font-semibold bg-[#aa000088] border pt-2 px-4 rounded-xl overflow-y-hidden top-4 right-4 absolute z-10 h-fit w-fit flex items-center'}>
 			<a href="https://t.me/psytrance_lu" target={'_blank'} className={''}>{'chat: t.me/psytrance_lu'}</a>
 		</div>
+		<div className={'text-red-600 font-semibold bg-white/50 border pt-2 px-4 rounded-xl overflow-y-hidden top-4 left-4 absolute z-10 h-fit w-fit flex items-center'}>
+			City's MAD is active
+		</div>
 
 		<video
 			id="livideo"
