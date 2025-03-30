@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.1",
     "framer-motion": "^11.2.6",
     "gsap": "^3.12.5",
+    "hls.js": "^1.6.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
