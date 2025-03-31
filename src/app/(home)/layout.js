@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
 
                 {/*<PsyHeader/>*/}
 
-                <main className={'relative w-full max-w-screen-lg mx-auto pt-0.5 !bg-white'}>
+                <main className={'relative w-full '}>
 
                     {/*<PgTemplate>{children}</PgTemplate>*/}
 

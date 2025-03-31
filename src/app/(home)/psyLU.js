@@ -10,9 +10,22 @@ export default function PsyLU()
 	return <section className={'w-full max-w-screen-sm mx-auto  py-2 px-2 select-none relative  '}>
 
 
-		<a className={'grid h-72 overflow-hidden  mx-auto max-w-full ohuevator px-4 relative  '} href={'/psylove'}>
-			<img src={'/psylove/flyer1.png'} className={ 'object-contain h-full w-full object-center absolute left-0 top-0   drop-shadow-xl'} alt={'4d25'} />
-		</a>
+		{/*<a className={'grid h-72 overflow-hidden  mx-auto max-w-full ohuevator px-4 relative  '} href={'/psylove'}>*/}
+		{/*	<img src={'/psylove/flyer1.png'} className={ 'object-contain h-full w-full object-center absolute left-0 top-0   drop-shadow-xl'} alt={'4d25'} />*/}
+		{/*</a>*/}
+
+		<h2 className={'font-bold text-orange-300 text-center mt-3 '}>LIVE STREAMS</h2>
+
+		<div className={'mt-2 py-4 px-6 bg-black/50 rounded-2xl'}>
+			<div className={'flex items-center gap-x-4 text-xl text-white justify-center'}>
+
+				<a href='/live'>Shiva ASH </a>
+
+				<a href='/live/et'> ET </a>
+
+				<a href='/live/crystallvision'> Crystall Vision</a>
+			</div>
+		</div>
 
 
 		<a className={'grid h-24 overflow-hidden  mx-auto max-w-full ohuevator px-4 relative mt-8 '} href={'/4D2025'}>

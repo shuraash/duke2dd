@@ -141,7 +141,7 @@ export default function PsyBG({vjLoops = VJLoops.map(c => `/vj.loops/${c}`), onI
 	//
 	// 	: null
 
-	return <div className={'psy-bg bg-black opacity-0 z-[-1] pointer-events-none ' + className} ref={myRef}>
+	return <div className={'psy-bg bg-black/50 opacity-0 z-[-1] abs-full fixed w-full !h-[100vh] pointer-events-none ' + className} ref={myRef}>
 
 			<TeleBoxPortal tbpRef={tbpRef} />
 

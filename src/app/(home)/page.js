@@ -6,7 +6,7 @@ export default async function Home() {
 
 
 	return <>
-		<PsyBG className={'abs-full fixed'}/>
+		<PsyBG className={''}/>
 		<PsyLU/>
 		{/*<DDFLyear className={'z-20'}/>*/}
 	 </>
