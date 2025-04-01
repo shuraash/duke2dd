@@ -124,6 +124,13 @@ export default function Liver({dj})
 
 		}
 
+		{!nenavist && nenavist2?.length < 1 &&
+
+			<div className={'absolute left-1/2 top-1/2  translate-y-[-300%] -translate-x-1/2 font-sans text-xl text-white text-center z-10 '}>
+				waiting for stream ...
+			</div>
+		}
+
 		<video
 			ref={lvref}
 			controls
