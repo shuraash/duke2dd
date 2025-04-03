@@ -22,7 +22,10 @@ const
 			['https://trancescript.ddns.net/video/ - last streams/ASH_in_ESCH_night.mp4', 'ASH in ESCH night'],
 		],
 
-		et: [],
+		et: [
+			['/Volumes/BD/www.add/video/ - last streams/2025-03-30 03-37-20.mkv', '2025-03-30 03-37-20.mkv'],
+			['/Volumes/BD/www.add/video/ - last streams/2025-04-03 20-32-28.mkv', '2025-04-03 20-32-28.mkv'],
+		],
 
 		crystallvision: []
 
