@@ -93,7 +93,7 @@ function extractStreamsSimple(xmlString) {
 
 export default function Liver({dj})
 {
-		dj = 'ash' // dj == 'et' ? dj : 'ash'
+		dj = dj ? dj : 'ash'
 
 		const
 
@@ -104,6 +104,8 @@ export default function Liver({dj})
 
 			lvref = useRef(),
 			hlsref = useRef(),
+
+			tsref = useRef(),
 
 			padloRef = useRef(null),
 
@@ -139,7 +141,7 @@ export default function Liver({dj})
 				hlsref.current.attachMedia(lvref.current);
 				hlsref.current.once(Hls.Events.MANIFEST_PARSED, livePlay)
 
-				window.setTimeout( e => livePool(), 1000)
+				tsref.current = window.setTimeout( e => livePool(), 1000)
 
 				// NAHUYYYYYNETOT REACT!!!!@
 				//location.reload()
@@ -164,7 +166,7 @@ export default function Liver({dj})
 				padloRef.current = false
 				setNenavist(false)
 
-				window.setTimeout( e => livePool(), 1000)
+				tsref.current = window.setTimeout( e => livePool(), 1000)
 
 				// NAHUYYYYYNETOT REACT!!!!@
 				//location.reload()
@@ -175,7 +177,7 @@ export default function Liver({dj})
 
 			async function livePool()
 			{
-
+				window.clearTimeout( tsref.current )
 				try
 				{
 					let
@@ -210,7 +212,7 @@ export default function Liver({dj})
 					stopLive()
 				}
 
-				window.setTimeout( e => livePool(), 1000)
+				tsref.current = window.setTimeout( e => livePool(), 1000)
 
 			}
 
@@ -221,6 +223,10 @@ export default function Liver({dj})
 			//console.log(`pizdosuka `,  )
 
 			return () => {
+
+				lvref.current.pause()
+
+				window.clearTimeout(tsref.current)
 
 				if(hlsref.current)
 				{
