@@ -28,9 +28,9 @@ export default function PsyLU()
 		</div>
 
 
-		<a className={'grid h-24 overflow-hidden  mx-auto max-w-full ohuevator px-4 relative mt-8 '} href={'/4D2025'}>
-			<img src={'/4D2025/d4d2025_logo_01.png'} className={ 'object-contain h-full w-full object-center absolute left-0 top-0   drop-shadow-xl'} alt={'4d25'} />
-		</a>
+		{/*<a className={'grid h-24 overflow-hidden  mx-auto max-w-full ohuevator px-4 relative mt-8 '} href={'/4D2025'}>*/}
+		{/*	<img src={'/4D2025/d4d2025_logo_01.png'} className={ 'object-contain h-full w-full object-center absolute left-0 top-0   drop-shadow-xl'} alt={'4d25'} />*/}
+		{/*</a>*/}
 
 
 		{/*<a className={'w-full flex justify-center'} href={'/4D2024'}>*/}
