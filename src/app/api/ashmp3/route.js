@@ -1,0 +1,29 @@
+import {NextResponse} from "next/server";
+
+export async function GET(req, { params })
+{
+
+//	params = await params
+//console.log(`* API /ni * GET * params: `, params, `url: '${req.nextUrl.href}', host: '${req.headers.get('host')}', site prm.: '${req.nextUrl.searchParams.get('site')}'`);
+//
+// 	let
+// 		path = params?.ep ? params.ep.join('/') : ''
+
+	let file = req.nextUrl.searchParams.get('f')
+
+	let query = `http://trancescript.ddns.net:888/audio/${file}`
+
+//	query = query.replace('&websites=1', '')
+
+	const res = NextResponse, requestHeaders = new Headers(req.headers)
+	//
+	// res.writeHead(200, {
+	// 	'Content-Type': 'audio/mpeg',
+	// 	'Content-Length': size,
+	// });
+
+		let d = await fetch(query).then(r => r.arrayBuffer())
+		requestHeaders.set('content-type', 'audio/mpeg')
+		return new NextResponse(d, {status: 200, headers: requestHeaders});
+}
+
