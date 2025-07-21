@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import {useEffect, useRef} from "react";
-import {useDragControls, motion, animate} from "framer-motion";
+import {motion, useDragControls} from "framer-motion";
 
 export default function Experiments() {
 

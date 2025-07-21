@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {shuffledDJ} from "@src/components/djDrops.gsap";
 import {useEffect, useRef, useState} from "react";

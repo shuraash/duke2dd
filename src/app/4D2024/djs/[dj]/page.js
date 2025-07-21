@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {djs} from "@src/components/djs";
 import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";

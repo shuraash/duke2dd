@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import {PsycoTexto, PsycoTitlo} from "../../components/psyTexts";
 import {usePathname} from "next/navigation";
 import {useEffect, useRef} from "react";
 import {animate} from "framer-motion";
-import {genShadow} from "@src/components/djDrops.gsap";
 import DDPlayer from "@src/components/ddPlayer";
 
 

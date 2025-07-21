@@ -1,4 +1,3 @@
-
 import PsyBG from "@src/components/psyBG";
 
 

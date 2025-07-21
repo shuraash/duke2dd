@@ -1,4 +1,4 @@
-import './globals.css?2'
+import './globals.css?2';
 
 export const metadata = {
     title: 'PSYTRANCE.LU',

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {AnimatePresence, motion} from "framer-motion";
 import {LayoutRouterContext} from "next/dist/shared/lib/app-router-context.shared-runtime";

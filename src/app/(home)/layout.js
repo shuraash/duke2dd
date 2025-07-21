@@ -1,7 +1,3 @@
-
-import PsyBG from "@src/components/psyBG";
-
-
 export default function RootLayout({ children }) {
   return (
 

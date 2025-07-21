@@ -1,16 +1,8 @@
-"use client"
+"use client";
 
-import gsap from 'gsap';
-import {useEffect, useRef, useState} from "react";
+import {useRef} from "react";
 import DDDisk from "@src/components/disk";
-import DjDrops from "@src/components/djDrops.gsap";
-import {twMerge} from "tailwind-merge";
 import DJBubble from "@src/components/djBubble";
-
-
-
-
-
 
 
 export default function TESTPG() {
