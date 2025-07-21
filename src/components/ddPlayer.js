@@ -3,7 +3,7 @@ import {IconPlayCircle, IconPlayPause} from "@src/components/psy.icons";
 import {formatTS} from "@src/util";
 
 
-const DDPlayer = ({ className, fullh, asrc = '/api/ashmp3?f=opdakop.mp3' } ) =>
+const DDPlayer = ({ className, fullh, asrc = '/mp3/opdakop.mp3' } ) =>
 {
 
 
