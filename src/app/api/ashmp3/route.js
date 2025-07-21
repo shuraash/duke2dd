@@ -22,8 +22,13 @@ export async function GET(req, { params })
 	// 	'Content-Length': size,
 	// });
 
+	console.log(`* API fetch ${query} ....`)
+
 		let d = await fetch(query).then(r => r.arrayBuffer())
 		requestHeaders.set('content-type', 'audio/mpeg')
+
+	console.log(`* API fetch ${query} DONE!`)
+
 		return new NextResponse(d, {status: 200, headers: requestHeaders});
 }
 

@@ -79,7 +79,7 @@ export default function Home({params}) {
 
 		<div className={'relative p-8 min-h-full w-full'}>
 
-			<DDPlayer fullh={'true'} asrc={`/api/ashmp3?f=${tr}.mp3`}/>
+			<DDPlayer fullh={'true'} asrc={`/mp3/${tr}.mp3`}/>
 
 			<div className={`font-[Audiowide] text-2xl text-red-500 drop-shadow-xl capitalize`}>
 				{tr}
