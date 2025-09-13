@@ -102,7 +102,7 @@ const DDPlayer = ({ className, fullh, asrc = '/mp3/opdakop.mp3' } ) =>
 		return  fullh ? window.removeEventListener('click', ponoff) : null
 
 
-	}, [])
+	}, [asrc])
 
 
 
