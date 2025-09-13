@@ -20,7 +20,11 @@ const nextConfig = {
 				// allows overriding page files
 				{
 					source: '/mp3/:path*', destination: 'http://trancescript.ddns.net:888/audio/:path*', //has: [{ type: 'query', key: 'overrideMe' }],
-				},],
+				},
+				{
+					source: '/mp4/:path*', destination: 'http://trancescript.ddns.net:888/video/:path*', //has: [{ type: 'query', key: 'overrideMe' }],
+				},
+			],
 		}
 	}
 
