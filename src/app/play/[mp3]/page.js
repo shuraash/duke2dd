@@ -19,41 +19,9 @@ export default function Home({params}) {
 
 	}
 
-
-	//const isExplo = () => (typeof document != 'undefined' && document.querySelector('play') && !document.querySelector('play')?.paused)
-
-
 	const [pizdaXXX, setPizdaXX] = useState( false )
 
 
-	// const ponoff = (e) => {
-	//
-	// 	try
-	// 	{
-	// 		let
-	// 			suka = document.querySelector('play'),
-	// 			padla = suka?.paused
-	//
-	// 	///	console.log(`do play , now is ${Boolean(padla)}`)
-	//
-	// 		if(padla)
-	// 		{
-	// 			suka.play()
-	// 		}
-	// 		else
-	// 		{
-	// 			suka.pause()
-	// 		}
-	//
-	// 		setPizda(!padla)
-	//
-	// 		//hPlay(!isExplo, fullh) // isExplo ?  ref.current.querySelector('play').pause()  :  ref.current.querySelector('play').play()
-	// 	}
-	// 	catch(e)
-	// 	{
-	// 		//silence
-	// 	}
-	// }
 
 	useEffect(() => {
 
@@ -87,7 +55,7 @@ export default function Home({params}) {
 
 			{/*<div className={'fixed top-[15%] left-[20%] h-[70%] w-[60%]  opacity-70 overflow-x-hidden border rounded-2xl'}>*/}
 			{pizdaXXX && <div className={'relative top-[80px] max-h-[50%] max-w-[80%] sm:max-w-[30%] sm:mx-auto opacity-50  hover:opacity-100 target:opacity-100 overflow-x-hidden border rounded-2xl'}>
-				<img className={'relative h-full w-full  object-contain object-left'} src={`/${tr}.png`}/>
+				<img className={'relative h-full w-full  object-contain object-left'} src={`/mp3/${tr}.webp`}/>
 			</div>}
 
 
