@@ -1,33 +1,33 @@
 {
-  "name": "DukeDelicDukeDance",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@gsap/react": "^2.1.1",
-    "@headlessui/react": "^2.2.0",
-    "clsx": "^2.1.1",
-    "framer-motion": "^11.18.2",
-    "gsap": "^3.12.5",
-    "hls.js": "^1.6.0",
-    "next": "^15.2.4",
-    "react": "latest",
-    "react-dom": "latest",
-    "tailwind-merge": "^2.2.2"
-  },
-  "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/container-queries": "^0.1.1",
-    "@types/node": "20.12.11",
-    "@types/react": "18.3.1",
-    "autoprefixer": "latest",
-    "postcss": "latest",
-    "tailwindcss": "^3.4.4",
-    "typescript": "5.4.5"
-  }
+	"name": "DukeDelicDukeDance",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@gsap/react": "^2.1.1",
+		"@headlessui/react": "^2.2.0",
+		"clsx": "^2.1.1",
+		"framer-motion": "^11.18.2",
+		"gsap": "^3.12.5",
+		"hls.js": "^1.6.0",
+		"next": "^15.5.9",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"tailwind-merge": "^2.2.2"
+	},
+	"devDependencies": {
+		"@tailwindcss/aspect-ratio": "^0.4.2",
+		"@tailwindcss/container-queries": "^0.1.1",
+		"@types/node": "20.12.11",
+		"@types/react": "18.3.1",
+		"autoprefixer": "latest",
+		"postcss": "latest",
+		"tailwindcss": "^3.4.4",
+		"typescript": "5.4.5"
+	}
 }
