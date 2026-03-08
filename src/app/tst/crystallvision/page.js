@@ -11,7 +11,7 @@ export default function Live({})
 
 		var video = document.getElementById('livideo');
 		var hls = new Hls();
-		hls.loadSource('https://trancescript.ddns.net:888/hls/crystallvision.m3u8');
+		hls.loadSource('http://trancescript.ddns.net:888/hls/crystallvision.m3u8');
 		//hls.loadSource('https://live-lon2-ovh.mixcloud.com/hls/10E248A3D150/1743464144/QtHz-RhtnE93mmYc608jyQ/1af5339d-c74b-477c-b60a-5832cccb603b/index-720p.m3u8');
 		hls.attachMedia(video);
 		hls.on(Hls.Events.MANIFEST_PARSED,function() {

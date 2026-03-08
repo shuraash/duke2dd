@@ -13,13 +13,13 @@ const
 	recs = {
 
 		ash: [
-			['https://trancescript.ddns.net:888/video/zanzifun.mp4', 'Zanzibar funmix'],
-			['https://trancescript.ddns.net:888/video/imperia_striked_by_psy.mp4', 'Imperia striked by PsY!'],
-			['https://trancescript.ddns.net:888/video/duke4d.2024.mp4', 'Dukedelic Dukedance 2024'],
-			['https://trancescript.ddns.net:888/video/OpDaKop_Shiva_ASH_mix.mp4', 'OpDaKop festival 2023'],
-			['https://trancescript.ddns.net:888/video/Shiva Ash - Easter Frog.mp4', 'Easter Frog 2021'],
-			['https://trancescript.ddns.net:888/video/ - last streams/ASH_in_ESCH_day.mp4', 'ASH in ESCH day'],
-			['https://trancescript.ddns.net:888/video/ - last streams/ASH_in_ESCH_night.mp4', 'ASH in ESCH night'],
+			['http://trancescript.ddns.net:888/video/zanzifun.mp4', 'Zanzibar funmix'],
+			['http://trancescript.ddns.net:888/video/imperia_striked_by_psy.mp4', 'Imperia striked by PsY!'],
+			['http://trancescript.ddns.net:888/video/duke4d.2024.mp4', 'Dukedelic Dukedance 2024'],
+			['http://trancescript.ddns.net:888/video/OpDaKop_Shiva_ASH_mix.mp4', 'OpDaKop festival 2023'],
+			['http://trancescript.ddns.net:888/video/Shiva Ash - Easter Frog.mp4', 'Easter Frog 2021'],
+			['http://trancescript.ddns.net:888/video/ - last streams/ASH_in_ESCH_day.mp4', 'ASH in ESCH day'],
+			['http://trancescript.ddns.net:888/video/ - last streams/ASH_in_ESCH_night.mp4', 'ASH in ESCH night'],
 		],
 
 		et: [
@@ -140,7 +140,7 @@ export default function Liver({dj})
 				//alert('starta liva!~')
 				hlsref.current = new Hls()
 
-				hlsref.current.loadSource('https://trancescript.ddns.net:888/hls/' + `${dj}.m3u8`);
+				hlsref.current.loadSource('http://trancescript.ddns.net:888/hls/' + `${dj}.m3u8`);
 				hlsref.current.attachMedia(lvref.current);
 				hlsref.current.once(Hls.Events.MANIFEST_PARSED, livePlay)
 
@@ -184,7 +184,7 @@ export default function Liver({dj})
 				try
 				{
 					let
-						xml = await fetch(`https://trancescript.ddns.net:888/stats`).then(r => r.text(), e => console.log('suka ', e)),
+						xml = await fetch(`http://trancescript.ddns.net:888/stats`).then(r => r.text(), e => console.log('suka ', e)),
 
 					    stm = extractStreamsSimple(xml).find(s => s.name == dj)
 
