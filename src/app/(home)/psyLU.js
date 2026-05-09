@@ -95,8 +95,20 @@ export default function PsyLU()
 
 
 		</div>
-
-
+		
+ 
+		
+		<div className={'mt-12 pt-4 border-t pb-48 text-sm grid grid-flow-col items-center justify-evenly  w-full gap-3 max-w-[555px] mx-auto px-3'}>
+			
+			<a className={'px-1.5 pb-1 pt-1.5 border rounded-md shrink-0 grid items-center w-fit'} target={'_blank'} href={'https://psytrance.lu/mp4/imperia_striked_by_psy.mp4'}>Imperia striked by psy!</a>
+			<a className={'px-1.5 pb-1 pt-1.5 border rounded-md shrink-0 grid items-center min-w-fit'} target={'_blank'} href={'https://psytrance.lu/mp4/The Psychedelic Secret of the Third Planet part 1.mp4'}>The Psychedelic Secret of the Third Planet part 1</a>
+			
+			<a className={'px-1.5 pb-1 pt-1.5 border rounded-md shrink-0 grid items-center w-fit'} target={'_blank'} href={'https://psytrance.lu/mp4/love_is.mp4'}>Love is...</a>
+			<a className={'px-1.5 pb-1 pt-1.5 border rounded-md shrink-0 grid items-center w-fit'} target={'_blank'} href={'https://psytrance.lu/mp4/OpDaKop_Shiva_ASH_mix.mp4'}>Op da Kop</a>
+			<a className={'px-1.5 pb-1 pt-1.5 border rounded-md shrink-0 grid items-center w-fit'} target={'_blank'} href={'https://psytrance.lu/mp4/Shiva Ash - Easter Frog.mp4'}>Easter Frog</a>
+			<a className={'px-1.5 pb-1 pt-1.5 border rounded-md shrink-0 grid items-center w-fit'} target={'_blank'} href={'https://psytrance.lu/mp4/zanzifun.mp4'}>Zanzibar fun</a>
+			<a className={'px-1.5 pb-1 pt-1.5 border rounded-md shrink-0 grid items-center w-fit'} target={'_blank'} href={'https://psytrance.lu/mp4/amsterdm25.mp4'}>Amsterdm-25</a>
+		</div>
 
 	  {/*<div className={'mt-12 mb-10 text-lg sm:text-xl text-white text-center pb-8'}>*/}
 		<div className={'bg-black/70 fixed left-0 bottom-0 text-lg sm:text-xl text-white text-center pb-3 pt-2 grid w-full gap-x-3 justify-center grid-cols-1 sm:grid-cols-[auto_auto_auto] '}>
