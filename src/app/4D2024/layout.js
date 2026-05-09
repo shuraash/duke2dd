@@ -1,6 +1,6 @@
-import Footer from "./footer";
 import Header from "./header";
 import PageWrapper from "./pageWrapper";
+ import Footer from './footer'
 
 export const metadata = {
     title: 'Dukedelic Dukedance',
@@ -25,7 +25,6 @@ export default function RootLayout({ children }) {
 
         <Header/>
 
-        <Footer/>
         
         {/*<main className={`overflow-x-hidden max-w-full min-w-full w-full overflow-y-auto h-[calc(100%_-_164px)] pt-[0px]`}>*/}
         <main className={` `}>
@@ -35,6 +34,7 @@ export default function RootLayout({ children }) {
 
         </main>
 
+        <Footer/>
 
       </body>
 

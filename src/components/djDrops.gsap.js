@@ -2,13 +2,13 @@
 
 import {useEffect, useRef, useState} from "react";
 
-import {arrRandomCycler, randomInt, wrapCycle} from "@src/util";
-import {djColors, psyShadows} from "@src/components/psyColors";
+import {arrRandomCycler, randomInt, wrapCycle} from "@/util";
+import {djColors, psyShadows} from "@/components/psyColors";
 import {twMerge} from "tailwind-merge";
 
 import gsap from 'gsap';
-import {PsycoTitlo} from "@src/components/psyTexts";
-import {djs} from "@src/components/djs";
+import {PsycoTitlo} from "@/components/psyTexts";
+import {djs} from "@/components/djs";
 import Link from "next/link";
 
 // gsap.registerPlugin(useGSAP, Flip);

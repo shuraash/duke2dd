@@ -1,8 +1,8 @@
 "use client";
 
-import {shuffledDJ} from "@src/components/djDrops.gsap";
+import {shuffledDJ} from "@/components/djDrops.gsap"
 import {useEffect, useRef, useState} from "react";
-import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";
+import {PsycoTexto, PsycoTitlo} from "@/components/psyTexts"
 import Link from "next/link";
 import {redirect} from 'next/navigation'
 
@@ -12,7 +12,7 @@ export default function About() {
 	
 	//redirect('/4D2024')
 
-	const [djs, setDjd] = useState()
+	const [djs, setDjd] = useState([])
 
 	const [ttMode, setTTMode] = useState()
 

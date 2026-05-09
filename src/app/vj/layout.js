@@ -1,4 +1,4 @@
-import PsyBG from "@src/components/psyBG";
+import PsyBG from "@/components/psyBG";
 
 
 export default function RootLayout({ children }) {

@@ -1,7 +1,7 @@
 "use client";
 
 
-import DDPlayer from '@src/components/ddPlayer';
+import DDPlayer from '@/components/ddPlayer';
 import {use, useEffect, useState} from 'react';
 
 export default function Home({params}) {

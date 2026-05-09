@@ -2,8 +2,8 @@
 
 import {useEffect, useRef, useState} from "react";
 
-import {arrRandomCycler, randomInt} from "@src/util";
-import {psyColors, psyShadows} from "@src/components/psyColors";
+import {arrRandomCycler, randomInt} from "@/util";
+import {psyColors, psyShadows} from "@/components/psyColors";
 import {twMerge} from "tailwind-merge";
 
 import gsap from 'gsap';

@@ -1,7 +1,7 @@
 //
 
 
-import {IconChevronDown} from '@src/components/psy.icons';
+import {IconChevronDown} from '@/components/psy.icons';
 
 export default function PsyLU()
 {

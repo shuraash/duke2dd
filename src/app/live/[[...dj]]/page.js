@@ -1,4 +1,4 @@
-import Liver from '@src/app/live/[[...dj]]/live';
+import Liver from '@/app/live/[[...dj]]/live';
 
 
 export default async function LivePage({params})

@@ -1,8 +1,8 @@
 "use client";
 
 import {useRef} from "react";
-import DDDisk from "@src/components/disk";
-import DJBubble from "@src/components/djBubble";
+import DDDisk from "@/components/disk";
+import DJBubble from "@/components/djBubble";
 
 
 export default function TESTPG() {

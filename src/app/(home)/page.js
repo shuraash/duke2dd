@@ -1,5 +1,5 @@
-import PsyLU from '@src/app/(home)/psyLU';
-import PsyBG from '@src/components/psyBG';
+import PsyLU from './psyLU';
+import PsyBG from '@/components/psyBG';
 
 export default async function Home() {
 

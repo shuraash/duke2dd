@@ -1,7 +1,7 @@
 import {twMerge} from "tailwind-merge";
 import {useEffect, useRef, useState} from "react";
-import {arrRandomCycler} from "@src/util";
-import {psyColors} from "@src/components/psyColors";
+import {arrRandomCycler} from "@/util";
+import {psyColors} from "@/components/psyColors";
 import {animate} from "framer-motion";
 
 //

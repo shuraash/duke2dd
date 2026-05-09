@@ -1,5 +1,5 @@
-import DDFLyear from '@src/components/flyer';
-import PsyBG from '@src/components/psyBG';
+import DDFLyear from '@/components/flyer';
+import PsyBG from '@/components/psyBG';
 
 export default async function Home() {
 

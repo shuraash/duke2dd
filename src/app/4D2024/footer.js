@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";
+import {PsycoTexto, PsycoTitlo} from "@/components/psyTexts";
 import {usePathname} from "next/navigation";
 import {useEffect, useRef} from "react";
 import {animate} from "framer-motion";
-import DDPlayer from '@src/components/ddPlayer';
+import DDPlayer from '@/components/ddPlayer';
 
 export default function Footer()
 {

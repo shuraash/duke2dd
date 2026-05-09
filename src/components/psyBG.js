@@ -2,7 +2,7 @@
 
 import {useEffect, useRef} from "react";
 
-import {wrapCycle, formatTS} from "../util";
+import {wrapCycle, formatTS} from "@/util";
 import VJLoops from "./psyBG.vjloops.json";
 
 import TeleBoxPortal, {useTeleBoxPortal} from "./teleBoxPortal";

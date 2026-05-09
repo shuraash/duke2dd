@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
-import {IconPlayCircle, IconPlayPause} from "@src/components/psy.icons";
-import {formatTS} from "@src/util";
+import {IconPlayCircle, IconPlayPause} from "@/components/psy.icons"
+import {formatTS} from "@/util";
 
 
 const DDPlayer = ({ className, fullh, asrc = '/mp3/opdakop.mp3' } ) =>

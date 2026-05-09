@@ -5,8 +5,8 @@ import Hls from "hls.js";
 import {useEffect, useRef, useState} from 'react';
 import gsap from 'gsap';
 
-import {IconChevronDown, IconMuted} from '@src/components/psy.icons';
-import {Dropdown, DropdownButton, DropdownItem, DropdownMenu} from '@src/components/catalyst/dropdown';
+import {IconChevronDown, IconMuted} from '@/components/psy.icons';
+import {Dropdown, DropdownButton, DropdownItem, DropdownMenu} from '@/components/catalyst/dropdown';
 
 const
 

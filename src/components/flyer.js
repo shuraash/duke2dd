@@ -2,14 +2,13 @@
 ///fff
 import {DDCrest} from "./psyTexts";
 import {useEffect, useRef, useState} from "react";
-import {wrapCycle} from "@src/util";
+import {wrapCycle} from "@/util";
 import {psyShadows} from "./psyColors";
 import DDDisk from "./disk";
 
 import {gsap} from "gsap";
 import Draggable from 'gsap/dist/Draggable'
-import DjDropsGsap from "@src/components/djDrops.gsap";
-import {IconAudio} from "@src/components/psy.icons";
+import DjDropsGsap from "@/components/djDrops.gsap";
 
 gsap.registerPlugin(Draggable)
 
@@ -141,8 +140,7 @@ export default function DDFLyear({className})
 	}, []);
 
 
-	return (
-<>
+	return <>
 
 
 	{/*<div className={'absolute left-4 top-14 z-[39] w-8 h-8 drop-shadow-lg opacity-50 border border-neutral-300/50 rounded-full'}>*/}
@@ -194,11 +192,7 @@ export default function DDFLyear({className})
 
 	</figure>
 
-
-
-
-
-
+ 
 	{/*<play*/}
 	{/*	className={'fixed left-8 bottom-8 z-[9991] mix-blend-difference'}*/}
 	{/*	controls ref={muzRef}*/}
@@ -207,5 +201,4 @@ export default function DDFLyear({className})
 	{/*/>*/}
 
 </>
-	)
 }
