@@ -65,7 +65,7 @@ export default function PsyLU()
 					<a href="http://trancescript.ddns.net:888/audio/ny2025/Shiva%20ASH%20-%20NYE2025.mp3" className={'font-sans text-[#ffeb3b]'}  target={"_blank"}>
 						Shiva ASH mix for New Year Eve 2025 (recorded live)
 						<div className={'text-xs'}>Don't worry about 'privacy error' - just need new certificate. Will be done soon.</div>
-					</a>
+					</a>    
 				</li>
 
 				<li className={'pl-8 relative  mt-3'}>

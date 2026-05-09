@@ -60,17 +60,17 @@ const DDPlayer = ({ className, fullh, asrc = '/mp3/opdakop.mp3' } ) =>
 
 		try
 		{
-			let padla =  muzRef.current.paused
+			let padla =  muzRef.current
 
-			console.log(`do play , now is ${Boolean(padla)}`)
+			//console.log(`do play , now is ${Boolean(padla)}`)
 
 			if(padla)
 			{
-				muzRef.current.play()
+				muzRef.current?.play && muzRef.current?.play()
 			}
 			else
 			{
-				muzRef.current.pause()
+				muzRef.current?.pause && muzRef.current?.pause()
 			}
 
 			//hPlay(!isExplo, fullh) // isExplo ?  ref.current.querySelector('play').pause()  :  ref.current.querySelector('play').play()
@@ -99,7 +99,7 @@ const DDPlayer = ({ className, fullh, asrc = '/mp3/opdakop.mp3' } ) =>
 
 		//setTimeout( e => document.querySelector('div').click(), 666)
 
-		return  fullh ? window.removeEventListener('click', ponoff) : null
+		return  () => fullh ? window.removeEventListener('click', ponoff) : null
 
 
 	}, [asrc])
