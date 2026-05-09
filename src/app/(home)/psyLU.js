@@ -54,17 +54,17 @@ export default function PsyLU()
 
 				<li className={'pl-8 relative mt-3'}>
 					<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>
-					<a href="http://trancescript.ddns.net:888/video/NY2025/ny2025_tiago.mp4" className={'font-sans text-[#3bebff]'}  target={"_blank"}>
+					<a href="/mp4/NY2025/ny2025_tiago.mp4" className={'font-sans text-[#3bebff]'}  target={"_blank"}>
 						New Year Eve 2025 after movie One
-						<div className={'text-xs'}>Don't worry about 'privacy error' - just need new certificate. Will be done soon.</div>
+						{/*<div className={'text-xs'}>Don't worry about 'privacy error' - just need new certificate. Will be done soon.</div>*/}
 					</a>
 				</li>
 
 				<li className={'pl-8 relative mt-3'}>
 					<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>
-					<a href="http://trancescript.ddns.net:888/audio/ny2025/Shiva%20ASH%20-%20NYE2025.mp3" className={'font-sans text-[#ffeb3b]'}  target={"_blank"}>
+					<a href="/mp3/ny2025/Shiva%20ASH%20-%20NYE2025.mp3" className={'font-sans text-[#ffeb3b]'}  target={"_blank"}>
 						Shiva ASH mix for New Year Eve 2025 (recorded live)
-						<div className={'text-xs'}>Don't worry about 'privacy error' - just need new certificate. Will be done soon.</div>
+						{/*<div className={'text-xs'}>Don't worry about 'privacy error' - just need new certificate. Will be done soon.</div>*/}
 					</a>    
 				</li>
 
@@ -77,9 +77,9 @@ export default function PsyLU()
 
 				<li className={'pl-8 relative  mt-3'}>
 					<IconChevronDown className={'absolute -rotate-90 top-0 left-0 w-7'}/>
-					<a href="http://trancescript.ddns.net:888/video/duke4d.2024.mp4" className={'font-sans text-[#ffeb3b]'}  target={'_blank'}>
+					<a href="/mp4/duke4d.2024.mp4" className={'font-sans text-[#ffeb3b]'}  target={'_blank'}>
 						Dukedelik Dukedance 2024 after movie
-						<div className={'text-xs'}>Don't worry about 'privacy error' - just need new certificate. Will be done soon.</div>
+						{/*<div className={'text-xs'}>Don't worry about 'privacy error' - just need new certificate. Will be done soon.</div>*/}
 					</a>
 				</li>
 
