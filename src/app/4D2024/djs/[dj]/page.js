@@ -1,7 +1,7 @@
 "use client";
 
-import {djs} from "src/components/djs";
-import {PsycoTexto, PsycoTitlo} from "src/components/psyTexts";
+import {djs} from "@src/components/djs";
+import {PsycoTexto, PsycoTitlo} from "@src/components/psyTexts";
 import {useEffect, useRef} from "react";
 import Link from "next/link";
 
