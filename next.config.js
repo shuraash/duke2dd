@@ -19,7 +19,7 @@ const nextConfig = {
 				// and before all files including _next/public files which
 				// allows overriding page files
 				{
-					source: '/media.gal/:path*', destination: 'http://trancescript.ddns.net:888/media.gal/:path*', //has: [{ type: 'query', key: 'overrideMe' }],
+					source: '/media.gal/:path*', destination: 'http://milkywaytribe.ddns.net/:888/media.gal/:path*', //has: [{ type: 'query', key: 'overrideMe' }],
 				},				{
 					source: '/mp3/:path*', destination: 'http://trancescript.ddns.net:888/audio/:path*', //has: [{ type: 'query', key: 'overrideMe' }],
 				},
